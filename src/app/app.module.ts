@@ -14,6 +14,7 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthinterceptorService } from './service/authinterceptor.service';
 import { ExpedientemComponent } from './component/expedientem/expedientem.component';
 import { ExamemperiodComponent } from './component/examemperiod/examemperiod.component';
+import { ReportaccidenteComponent } from './component/reportaccidente/reportaccidente.component';
 //import { HttpserviceService } from './service/httpservice.service';
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ExamemperiodComponent } from './component/examemperiod/examemperiod.com
     MaquinaeditComponent,
     ListapasesmedicosComponent,
     ExpedientemComponent,
-    ExamemperiodComponent
+    ExamemperiodComponent,
+    ReportaccidenteComponent
   ],
   imports: [
     BrowserModule,

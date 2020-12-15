@@ -5,6 +5,7 @@ import { ExamemperiodComponent } from './component/examemperiod/examemperiod.com
 import { ExpedientemComponent } from './component/expedientem/expedientem.component';
 import { ListamaquinasComponent } from './component/listamaquinas/listamaquinas.component';
 import { ListempleadosComponent } from './component/listempleados/listempleados.component';
+import { ReportaccidenteComponent } from './component/reportaccidente/reportaccidente.component';
 
 const routes: Routes = [
 
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'empleadoform', component:EmpleadoeditComponent},
   {path: 'listamaquina', component:ListamaquinasComponent},
   {path: 'expedientem', component:ExpedientemComponent},
-  {path: 'examemperiod', component:ExamemperiodComponent}
+  {path: 'examemperiod', component:ExamemperiodComponent},
+  {path: 'reportaccidente', component:ReportaccidenteComponent}
 
 
 ];

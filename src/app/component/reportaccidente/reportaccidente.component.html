@@ -1,0 +1,117 @@
+<div class="container">
+
+    <form [formGroup]="myForm" [hidden]="success"  (ngSubmit)="onGuardarexpediente(myForm.value)">
+
+<div class="form-group row">
+    <div class="col-sm text-center">
+      <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar accidente</h4>
+    </div>
+  </div>
+
+
+  <div class="col-sm-12">
+    <hr>
+                  <label style="display: block;">Servicio médico * da aviso del siguiente accidente laboral</label>
+    <br>
+    </div>
+
+
+
+    <div class="col-sm-4">
+      <label  >Nombre del lesionado:</label>
+    </div> 
+    <div class="col-sm-8"><input type="text" class="form-control" formControlName="nombrel">
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.get('nombrel').invalid && myForm.get('nombrel').touched">No valid</div>
+    </div> 
+    <div class="col-sm-4">
+        <label  >Departamento y puesto:</label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="depa">
+        <div class="alert alert-danger" role="alert"*ngIf="myForm.get('depa').invalid && myForm.get('depa').touched">Nu valid</div>
+      </div> 
+    
+      <div class="col-sm-4">
+        <label  >Fecha y hora del accidente</label>
+      </div> 
+      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechacci">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+      <div class="col-sm-4">
+        <label  >Fecha y hora en que se acude al servicio:</label>
+      </div> 
+      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechaservi">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+      <div class="col-sm-4">
+        <label  >Parte del cuerpo afectada: </label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="partec">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+      <div class="col-sm-4">
+        <label  >Diagnóstico: </label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="diagnos">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+      <div class="col-sm-4">
+        <label  >Tratamiento:</label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="tratat">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+      <div class="col-sm-4">
+        <label  >Mecanismo de lesión:</label>
+      </div> 
+      <div class="col-sm-8"><textarea class="form-control" formControlName="mecan"></textarea>
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+
+      <div class="col-sm-4">
+        <label  >Tipo de accidente</label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="tipoacci">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+
+      <div class="col-sm-4">
+        <label  >Disposición del trabajador:</label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="dispo">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+      <div class="col-sm-4">
+        <label  >Gravedad de la lesión:</label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="grave">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+      <div class="col-sm-4">
+        <label  >Pronóstico: </label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="pronos">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+      <div class="col-sm-4">
+        <label  >Observación adicional:</label>
+      </div> 
+      <div class="col-sm-8"><textarea class="form-control" formControlName="oberva"></textarea>
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+
+      <div class="col-sm-4">
+        <label  >Nombre de quien atendió:</label>
+      </div> 
+      <div class="col-sm-8"><input type="text" class="form-control" formControlName="nombredoc">
+        <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
+      </div> 
+    </form>

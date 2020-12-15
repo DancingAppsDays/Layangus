@@ -78,7 +78,7 @@
           <label name="lugarnac" >Lugar de nacimiento:</label>
              
            
-          <input type="text" class="form-control" formControlName="lugarnac" placeholder="San Luis Potosi" ng-pattern ="/^[a-zA-Z\s]*$/">
+         <div class= "col-sm-6"> <input type="text" class="form-control" formControlName="lugarnac" placeholder="San Luis Potosi" ng-pattern ="/^[a-zA-Z\s]*$/"></div>
         
     
         <div class="alert alert-danger" role="alert" *ngIf="exform.get('lugarnac').invalid && exform.get('lugarnac').touched">
@@ -195,13 +195,19 @@
         
 
       </div>     
-      <br>
-      <br>
+
+      <div class="col-sm-12" style="clear: both;">
+        <br>
+     
       <hr style="border: 2px inset"/>
       <label>Medio laboral asignado</label>
+      <br> <br> <br>
+    </div>
+     
+      
 
 
-      <div class="form-group row">
+      <div class="col-sm-12">
             
         <label name="fecha" >Fecha de ingreso a la empresa:               
         <input formControlName="fechaingreso" type="date"   value="{{today | date:'yyyy-MM-dd'}}">
@@ -236,125 +242,127 @@
         <textarea class="form-control"  rows="1" formControlName="puestoacdesc" ></textarea>
       </div>
 
-      
+        <div class="col-sm-12" style="clear: both;">
+          <br>
         <label >Expuesto a alguno de los siguientes agentes:</label>
         <br>
+      </div>
 
         <!--<input type="checkbox" [checked]="isChecked$ | async" (change)="toggleChecked()">-->
-        <label >Ruido</label>
+        <div class="col-sm-1"><label >Ruido</label></div>
         <!--<input type="checkbox" class="form-control" formControlName="ruidobox" [checked]="item.selected" (change)="item.selected = !item.selected">-->
         <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="ruidobox"></div><br> <!--[checked]="exform.get('ruidobox').setValue('true')">--> <!--(change)="true = false">-->
+        <input type="checkbox" class="form-control" formControlName="ruidobox"></div> <!--[checked]="exform.get('ruidobox').setValue('true')">--> <!--(change)="true = false">-->
         
-        <label >Vibraciones</label>
+        <div class="col-sm-1"><label >Vibraciones</label></div>
+        <div class="col-sm-1">        <input type="checkbox" class="form-control" formControlName="vibracionbox"></div>
+        <div class="col-sm-1"><label >Temperaturas extremas</label></div>
         <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="vibracionbox"></div><br>
-        <label >Temperaturas extremas</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="temperaturabox"> </div><br>
+        <input type="checkbox" class="form-control" formControlName="temperaturabox"> </div>
 
-        <label >Polvo</label>
+
+        <div class="col-sm-1" style="clear: both;"><label >Polvo</label></div>
         <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="polvobox"></div> <br> 
-        <label name="polvod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="polvod" >   <!--*ngIf="exform.get('polvobox').value('true')"> ONLY ON INIT.. also BUGGED THE JSON INTERPOLATION!--> 
+        <input type="checkbox" class="form-control" formControlName="polvobox"></div> 
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="polvod" placeholder="Especifique" ></div>   <!--*ngIf="exform.get('polvobox').value('true')"> ONLY ON INIT.. also BUGGED THE JSON INTERPOLATION!--> 
         
-        <label >Humo</label>
+        <div class="col-sm-1"  style="clear: both;" ><label >Humo</label></div>
         <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="humobox"> </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="humod"> 
+        <input type="checkbox" class="form-control" formControlName="humobox"> </div>
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="humod" placeholder="Especifique" ></div>  
 
-        <label >Vapores</label>
+        <div class="col-sm-1"  style="clear: both;"><label >Vapores</label></div>
         <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="vaporbox">  </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="vapord"> 
+        <input type="checkbox" class="form-control" formControlName="vaporbox">  </div>
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="vapord"placeholder="Especifique" ></div> 
 
-        <label >Esta expuesto a sustancias químicas?</label>
+        <div class="col-sm-3"  style="clear: both;"><label >Esta expuesto a sustancias químicas?</label></div>
         <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="quimbox">  </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="quimd"> 
+        <input type="checkbox" class="form-control" formControlName="quimbox">  </div>
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="quimd"placeholder="Especifique" ></div>  
 
-        <label >Esta expuesto a agentes biológicos?</label>
+        <div class="col-sm-3"  style="clear: both;"><label >Esta expuesto a agentes biológicos?</label></div>
         <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="biolobox">  </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="biolod"> 
+        <input type="checkbox" class="form-control" formControlName="biolobox">  </div>
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="biolod"placeholder="Especifique" ></div>  
 
           
-          <br>
+         
 
-        <label >En su area de trabajo pasa el mayor tiempo...</label>
-        <select name="ergopuesto" formControlName="ergopuesto" class="form-control">
+        <div class="col-sm-3" style="clear: both;"><label >En su area de trabajo pasa el mayor tiempo...</label></div>
+        <div class="col-sm-3"><select name="ergopuesto" formControlName="ergopuesto" class="form-control">
           <option value="Parado">Parado</option>
           <option value="Agachado">Agachado</option>
            <option value="Sentado">Sentado</option>
            <option value="Cuclillas">Cuclillas</option>
-          </select>
+          </select></div>
 
-          <label >El tamaño de su area de trabajo es...</label>
-        <select name="tamañopuesto" formControlName="tamapuesto" class="form-control">
+          <div class="col-sm-3"> <label style="clear: both;">El tamaño de su area de trabajo es...</label></div>
+          <div class="col-sm-3"><select name="tamañopuesto" formControlName="tamapuesto" class="form-control">
           <option value="Grande">Grande</option>
           <option value="Reducida">Reducida</option>
           
-          </select>
+          </select></div>
+
+          <div class="col-sm-12" style="clear: both;">
           <br>
           <label >En función de sus actividades, usted realiza las siguientes actividades...</label>
           <br><br>
+        </div>
 
+       
+          <div class="col-sm-1">
+            <input type="checkbox" class="form-control" formControlName="ruidobox"></div>
+            <div class="col-sm-5"><label >Actividades debajo del tronco(agacharse repetidamente)</label></div>
+        <!--[checked]="exform.get('ruidobox').setValue('true')">--> <!--(change)="true = false">-->
         
-        <label >Actividades debajo del tronco(agacharse repetidamente)</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="ruidobox"></div><br> <!--[checked]="exform.get('ruidobox').setValue('true')">--> <!--(change)="true = false">-->
+        <div class="col-sm-1" style="clear: both;">        <input type="checkbox" class="form-control" formControlName="vibracionbox"></div>
+        <div class="col-sm-5"><label >Actividades a nivel del tronco(inclinarse hacia los lados, voltear)</label></div>
         
-        <label >Actividades a nivel del tronco(inclinarse hacia los lados, voltear)</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="vibracionbox"></div><br>
-        <label >Actividades por encima de los hombros(levantar brazos por encima de cabeza)</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="temperaturabox"> </div><br>
-
-
-
-        <label >Movimientos de repetitivos de muñeca u hombros</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="polvobox"></div> <br> 
-        <label name="polvod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="polvod" >   <!--*ngIf="exform.get('polvobox').value('true')"> ONLY ON INIT.. also BUGGED THE JSON INTERPOLATION!--> 
         
-        <label >Manejo de cargas</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control input-lg" formControlName="humobox"> </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="humod"> 
+          <div class="col-sm-1"  style="clear: both;">
+            <input type="checkbox" class="form-control" formControlName="temperaturabox"> </div>
+            <div class="col-sm-5"><label >Actividades por encima de los hombros(levantar brazos por encima de cabeza)</label></div>
+        
 
-        <label >Vapores</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="vaporbox">  </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="vapord"> 
 
-        <label >Esta expuesto a sustancias químicas?</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="quimbox">  </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="quimd"> 
+            <div class="col-sm-1"style="clear: both;"><input type="checkbox" class="form-control" formControlName="polvobox"></div> 
+            <br> <div class="col-sm-5"><label >Movimientos de repetitivos de muñeca u hombros</label></div>
+        
+                
+        <input type="text" class="form-control" formControlName="polvod" placeholder="Especifique: ">   <!--*ngIf="exform.get('polvobox').value('true')"> ONLY ON INIT.. also BUGGED THE JSON INTERPOLATION!--> 
+        
 
-        <label >Esta expuesto a agentes biológicos?</label>
+        <div class="col-sm-1"><input type="checkbox" class="form-control" formControlName="humobox"> </div>
+        <br><div class="col-sm-5"><label >Manejo de cargas</label></div>
+        <input type="text" class="form-control" formControlName="humod" placeholder="Especifique: ">
+
         <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="biolobox">  </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="biolod"> 
+          <input type="checkbox" class="form-control" formControlName="vaporbox">  </div>
+          <br><div class="col-sm-5" ><label >Vapores</label></div>
+                      
+        <input type="text" class="form-control" formControlName="vapord"placeholder="Especifique: "> 
+
+        <div class="col-sm-1">     <input type="checkbox" class="form-control" formControlName="quimbox">  </div><br>
+        <div class="col-sm-5" ><label >Esta expuesto a sustancias químicas?</label></div>
+            
+        <input type="text" class="form-control" formControlName="quimd" placeholder="Especifique: "> 
+
+
+        <div class="col-sm-1">  <input type="checkbox" class="form-control" formControlName="biolobox">  </div>
+        <br><label >Esta expuesto a agentes biológicos?</label>
+       
+                
+        <input type="text" class="form-control" formControlName="biolod"placeholder="Especifique: "> 
 
           
-            
+         <div style="clear: both;"><br></div>   
           <br>
         <label >Marque el equipo de protección personal que utiliza para sus actividades</label>
         <br><br>
         
-        <label>Zapato<input type="checkbox" class="form-control" formControlName="ruidobox">
+    <div class="col-sm-12">
+        <label>Zapatos<input type="checkbox" class="form-control" formControlName="ruidobox">
       </label>
 
         <label >Mandil<input type="checkbox" class="form-control" formControlName="vibracionboxzz">
@@ -365,53 +373,70 @@
        <label >Tyvek<input type="checkbox" class="form-control" formControlName="ruidobox">
       </label>
 
-        <label >Lentes
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="vibracionbox"></div></label>
-        <label >Mangas
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="temperaturabox"> </div></label>
-        <label >Careta
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="ruidobox"></div></label>
-        <label >Mascarilla</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="vibracionbox"></div><br>
-        <label >Tapones auditivos</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="temperaturabox"> </div><br>
-        <label >Guantes</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="ruidobox"></div><br>
-        <label >Faja</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="vibracionbox"></div><br>
-        <label >Otros</label>
-        <div class="col-sm-1">
-        <input type="checkbox" class="form-control" formControlName="temperaturabox"> </div><br>
-        <label name="humod" >Especifique:</label>         
-        <input type="text" class="form-control" formControlName="biolod"> 
-        
-        <br>
+    </div>
+
+    <div class="col-sm-12">
+
+      <label>Lentes<input type="checkbox" class="form-control" formControlName="ruidobox">
+      </label>
+
+        <label >Manga<input type="checkbox" class="form-control" formControlName="vibracionboxzz">
+      </label>
+      <label >Careta<input type="checkbox" class="form-control" formControlName="temperaturaboxzzz"> 
+      </label>
+
+       <label >Mascarilla<input type="checkbox" class="form-control" formControlName="ruidobox">
+      </label>
+
+    </div>
+
+
+    <div class="col-sm-12">
+
+      <label>Tapones<input type="checkbox" class="form-control" formControlName="ruidobox">
+      </label>
+
+        <label >Guantes<input type="checkbox" class="form-control" formControlName="vibracionboxzz">
+      </label>
+      <label >Faja<input type="checkbox" class="form-control" formControlName="temperaturaboxzzz"> 
+      </label>
+
+       
+      <div class="col-sm-12">
+        <label>Otros<input type="checkbox" class="form-control" formControlName="ruidobodx">
+          <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                 
+        </label>
+        </div> 
+     
+    </div>
+
+    <div class="col-sm-12">
+        <br><br>
+    
         <hr style="border: 2px inset"/>
         <label >Antecedentes laborales</label>
         <br><br>
         <label >De haber tenido otro puesta en la empresa, responda:</label>
+      </div>
 
-        <div class="col-sm-1"><label >Puesto anterior</label></div>
-        <input type="text" class="form-control" formControlName="humod">
-        <div class="col-sm-1"><label >Area</label></div>
-        <input type="text" class="form-control" formControlName="humod">
-        <label name="fechan" class="col-sm-1 col-form-label">Tiempo en el puesto:</label>
-         <input formControlName="fechan" type="date">
+        <div class="col-sm-2"><label >Puesto anterior</label></div>
+        <div class="col-sm-5"><input type="text" class="form-control" formControlName="humod"></div>
+        <div class="col-sm-2" style="clear: both;"><label >Area</label></div>
+        <div class="col-sm-5"><input type="text" class="form-control" formControlName="humod"></div>
+        <div class="col-sm-2"  style="clear: both;"><label name="fechan">Tiempo en el puesto:</label></div>
+        <div class="col-sm-5"><input formControlName="fechan" type="date"></div>
               
-        <label name="padecimientos1" class="col-sm-1 col-form-label">Accidentes sufridos:</label>
-        <textarea class="form-control"  rows="1" formControlName="padecimientos1" placeholder="" ></textarea>
-            
+         <div class="col-sm-2" style="clear: both;"><label name="padecimientos1">Accidentes sufridos:</label></div>
+         <div class="col-sm-8"><textarea class="form-control"  rows="1" formControlName="padecimientos1" placeholder="" ></textarea></div>
+          
+         
+         <div class="col-sm12" style="clear:both">
         <br>
         <label style="font-weight:bold;" >Respecto a su vida laboral , dentro y fuera de la empresa, mencione el tiempo que considere se ha encontra expuesto a algunso de los siguientes agentes</label>
           <br>
           <br>
+        </div>
 
           <div class="form-group">
           <div class="col-sm-6">
@@ -472,16 +497,16 @@
           <br>
           <br>
       <div class="form-group" style="clear: both;">
-          
+        <br> <br>
           <label style="font-weight:888;">Respecto a enfermedades y accidentes de trabajo consteste:</label>       
             <br>
          
-            <label>Ha sufrido accidentes de trabajo?<input type="checkbox" class="form-control" formControlName="ruidobodx">
-             <textarea  class="form-control" formControlName="ruidoboxf" placeholder= "De ser afirmativo: Especifique:  " style="width: 420px;"></textarea>
+            <label>Ha sufrido accidentes de trabajo?<input type="checkbox" class="form-control" formControlName="accis">
+             <textarea  class="form-control" formControlName="accisd" placeholder= "De ser afirmativo: Especifique:  " style="width: 420px;"></textarea>
              </label>
 
-             <label>Ha sufrido enfermedades de trabajo?<input type="checkbox" class="form-control" formControlName="ruidobodx">
-              <textarea  class="form-control" formControlName="ruidoboxf" placeholder= "De ser afirmativo: Especifique:  " style="width: 420px;"></textarea>
+             <label>Ha sufrido enfermedades de trabajo?<input type="checkbox" class="form-control" formControlName="enfermas">
+              <textarea  class="form-control" formControlName="enfermasd" placeholder= "De ser afirmativo: Especifique:  " style="width: 420px;"></textarea>
               </label>
            
        </div>  
@@ -493,122 +518,126 @@
 
 
 
-            
+       <div class="col-sm-12" style="clear: both;">
+        <br>
+        <br>  
       <hr style="border: 2px inset"/>
       <label style="font-weight: 1000;">Antecedentes heredofamiliares</label>        
       <br>
       <br>    
+    </div>   
       <div class="form-group" style="clear: both;">
           
-        <label style="font-weight:555;">Marque si un familiar directo han sufrido la siguiente enfermedad</label>       
-          <br>
+        <label style="font-weight:555;">Marque si un familiar directo han sufrido la siguiente enfermedad:</label>       
+         
 
-          <div class="col-sm-12">
-            <label>Diabetes o azucar alta<input type="checkbox" class="form-control" formControlName="ruidobodx">
-              <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+          <div class="col-sm-12" style="clear: both;">
+            
+            <label>Diabetes o azucar alta<input type="checkbox" class="form-control" formControlName="diabetes">
+              <label><input type="text" class="form-control" formControlName="diabetesd" placeholder= "(Madre/Hijo/Abuela/Tío)  " style="width: 333px;"></label>
                      
             </label>
             </div>
             <div class="col-sm-12">
-              <label>Hipertensión<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+              <label>Hipertensión<input type="checkbox" class="form-control" formControlName="hipert">
+                <label><input type="text" class="form-control" formControlName="hipertd" placeholder= "Especifique:  " style="width: 333px;"></label>
                        
               </label>
               </div>
               <div class="col-sm-12">
-                <label>Presión baja<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                  <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                <label>Presión baja<input type="checkbox" class="form-control" formControlName="bajapres">
+                  <label><input type="text" class="form-control" formControlName="bajapresd" placeholder= "Especifique:  " style="width: 333px;"></label>
                          
                 </label>
                 </div>
 
                 <div class="col-sm-12">
-                  <label>Problemas cardiacos<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Problemas cardiacos<input type="checkbox" class="form-control" formControlName="cardiac">
+                    <label><input type="text" class="form-control" formControlName="cardiacd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
                   <div class="col-sm-12">
-                    <label>Problemas pulmonares<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                      <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                    <label>Problemas pulmonares<input type="checkbox" class="form-control" formControlName="pulmonares">
+                      <label><input type="text" class="form-control" formControlName="pulmonaresd" placeholder= "Especifique:  " style="width: 333px;"></label>
                              
                     </label>
                     </div>
                 <div class="col-sm-12">
-                  <label>Problemas renales<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Problemas renales<input type="checkbox" class="form-control" formControlName="renales">
+                    <label><input type="text" class="form-control" formControlName="renalesd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
                   <div class="col-sm-12">
-                    <label>Problemas hepáticos<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                      <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                    <label>Problemas hepáticos<input type="checkbox" class="form-control" formControlName="hepati">
+                      <label><input type="text" class="form-control" formControlName="hepatisd" placeholder= "Especifique:  " style="width: 333px;"></label>
                              
                     </label>
                     </div>
             <div class="col-sm-12">
-                  <label>Enfermedades de la sangre<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Enfermedades de la sangre<input type="checkbox" class="form-control" formControlName="enfermasangre">
+                    <label><input type="text" class="form-control" formControlName="enfermasangred" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
           <div class="col-sm-12">
-                  <label>Ansiedad, depresión, ezquizofrenia<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Ansiedad, depresión, ezquizofrenia<input type="checkbox" class="form-control" formControlName="depresion">
+                    <label><input type="text" class="form-control" formControlName="depresiond" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
 <div class="col-sm-12">
-                  <label>Convulsión, Epilepsia<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Convulsión, Epilepsia<input type="checkbox" class="form-control" formControlName="epileps">
+                    <label><input type="text" class="form-control" formControlName="epilepsd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
                   <div class="col-sm-12">
-                  <label>Cancer, Tumores<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Cancer, Tumores<input type="checkbox" class="form-control" formControlName="cancer">
+                    <label><input type="text" class="form-control" formControlName="cancerd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
         <div class="col-sm-12">
-                  <label>Embolias, Derrames<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Embolias, Derrames<input type="checkbox" class="form-control" formControlName="embolia">
+                    <label><input type="text" class="form-control" formControlName="emboliad" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
                   <div class="col-sm-12">
-                  <label>Problemas de tiroides<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Problemas de tiroides<input type="checkbox" class="form-control" formControlName="tiroides">
+                    <label><input type="text" class="form-control" formControlName="tiroidesd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
                   <div class="col-sm-12">
-                    <label>Obesidad<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                      <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                    <label>Obesidad<input type="checkbox" class="form-control" formControlName="obesidad">
+                      <label><input type="text" class="form-control" formControlName="obesidadd" placeholder= "Especifique:  " style="width: 333px;"></label>
                              
                     </label>
                     </div>
                     <div class="col-sm-12">
-                  <label>Problemas visuales<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Problemas visuales<input type="checkbox" class="form-control" formControlName="visuales">
+                    <label><input type="text" class="form-control" formControlName="visualesd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
                   <div class="col-sm-12">
-                  <label>Alergias, asma<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Alergias, asma<input type="checkbox" class="form-control" formControlName="alergias">
+                    <label><input type="text" class="form-control" formControlName="alergiasd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
                   <div class="col-sm-12">
-                  <label>Defectos congenitos<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Defectos congenitos<input type="checkbox" class="form-control" formControlName="congenit">
+                    <label><input type="text" class="form-control" formControlName="congenitd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
                   <div class="col-sm-12">
-                  <label>Problemas huesos, artilculaciones<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                    <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Problemas huesos, artilculaciones<input type="checkbox" class="form-control" formControlName="huesos">
+                    <label><input type="text" class="form-control" formControlName="huesosd" placeholder= "Especifique:  " style="width: 333px;"></label>
                            
                   </label>
                   </div>
@@ -644,79 +673,81 @@
       <br>
   <div class="form-group" style="clear: both;">
       
-      <label style="font-weight:888;">Antecedentes personales no patológicos</label>       
+      <label style="font-weight:888;clear: both;">Antecedentes personales no patológicos</label>       
         <br>
 
 
         <label  class="col-sm-1 col-form-label">Habita en casa:</label>
-        <select id="inputState" formControlName="sexo" class="form-control">
+        <div class="col-sm-4">
+        <select id="inputState" formControlName="casatipo" class="form-control">
           <option value="Propia">Propia</option>
           <option value="Rentada">Rentada</option>
           <option value="Prestada">Prestada</option><!--sure.....-->
          </select>
+        </div>
 
-         <label>Cuenta con agua, luz, gas, drenaje?<input type="checkbox" class="form-control" formControlName="ruidobodx">
+         <label>Cuenta con agua, luz, gas, drenaje?<input type="checkbox" class="form-control" formControlName="casaservice">
           </label>
-          <label>¿Cuántas personas viven con usted y que parentesco tienen?<input type="text" class="form-control" formControlName="ruidobodx">
+          <label>¿Cuántas personas viven con usted y que parentesco tienen?<input type="text" class="form-control" formControlName="casanumero">
           </label>
-          <label>¿Cuántas son menores de 18 años?<input type="number" class="form-control" formControlName="ruidobodx">
+          <label>¿Cuántas son menores de 18 años?<input type="number" class="form-control" formControlName="casachavos">
           </label>
-          <label>¿Cuántas son mayores de 65 años?<input type="number" class="form-control" formControlName="ruidobodx">
+          <label>¿Cuántas son mayores de 65 años?<input type="number" class="form-control" formControlName="casarucos">
           </label>
-          <label>¿Alguien en su casa está enfermo de gravedad?<input type="checkbox" class="form-control" formControlName="ruidobodx">
+          <label>¿Alguien en su casa está enfermo de gravedad?<input type="checkbox" class="form-control" formControlName="casaenfermo">
             <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
                    
           </label>
 
-          <label>¿Tiene mascotas?<input type="checkbox" class="form-control" formControlName="ruidobodx">
-            <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
+          <label>¿Tiene mascotas?<input type="checkbox" class="form-control" formControlName="mascotas">
+            <label><input type="text" class="form-control" formControlName="mascotasd" placeholder= "Especifique:  " style="width: 333px;"></label>
                    
           </label>
 
-          <label>¿Fuma o nó?<input type="checkbox" class="form-control" formControlName="ruidobodx">
-            <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique cuantos al dia, desde que edad..:  " style="width: 333px;"></label>
+          <label>¿Fuma o nó?<input type="checkbox" class="form-control" formControlName="fumas">
+            <label><input type="text" class="form-control" formControlName="fumad" placeholder= "Especifique cuantos al dia, desde que edad..:  " style="width: 333px;"></label>
                    
           </label>
 
-          <label>¿Toma bebidas alcohólicas?<input type="checkbox" class="form-control" formControlName="ruidobodx">
-            <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
+          <label>¿Toma bebidas alcohólicas?<input type="checkbox" class="form-control" formControlName="tomas">
+            <label><input type="text" class="form-control" formControlName="tomad" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
                    
           </label>
-          <label>¿Consume alguna droga?<input type="checkbox" class="form-control" formControlName="ruidobodx">
-            <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
+          <label>¿Consume alguna droga?<input type="checkbox" class="form-control" formControlName="drogas">
+            <label><input type="text" class="form-control" formControlName="drogad" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
                    
           </label>
 
-          <label>¿Hace ejercicio?<input type="checkbox" class="form-control" formControlName="ruidobodx">
-            <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
+          <label>¿Hace ejercicio?<input type="checkbox" class="form-control" formControlName="ejercicios">
+            <label><input type="text" class="form-control" formControlName="ejerciciosd" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
                    
           </label>
-          <label>¿Cuántas comidas realiza al día?<input type="number" class="form-control" formControlName="ruidobodx">
+          <label>¿Cuántas comidas realiza al día?<input type="number" class="form-control" formControlName="comidasdia">
           </label>
 
-          <label>¿Cuántas litros de agua toma en un solo día?<input type="number" class="form-control" formControlName="ruidobodx">
+          <label>¿Cuántas litros de agua toma en un solo día?<input type="number" class="form-control" formControlName="litrosdia">
           </label>
 
           <label>De 7 días. ¿Cuántas alimentos consume?</label>
 
-          <label>Verduras<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Frutas<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Pastas<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Carne roja<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Carne blanca<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Embutidos(jamón, salchicha, chorizo)<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Lacteos<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Cereales<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Leguminosas<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>Chatarra(refresco, pandulce)<input type="number" class="form-control" formControlName="ruidobodx"></label>
+          <label>Verduras<input type="number" class="form-control" formControlName="Verduras"></label>
+          <label>Frutas<input type="number" class="form-control" formControlName="Frutas"></label>
+          <label>Pastas<input type="number" class="form-control" formControlName="Pastas"></label>
+          <label>Carne roja<input type="number" class="form-control" formControlName="Carneroja"></label>
+          <label>Carne blanca<input type="number" class="form-control" formControlName="Carneblanca"></label>
+          <label>Embutidos(jamón, salchicha, chorizo)<input type="number" class="form-control" formControlName="Embutidos"></label>
+          <label>Lacteos<input type="number" class="form-control" formControlName="Lacteos"></label>
+          <label>Cereales<input type="number" class="form-control" formControlName="Cereales"></label>
+          <label>Leguminosas<input type="number" class="form-control" formControlName="Leguminosas"></label>
+          <label>Chatarra(refresco, pandulce)<input type="number" class="form-control" formControlName="Chatarra"></label>
 
           <br>
-          <label>¿Cuántas días a la semana toma un baño?<input type="number" class="form-control" formControlName="ruidobodx"></label>
-          <label>¿Cuántas cambios se ropa interior realiza a la semana?<input type="number" class="form-control" formControlName="ruidobodx"></label>
+          <label>¿Cuántas días a la semana toma un baño?<input type="number" class="form-control" formControlName="semabaño"></label>
+          <label>¿Cuántas cambios se ropa interior realiza a la semana?<input type="number" class="form-control" formControlName="semachones"></label>
           
-          <label>¿Cuántas veces a la semana cepilla sus dientes?<input type="number" class="form-control" formControlName="ruidobodx"></label>
+          <label>¿Cuántas veces a la semana cepilla sus dientes?<input type="number" class="form-control" formControlName="semadientes"></label>
           
-          <label>¿Alguien en su casa está enfermo de gravedad?<input type="checkbox" class="form-control" formControlName="ruidobodx">
+          <label>¿Alguien en su casa está enfermo de gravedad **?<input type="checkbox" class="form-control" formControlName="casaenfermo">
             <label><input type="text" class="form-control" formControlName="ruidoboxf" placeholder= "Especifique:  " style="width: 333px;"></label>
                    
           </label>
@@ -764,15 +795,15 @@
 
         
       <div class="col-sm-9">
-      <label style="float:right;">Varicelaa sdf asdf asdf asfd asdf asdf lkjhl kh ljh  lhj dfhj dfhgfjh mnv xcv rtcg</label>
+      <label style="float:right;">Varicelaa </label>
     </div> 
-    <div class="col-sm-3"><input type="checkbox" class="form-control" formControlName="Varicela">
+    <div class="col-sm-3"><input type="checkbox" class="form-control" formControlName="padvar">
     </div> 
 
     <div class="col-sm-9">
-      <label style="float: right;">Varicelaa sdf asdf as</label>
+      <label style="float: right;">Sars</label>
     </div> 
-    <div class="col-sm-3"><input type="checkbox" class="form-control" formControlName="Varicela">
+    <div class="col-sm-3"><input type="checkbox" class="form-control" formControlName="padsar">
     </div> 
 
       <div class="col-lg-12">
@@ -797,28 +828,28 @@
             <label>Dolor, secreción de oídos<input type="checkbox" class="form-control" formControlName="Doloroidos"></label>
             </div>
     <div class="col-sm-12">
-      <label>Obstrucción nariz<input type="checkbox" class="form-control" formControlName="Varicela"></label>
+      <label>Obstrucción nariz<input type="checkbox" class="form-control" formControlName="Obstrucnarix"></label>
       </div>
       <div class="col-lg-12">
-        <label>Secreción nariz<input type="checkbox" class="form-control" formControlName="Paperas"></label>
+        <label>Secreción nariz<input type="checkbox" class="form-control" formControlName="secrenariz"></label>
         </div>
         <div class="col-lg-12">
-          <label>Sangrado nariz frecuente<input type="checkbox" class="form-control" formControlName="Tuberculosis"></label>
+          <label>Sangrado nariz frecuente<input type="checkbox" class="form-control" formControlName="sangranariz"></label>
           </div>
           <div class="col-sm-12">
-            <label>Crisis de estornudos<input type="checkbox" class="form-control" formControlName="Rubeola"></label>
+            <label>Crisis de estornudos<input type="checkbox" class="form-control" formControlName="estornudos"></label>
             </div>
             <div class="col-sm-12">
-      <label>Tos frecuente<input type="checkbox" class="form-control" formControlName="Hepatitis"></label>
+      <label>Tos frecuente<input type="checkbox" class="form-control" formControlName="tosfrec"></label>
       </div>
       <div class="col-lg-12">
-        <label>Flema con sangre<input type="checkbox" class="form-control" formControlName="Oidostapados"></label>
+        <label>Flema con sangre<input type="checkbox" class="form-control" formControlName="flemasan"></label>
         </div>
         <div class="col-lg-12">
-          <label>Dificultad para respirar, asma<input type="checkbox" class="form-control" formControlName="Dificultadescuchar"></label>
+          <label>Dificultad para respirar, asma<input type="checkbox" class="form-control" formControlName="Dificultadrespirar"></label>
           </div>
           <div class="col-sm-12">
-            <label>Silbido al respirar<input type="checkbox" class="form-control" formControlName="Doloroidos"></label>
+            <label>Silbido al respirar<input type="checkbox" class="form-control" formControlName="silbidos"></label>
             </div>
 
        
@@ -897,10 +928,16 @@
           <input type="checkbox" [formControlName]="i">
           <label>Some asdfmas df</label>-->
 
+          <div class="col-sm-12"><!--ACTUAL SKIP LINE FOR BOOTY COLS-->
+            <br>
+            <br>
+            <label style="display: block; font-weight: 1000;">GIneco obstetricia</label>
+            <br>
+            <br>
+          </div>
 
 
-
-          <label style="display: block; font-weight: 1000;">GIneco obstetricia</label>
+        
           <br>
           <br>
           <div class="col-sm-3">
@@ -970,9 +1007,10 @@
           
           <div class="col-sm-12"><!--ACTUAL SKIP LINE FOR BOOTY COLS-->
             <br>
+            <label style="display: block; font-weight: 1000;">Exploración física</label>
             <br>
           </div>
-          <label style="display: block; font-weight: 1000;">Exploración física</label>
+         
           
           
           <div class="col-sm-12">
@@ -1083,6 +1121,7 @@
           <div class="col-sm-12"><!--ACTUAL SKIP LINE FOR BOOTY COLS-->
             <br>
             <br>
+            <hr>
             <label>Exploración:Descripción</label>
             <br>
             <br>
@@ -1208,7 +1247,7 @@
 
 
 
-      <pre>{{ exform.value | json }}</pre> 
+      <pre style="clear: both;">{{ exform.value | json }}</pre> 
       
 
       <div class="row justify-content-center">

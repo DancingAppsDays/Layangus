@@ -15,6 +15,8 @@ export class ExamemperiodComponent implements OnInit {
   success = false;
   today = Date.now();
   exform: FormGroup; 
+  exs: any;
+  sucessdata: any;
 
   
 
@@ -144,15 +146,100 @@ export class ExamemperiodComponent implements OnInit {
                    ]],
       
     });
+    
+    this.getfromdata();
+
+}//end of ONinit
+
+
+getcurry()
+{
+  return JSON.stringify(this.fb); //exform.fb?
+
+}
+
+getfromdata()//id: int)
+{
+  this.http.get(Constantes.capiURL+"Expediente/1").subscribe(data => {
+
+    this.sucessdata = data;
+    if(this.sucessdata['status'] == "success"){
+      this.exs = this.sucessdata['data'];
+      console.log(this.exs);
+    window.alert(this.sucessdata['mensaje']);
+
+                                          //nice try but needs model also
+    //this.exform.get('nombre').setValue("exs.nombre");   //formgroup solution instead of ngmodel
+
+      //Alex alvear solution
+      this.exform.patchValue({
+        nombre: this.exs.nombre,
+        imss: this.exs.imss,
+        sangre: this.exs.sangre,
+        edad: this.exs.edad,
+        estadocivil: this.exs.estadocivil,
+        sexo: this.exs.sexo,
+        fechan: this.exs.fechan,
+        domicilio: this.exs.domicilio,
+        telefon: this.exs.telefon,
+        celfon: this.exs.celfon,
+        escolaridad: this.exs.escolaridad,
+        contactoeme: this.exs.contactoeme,
+        domiclioeme: this.exs.domicilioeme,
+        telefoneme: this.exs.telefoneme,
+        tratamientos1: this.exs.tratamientos1,
+        tratamientos2: this.exs.tratamientos2,
+        padecimientos1: this.exs.padecimientos1,
+        padecimientos2: this.exs.padecimientos2,
+        medem: this.exs.medem,
+        medimss: this.exs.medimss,
+        acci1: this.exs.acci1,
+        acci2: this.exs.acci2,
+        acci3: this.exs.acci3,
+        accidescrip: this.exs.accidescrip
+      }
+      );
+
+    }else{
+      window.alert(this.sucessdata['mensaje']);// + '    No autorizado');
+      //this.router.navigate(['/']);
+
+    }
+  });  
+
+
+
+}
+
+onGuardarexpediente(data)
+{
+console.log("sendtoguardarsu usuario");
+//console.log(data);
+this.http.post(Constantes.capiURL+"Expediente",data).subscribe(data => {
+
+  this.sucessdata = data;
+  if(this.sucessdata['status'] == "success"){
+
+  //this.eqs = this.sucessdata['data'];
+  window.alert(this.sucessdata['mensaje']);
+  }else{
+    window.alert(this.sucessdata['mensaje']);// + '    No autorizado');
+    //this.router.navigate(['/']);
+
+  }
+});  
+
+
+//console.log("post postsendtoguardarsu usuario");
+}
+  
+
+
+
  
    
-  }
-  onGuardarexpediente(data)
-{ 
-  console.log("sendtoguardarsu examenmem");
-  console.log(data);   
-  //this.http.post(Constantes.capiURL+"expediente",data);  //go to http servies
-}
+  
+  
      
  
 }
