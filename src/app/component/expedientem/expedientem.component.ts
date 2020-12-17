@@ -52,23 +52,24 @@ export class ExpedientemComponent implements OnInit {
       fechan: ['', [
           Validators.required,
                ]],
-      domicilio: ['', [
-                Validators.required,
-                     ]],
-      telefon: ['', [
-        Validators.required,
-        Validators.pattern('^[0-9 ]*$'),
-        Validators.minLength(10),
-      ]],
+    
       pac_estado: ['', [
         Validators.required,
              ]],
       lugarnac: ['', [
-        Validators.required,
+        //Validators.required,
              ]],
+     domicilio: ['', [
+        Validators.required,
+           ]],  
       cp: ['', [
               Validators.required,
                    ]],
+    telefon: ['', [
+      Validators.required,
+      Validators.pattern('^[0-9 ]*$'),
+      Validators.minLength(10),
+    ]],
       celfon: ['', [
           Validators.required,
                ]],
@@ -84,6 +85,16 @@ export class ExpedientemComponent implements OnInit {
      telefoneme: ['', [
                 Validators.required,
                      ]],  
+
+
+
+
+
+
+
+
+
+                     
       tratamientos1: ['', [
               //Validators.required,
                    ]],
