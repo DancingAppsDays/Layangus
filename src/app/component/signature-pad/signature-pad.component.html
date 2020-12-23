@@ -1,0 +1,38 @@
+<h6 class="text-center">Firma del doctor:</h6>
+
+<div id="signahide">
+<div class="signature-pad">
+  <div class="signature-pad--body">
+    <canvas #sPad width="866" height="400" style="touch-action: none;"></canvas>
+  </div>
+</div>
+
+<section class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <button type='button'class="btn  btn-danger" (click)="clear()">Borrar</button>
+        <button type='button'class="btn  btn-primary" (click)="saveJPG()">Guardar</button>
+        
+      </div>
+      <div class="col-6">
+        <!--
+        <button class="btn btn-block btn-success" (click)="savePNG()">PNG</button>
+        <button class="btn btn-block btn-warning" (click)="undo()">Undo</button>
+        <button class="btn btn-block btn-info" (click)="changeColor()">Change Color</button>
+        <button class="btn btn-block btn-secondary" (click)="saveSVG()">SVG</button>-->
+      </div>
+    </div>
+</section>
+</div>
+ 
+
+<div id="signed"><!-- MAYBE ON FORMULARIO COMPONENT????-->
+<figure>
+  <img [src]="path"> <!-- [useCache]="false" >-->
+  <noscript>
+     <!-- <img src="signtest.jpg"> alt="Sign of doctor">-->
+  </noscript>    
+ <!-- <figcaption>Aquí esta la firma</figcaption>-->
+</figure>
+<button  type='button' class="btn  btn-danger" (click)="restart()">Firmar de nuevo</button>
+</div>

@@ -1,0 +1,1339 @@
+
+
+
+
+<div class="container">
+ 
+
+
+
+<form [formGroup]="exform" [hidden]="success" (ngSubmit)="onGuardarexpediente(exform.value)"> <!--(ngSubmit)="onGuardarexpediente(exform.value)">-->
+
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar expediente</h4>
+      </div>
+    </div>
+  
+    <label name="idtemp" >IDemepleado(temporal):</label>                     
+    <input type="number" class="form-control" formControlName="idempleado">
+  
+  
+        <div class="form-group row">
+            <label name="nombre" class="col-sm-1 col-form-label">Nombre:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre completo" ng-pattern ="/^[a-zA-Z\s]*$/">
+            </div>
+            
+            <div class="alert alert-danger" role="alert" *ngIf="exform.get('nombre').invalid && exform.get('nombre').touched">
+                ¡Nombre no valido!
+            </div>
+
+            <label name="edad" class="col-sm-1 col-form-label">Edad:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" formControlName="edad" placeholder="18" ng-pattern ="/^[0-9]*$/">
+            </div>
+            
+            <div class="alert alert-danger" role="alert" *ngIf="exform.get('edad').invalid && exform.get('edad').touched">
+                ¡Campo edad no valido!
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+          <label for="sexo"  class="col-sm-1 col-form-label">Sexo:</label>
+            <select id="inputState" formControlName="sexo" class="form-control" >
+              <!--<option selected value="" >Elige un estado...</option>  DEFAULT NULL IMPLICATIONS?-->
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+             </select>
+
+
+            <label for="estadocivil">Estado civil</label>
+
+            <select name="estadocivil" formControlName="estadocivil" class="form-control">
+            <option value="Soltero">Soltero</option>
+            <option value="Casado">Casado</option>
+             <option value="Vuido">Vuido</option>
+             
+            </select>
+            <!--
+            <label name="estadocivil" class="col-sm-1 col-form-label">Estado civil:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" formControlName="estadocivil" placeholder="Soltera" ng-pattern ="/^[a-zA-Z\s]*$/">
+            </div>
+            -->
+            <div class="alert alert-danger" role="alert" *ngIf="exform.get('estadocivil').invalid && exform.get('estadocivil').touched">
+                ¡Campo estado civil no valido!
+            </div>
+
+            
+            
+            
+            
+
+        </div>
+            
+        <div class="form-group row">
+            
+          <label name="lugarnac" >Lugar de nacimiento:</label>
+             
+           
+         <div class= "col-sm-6"> <input type="text" class="form-control" formControlName="lugarnac" placeholder="San Luis Potosi" ng-pattern ="/^[a-zA-Z\s]*$/"></div>
+        
+    
+        <div class="alert alert-danger" role="alert" *ngIf="exform.get('lugarnac').invalid && exform.get('lugarnac').touched">
+            ¡Lugar de nacimiento no valido!
+        </div>
+            
+            <label name="fechan" class="col-sm-1 col-form-label">Fecha:</label>
+            
+           
+              <input formControlName="fechan" type="date"   value="{{today | date:'yyyy-MM-dd'}}">
+              <div class="input-group-prepend">
+                <span class="input-group-text fa fa-calendar-o" id="inputGroupPrepend2"></span>
+            </div>         
+            
+          </div>
+
+
+          <div class="form-group row">
+            <div class="col-sm-12">
+            <label name="domicilio" class="col-sm-1 col-form-label">Domicilio:</label>
+            
+              <input type="text" class="form-control"  formControlName="domicilio" placeholder="Calle Walabi 620 Colonia P.Sherman" ><!--ngpattern-->
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <!--<div class="form-group col-md-4"> Alex Alvear Implementation  uses f.pac_estado-->
+              <label for="inputState">Estado</label>
+              <select id="inputState" formControlName="pac_estado" class="form-control" >
+              <!--<select id="inputState" formControlName="pac_estado" class="form-control" [ngClass]="{ 'is-invalid': exform.pac_estado.invalid && (exform.pac_estado.dirty || exform.pac_estado.touched) }">-->
+                  <option selected value="" >Elige un estado...</option>
+                  <option value="Aguascalientes">Aguascalientes</option>
+                  <option value="Baja California">Baja California</option>
+                  <option value="Baja California Sur">Baja California Sur</option>
+                  <option value="Campeche">Campeche</option>
+                  <option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+                  <option value="Colima">Colima</option>
+                  <option value="Chiapas">Chiapas</option>
+                  <option value="Chihuahua">Chihuahua</option>
+                  <option value="Distrito Federal">Distrito Federal</option>
+                  <option value="Durango">Durango</option>
+                  <option value="Guanajuato">Guanajuato</option>
+                  <option value="Guerrero">Guerrero</option>
+                  <option value="Hidalgo">Hidalgo</option>
+                  <option value="Jalisco">Jalisco</option>
+                  <option value="México">México</option>
+                  <option value="Michoacán de Ocampo">Michoacán de Ocampo</option>
+                  <option value="Morelos">Morelos</option>
+                  <option value="Nayarit">Nayarit</option>
+                  <option value="Nuevo León">Nuevo León</option>
+                  <option value="Oaxaca">Oaxaca</option>
+                  <option value="Puebla">Puebla</option>
+                  <option value="Querétaro">Querétaro</option>
+                  <option value="Quintana Roo">Quintana Roo</option>
+                  <option value="San Luis Potosí">San Luis Potosí</option>
+                  <option value="Sinaloa">Sinaloa</option>
+                  <option value="Sonora">Sonora</option>
+                  <option value="Tabasco">Tabasco</option>
+                  <option value="Tamaulipas">Tamaulipas</option>
+                  <option value="Tlaxcala">Tlaxcala</option>
+                  <option value="Veracruz de Ignacio de la Llave">Veracruz de Ignacio de la Llave</option>
+                  <option value="Yucatán">Yucatán</option>
+                  <option value="Zacatecas">Zacatecas</option>
+              </select>
+              <div *ngIf="exform.get('pac_estado').invalid && (exform.get('pac_estado').dirty || exform.get('pac_estado').touched)" class="invalid-feedback">
+                  <div *ngIf="exform.get('pac_estado').errors.required">CAMPO REQUERIDO!</div>
+              </div>
+
+         
+
+            <!--<label name="Estado" class="col-sm-1 col-form-label">Estado:</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" formControlName="estado" placeholder="San Luis Potosi" >
+            </div>-->
+            <label name="cp" class="col-sm-1 col-form-label">CP:</label>
+           
+            <input type="text" class="form-control" maxlength="5" formControlName="cp" placeholder="78000" value="">
+        
+
+            <label name="telelabel" class="col-sm-1 col-form-label">Teléfono:</label>
+           
+              <input type="text" class="form-control" maxlength="10" formControlName="telefon" placeholder="000-000-0000" value="">
+            
+              <label name="cellabel" class="col-sm-1 col-form-label">Celular:</label>
+           
+              <input type="text" class="form-control" maxlength="10" formControlName="celfon" placeholder="444-000-0000" value="">
+           
+        </div>
+
+        <!--Schooll no group no known type-->
+
+        <label for="escolaridad" class="col-sm-1 col-form-label">Escolaridad:</label>
+           
+        <input type="text" id="escolaridad" class="form-control" formControlName="escolaridad" placeholder="Tecnico automotriz" value="">
+        <br>
+
+        <hr style="border: 2px inset"/>
+
+        <div class="form-group row">
+          <label name="contactoemergencia" class="col-sm-2 col-form-label">Contacto de emergencia:</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" formControlName="contactoeme" placeholder="Nombre completo" >
+          </div>
+        </div>
+          
+        <div class="form-group row">
+          <label name="domicilioeme" class="col-sm-1 col-form-label">Domicilio:</label>
+          <input type="text" class="form-control"  formControlName="domicilioeme" placeholder="Calle Walabi 42 Sydney" >
+          
+          <label name="telelabele" class="col-sm-1 col-form-label">Teléfono:</label>
+           
+          <input type="text" class="form-control" maxlength="10" formControlName="telefoneme" placeholder="000-000-0000" value="">
+        
+
+      </div>     
+
+      <div class="col-sm-12" style="clear: both;">
+        <br>
+     
+      <hr style="border: 2px inset"/>
+      <label>Medio laboral asignado</label>
+      <br> <br> <br>
+    </div>
+     
+      
+
+
+      <div class="col-sm-12">
+            
+        <label name="fecha" >Fecha de ingreso a la empresa:               
+        <input formControlName="fechaingreso" type="date"   value="{{today | date:'yyyy-MM-dd'}}">
+        <div class="input-group-prepend">
+          <span class="input-group-text fa fa-calendar-o" id="inputGroupPrepend2"></span>
+      </div>
+    </label> 
+        <label name="area" >Area:</label>         
+        <input type="text" class="form-control" formControlName="area" placeholder="Prensas 1"> <!--ng-pattern ="/^[a-zA-Z\s]*$/">-->
+      
+        <label name="area" >CC:</label>         
+        <input type="text" class="form-control" formControlName="cc" placeholder="400">
+
+      </div>
+      <div class="form-group row">
+        <label name="area" >Número de nomina:</label>         
+        <input type="number" class="form-control" formControlName="numnomina"> 
+        
+
+       
+          <label name="puestoac" >Puesto actual:</label>         
+          <input type="text" class="form-control" formControlName="puestoac" placeholder="Líder"> <!--ng-pattern ="/^[a-zA-Z\s]*$/">-->
+        
+          <label name="area" class="col-sm-4 col-form-label" >Tiempo en puesto actual:</label>         
+          <input type="date" class="form-control" formControlName="tiempopues"> <!--placeholder="400">-->
+
+
+        </div>
+
+        <div class="form-group row">
+        <label name="activipuest" class="col-sm-3 col-form-label">Describa las actividades de su puesto actual</label>
+        <textarea class="form-control"  rows="1" formControlName="puestoacdesc" ></textarea>
+      </div>
+
+        <div class="col-sm-12" style="clear: both;">
+          <br>
+        <label >Expuesto a alguno de los siguientes agentes:</label>
+        <br>
+      </div>
+
+        <!--<input type="checkbox" [checked]="isChecked$ | async" (change)="toggleChecked()">-->
+        <div class="col-sm-1"><label >Ruido</label></div>
+        <!--<input type="checkbox" class="form-control" formControlName="ruidobox" [checked]="item.selected" (change)="item.selected = !item.selected">-->
+        <div class="col-sm-1">
+        <input type="checkbox" class="form-control" formControlName="ruidobox"></div> <!--[checked]="exform.get('ruidobox').setValue('true')">--> <!--(change)="true = false">-->
+        
+        <div class="col-sm-1"><label >Vibraciones</label></div>
+        <div class="col-sm-1">        <input type="checkbox" class="form-control" formControlName="vibracionbox"></div>
+        <div class="col-sm-1"><label >Temperaturas extremas</label></div>
+        <div class="col-sm-1">
+        <input type="checkbox" class="form-control" formControlName="temperaturabox"> </div>
+
+
+        <div class="col-sm-1" style="clear: both;"><label >Polvo</label></div>
+        <div class="col-sm-1">
+        <input type="checkbox" class="form-control" formControlName="polvobox"></div> 
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="polvod" placeholder="Especifique" ></div>   <!--*ngIf="exform.get('polvobox').value('true')"> ONLY ON INIT.. also BUGGED THE JSON INTERPOLATION!--> 
+        
+        <div class="col-sm-1"  style="clear: both;" ><label >Humo</label></div>
+        <div class="col-sm-1">
+        <input type="checkbox" class="form-control" formControlName="humobox"> </div>
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="humod" placeholder="Especifique" ></div>  
+
+        <div class="col-sm-1"  style="clear: both;"><label >Vapores</label></div>
+        <div class="col-sm-1">
+        <input type="checkbox" class="form-control" formControlName="vaporbox">  </div>
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="vapord"placeholder="Especifique" ></div> 
+
+        <div class="col-sm-3"  style="clear: both;"><label >Esta expuesto a sustancias químicas?</label></div>
+        <div class="col-sm-1">
+        <input type="checkbox" class="form-control" formControlName="quimbox">  </div>
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="quimd"placeholder="Especifique" ></div>  
+
+        <div class="col-sm-3"  style="clear: both;"><label >Esta expuesto a agentes biológicos?</label></div>
+        <div class="col-sm-1">
+        <input type="checkbox" class="form-control" formControlName="biolobox">  </div>
+        <div class="col-sm-3"><input type="text" class="form-control" formControlName="biolod"placeholder="Especifique" ></div>  
+
+          
+         
+
+        <div class="col-sm-3" style="clear: both;"><label >En su area de trabajo pasa el mayor tiempo...</label></div>
+        <div class="col-sm-3"><select name="ergopuesto" formControlName="ergopuesto" class="form-control">
+          <option value="Parado">Parado</option>
+          <option value="Agachado">Agachado</option>
+           <option value="Sentado">Sentado</option>
+           <option value="Cuclillas">Cuclillas</option>
+          </select></div>
+
+          <div class="col-sm-3"> <label style="clear: both;">El tamaño de su area de trabajo es...</label></div>
+          <div class="col-sm-3"><select name="tamañopuesto" formControlName="tamapuesto" class="form-control">
+          <option value="Grande">Grande</option>
+          <option value="Reducida">Reducida</option>
+          
+          </select></div>
+
+          <div class="col-sm-12" style="clear: both;">
+          <br>
+          <label >En función de sus actividades, usted realiza las siguientes actividades...</label>
+          <br><br>
+        </div>
+
+       
+          <div class="col-sm-1">
+            <input type="checkbox" class="form-control" formControlName="troncodebajo"></div>
+            <div class="col-sm-5"><label >Actividades debajo del tronco(agacharse repetidamente)</label></div>
+        <!--[checked]="exform.get('ruidobox').setValue('true')">--> <!--(change)="true = false">-->
+        
+        <div class="col-sm-1" style="clear: both;">        <input type="checkbox" class="form-control" formControlName="tronconivel"></div>
+        <div class="col-sm-5"><label >Actividades a nivel del tronco(inclinarse hacia los lados, voltear)</label></div>
+        
+        
+          <div class="col-sm-1"  style="clear: both;">
+            <input type="checkbox" class="form-control" formControlName="troncoencima"> </div>
+            <div class="col-sm-5"><label >Actividades por encima de los hombros(levantar brazos por encima de cabeza)</label></div>
+        
+
+
+            <div class="col-sm-1"style="clear: both;"><input type="checkbox" class="form-control" formControlName="movrepetivo"></div> 
+            <br> <div class="col-sm-5"><label >Movimientos de repetitivos de muñeca u hombros</label></div>
+        
+                
+        <input type="text" class="form-control" formControlName="movrepetivod" placeholder="Especifique: ">   <!--*ngIf="exform.get('polvobox').value('true')"> ONLY ON INIT.. also BUGGED THE JSON INTERPOLATION!--> 
+        
+
+        <div class="col-sm-1"><input type="checkbox" class="form-control" formControlName="manejodecarga"> </div>
+        <br><div class="col-sm-5"><label >Manejo de cargas</label></div>
+        <input type="text" class="form-control" formControlName="manejodecargad" placeholder="Especifique: ">
+
+        
+       
+
+          
+
+         <div style="clear: both;"><br></div>   
+          <br>
+        <label >Marque el equipo de protección personal que utiliza para sus actividades</label>
+        <br><br>
+        
+    <div class="col-sm-12">
+        <label>Zapatos<input type="checkbox" class="form-control" formControlName="zapa">
+      </label>
+
+        <label >Mandil<input type="checkbox" class="form-control" formControlName="mandi">
+      </label>
+      <label >Casco<input type="checkbox" class="form-control" formControlName="casc"> 
+      </label>
+
+       <label >Tyvek<input type="checkbox" class="form-control" formControlName="tyve">
+      </label>
+
+    </div>
+
+    <div class="col-sm-12">
+
+      <label>Lentes<input type="checkbox" class="form-control" formControlName="lente">
+      </label>
+
+        <label >Manga<input type="checkbox" class="form-control" formControlName="manga">
+      </label>
+      <label >Careta<input type="checkbox" class="form-control" formControlName="care"> 
+      </label>
+
+       <label >Mascarilla<input type="checkbox" class="form-control" formControlName="masc">
+      </label>
+
+    </div>
+
+
+    <div class="col-sm-12">
+
+      <label>Tapones<input type="checkbox" class="form-control" formControlName="tapo">
+      </label>
+
+        <label >Guantes<input type="checkbox" class="form-control" formControlName="guan">
+      </label>
+      <label >Faja<input type="checkbox" class="form-control" formControlName="faja"> 
+      </label>
+
+       
+      <div class="col-sm-12">
+        <label>Otros<input type="checkbox" class="form-control" formControlName="fajaotros">
+          <label><input type="text" class="form-control" formControlName="fajaotrosd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                 
+        </label>
+        </div> 
+     
+    </div>
+
+    <div class="col-sm-12">
+        <br><br>
+    
+        <hr style="border: 2px inset"/>
+        <label >Antecedentes laborales</label>
+        <br><br>
+        <label >De haber tenido otro puesta en la empresa, responda:</label>
+      </div>
+
+        <div class="col-sm-2"><label >Puesto anterior</label></div>
+        <div class="col-sm-5"><input type="text" class="form-control" formControlName="puestoanterior"></div>
+        <div class="col-sm-2" style="clear: both;"><label >Area</label></div>
+        <div class="col-sm-5"><input type="text" class="form-control" formControlName="areaanterior"></div>
+        <div class="col-sm-2"  style="clear: both;"><label name="fechan">Tiempo en el puesto:</label></div>
+        <div class="col-sm-5"><input formControlName="duracionanterior" type="date"></div>
+              
+         <div class="col-sm-2" style="clear: both;"><label name="accianteriors">Accidentes sufridos:</label></div>
+         <div class="col-sm-8"><textarea class="form-control"  rows="1" formControlName="accianterior" placeholder="" ></textarea></div>
+          
+         
+         <div class="col-sm12" style="clear:both">
+        <br>
+        <label style="font-weight:bold;" >Respecto a su vida laboral , dentro y fuera de la empresa, mencione el tiempo que considere se ha encontra expuesto a algunso de los siguientes agentes</label>
+          <br>
+          <br>
+        </div>
+
+          <div class="form-group">
+          <div class="col-sm-6">
+          <label>Ruido<input type="checkbox" class="form-control" formControlName="ruidoanterior">
+           </label>
+          </div>
+          <div class="col-sm-6">
+            <label>Temperaturas extremas<input type="checkbox" class="form-control" formControlName="tempanterior">
+             </label>
+            </div>
+
+            <div class="col-sm-6">
+              <label>Vibraciones<input type="checkbox" class="form-control" formControlName="vibraanterior">
+               </label>
+              </div>
+
+              <div class="col-sm-6">
+                <label>Posturas de pie<input type="checkbox" class="form-control" formControlName="posturaanterior">
+                 </label>
+                </div>
+                <div class="col-sm-6">
+                  <label>Posturas sentado<input type="checkbox" class="form-control" formControlName="sentadoanterior">
+                   </label>
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Mala iluminacion<input type="checkbox" class="form-control" formControlName="malailuminaanterior">
+                     </label>
+                    </div>
+
+          <div class="col-sm-6">
+            <label>Polvos<input type="checkbox" class="form-control" formControlName="polvoanterior">
+             <label><input type="date" class="form-control" formControlName="polvoanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+            </label>
+            </div>
+            <div class="col-sm-6">
+              <label>Vapores<input type="checkbox" class="form-control" formControlName="vaporanterior">
+               <label><input type="date" class="form-control" formControlName="vaporanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+              </label>
+              </div>
+              <div class="col-sm-6">
+                <label>Radiaciones<input type="checkbox" class="form-control" formControlName="radiacionanterior">
+                 <label><input type="date" class="form-control" formControlName="radiacionanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+                </label>
+                </div>
+                <div class="col-sm-6">
+                  <label>Manejo de carga<input type="checkbox" class="form-control" formControlName="manejodecargaanterior">
+                   <label><input type="date" class="form-control" formControlName="manejodecargaanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  </label>
+                  </div>
+                  <div class="col-sm-6">
+                    <label>Movimientos repetitivos de espalda, muñecas, hombros<input type="checkbox" class="form-control" formControlName="movrepetivoanterior">
+                     <label><input type="date" class="form-control" formControlName="movrepetivoanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+                    </label>
+                    </div>
+           </div>
+          <br>
+          <br>
+          <br>
+          <br>
+      <div class="form-group" style="clear: both;">
+        <br> <br>
+          <label style="font-weight:888;">Respecto a enfermedades y accidentes de trabajo consteste:</label>       
+            <br>
+         
+            <label>Ha sufrido accidentes de trabajo?<input type="checkbox" class="form-control" formControlName="accis">
+             <textarea  class="form-control" formControlName="accisd" placeholder= "De ser afirmativo: Especifique:  " style="width: 420px;"></textarea>
+             </label>
+
+             <label>Ha sufrido enfermedades de trabajo?<input type="checkbox" class="form-control" formControlName="enfermas">
+              <textarea  class="form-control" formControlName="enfermasd" placeholder= "De ser afirmativo: Especifique:  " style="width: 420px;"></textarea>
+              </label>
+           
+       </div>  
+
+
+      
+     
+
+
+
+
+       <div class="col-sm-12" style="clear: both;">
+        <br>
+        <br>  
+      <hr style="border: 2px inset"/>
+      <label style="font-weight: 1000;">Antecedentes heredofamiliares</label>        
+      <br>
+      <br>    
+    </div>   
+      <div class="form-group" style="clear: both;">
+          
+        <label style="font-weight:555;">Marque si un familiar directo han sufrido la siguiente enfermedad:</label>       
+         
+
+          <div class="col-sm-12" style="clear: both;">
+            
+            <label>Diabetes o azucar alta<input type="checkbox" class="form-control" formControlName="diabetes">
+              <label><input type="text" class="form-control" formControlName="diabetesd" placeholder= "(Madre/Hijo/Abuela/Tío)  " style="width: 333px;"></label>
+                     
+            </label>
+            </div>
+            <div class="col-sm-12">
+              <label>Hipertensión<input type="checkbox" class="form-control" formControlName="hipert">
+                <label><input type="text" class="form-control" formControlName="hipertd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                       
+              </label>
+              </div>
+              <div class="col-sm-12">
+                <label>Presión baja<input type="checkbox" class="form-control" formControlName="bajapres">
+                  <label><input type="text" class="form-control" formControlName="bajapresd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                         
+                </label>
+                </div>
+
+                <div class="col-sm-12">
+                  <label>Problemas cardiacos<input type="checkbox" class="form-control" formControlName="cardiac">
+                    <label><input type="text" class="form-control" formControlName="cardiacd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+                  <div class="col-sm-12">
+                    <label>Problemas pulmonares<input type="checkbox" class="form-control" formControlName="pulmonares">
+                      <label><input type="text" class="form-control" formControlName="pulmonaresd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                             
+                    </label>
+                    </div>
+                <div class="col-sm-12">
+                  <label>Problemas renales<input type="checkbox" class="form-control" formControlName="renales">
+                    <label><input type="text" class="form-control" formControlName="renalesd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+                  <div class="col-sm-12">
+                    <label>Problemas hepáticos<input type="checkbox" class="form-control" formControlName="hepati">
+                      <label><input type="text" class="form-control" formControlName="hepatisd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                             
+                    </label>
+                    </div>
+            <div class="col-sm-12">
+                  <label>Enfermedades de la sangre<input type="checkbox" class="form-control" formControlName="enfermasangre">
+                    <label><input type="text" class="form-control" formControlName="enfermasangred" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+          <div class="col-sm-12">
+                  <label>Ansiedad, depresión, ezquizofrenia<input type="checkbox" class="form-control" formControlName="depresion">
+                    <label><input type="text" class="form-control" formControlName="depresiond" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+<div class="col-sm-12">
+                  <label>Convulsión, Epilepsia<input type="checkbox" class="form-control" formControlName="epileps">
+                    <label><input type="text" class="form-control" formControlName="epilepsd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+                  <div class="col-sm-12">
+                  <label>Cancer, Tumores<input type="checkbox" class="form-control" formControlName="cancer">
+                    <label><input type="text" class="form-control" formControlName="cancerd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+        <div class="col-sm-12">
+                  <label>Embolias, Derrames<input type="checkbox" class="form-control" formControlName="embolia">
+                    <label><input type="text" class="form-control" formControlName="emboliad" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+                  <div class="col-sm-12">
+                  <label>Problemas de tiroides<input type="checkbox" class="form-control" formControlName="tiroides">
+                    <label><input type="text" class="form-control" formControlName="tiroidesd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+                  <div class="col-sm-12">
+                    <label>Obesidad<input type="checkbox" class="form-control" formControlName="obesidad">
+                      <label><input type="text" class="form-control" formControlName="obesidadd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                             
+                    </label>
+                    </div>
+                    <div class="col-sm-12">
+                  <label>Problemas visuales<input type="checkbox" class="form-control" formControlName="visuales">
+                    <label><input type="text" class="form-control" formControlName="visualesd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+                  <div class="col-sm-12">
+                  <label>Alergias, asma<input type="checkbox" class="form-control" formControlName="alergias">
+                    <label><input type="text" class="form-control" formControlName="alergiasd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+                  <div class="col-sm-12">
+                  <label>Defectos congenitos<input type="checkbox" class="form-control" formControlName="congenit">
+                    <label><input type="text" class="form-control" formControlName="congenitd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+                  <div class="col-sm-12">
+                  <label>Problemas huesos, artilculaciones<input type="checkbox" class="form-control" formControlName="huesos">
+                    <label><input type="text" class="form-control" formControlName="huesosd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                           
+                  </label>
+                  </div>
+       <!--<div class="row">
+         <div class="column">
+
+          <div class="col-sm-6">
+              <label>Vibraciones<input type="checkbox" class="form-control" formControlName="ruidobodx">
+               </label>
+              </div>
+              <div class="col-sm-6">
+                <label>Vibraciones asdf sadf<input type="checkbox" class="form-control" formControlName="ruidobodx">
+                 </label>
+                </div>
+                <div class="col-sm-6">
+                  <label>Vibraciones fdkjyerty jhf<input type="checkbox" class="form-control" formControlName="ruidobodx">
+                   </label>
+                  </div>
+
+          </div> 
+
+          <div class="column">
+          <label>Vibraciones<input type="checkbox" class="form-control" formControlName="ruidobodx">
+          </label>
+          
+          
+           </div>
+        </div> --> 
+      </div>
+
+
+      <br>
+      <br>
+  <div class="form-group" style="clear: both;">
+      
+      <label style="font-weight:888;clear: both;">Antecedentes personales no patológicos</label>       
+        <br>
+
+
+        <label  class="col-sm-1 col-form-label">Habita en casa:</label>
+        <div class="col-sm-4">
+        <select id="inputState" formControlName="casatipo" class="form-control">
+          <option value="Propia">Propia</option>
+          <option value="Rentada">Rentada</option>
+          <option value="Prestada">Prestada</option><!--sure.....-->
+         </select>
+        </div>
+
+         <label>Cuenta con agua, luz, gas, drenaje?<input type="checkbox" class="form-control" formControlName="casaservice">
+          </label>
+          <label>¿Cuántas personas viven con usted y que parentesco tienen?<input type="text" class="form-control" formControlName="casanumero">
+          </label>
+          <label>¿Cuántas son menores de 18 años?<input type="number" class="form-control" formControlName="casachavos">
+          </label>
+          <label>¿Cuántas son mayores de 65 años?<input type="number" class="form-control" formControlName="casarucos">
+          </label>
+          <label>¿Alguien en su casa está enfermo de gravedad?<input type="checkbox" class="form-control" formControlName="casaenfermo">
+            <label><input type="text" class="form-control" formControlName="casaenfermod" placeholder= "Especifique:  " style="width: 333px;"></label>
+                   
+          </label>
+
+          <label>¿Tiene mascotas?<input type="checkbox" class="form-control" formControlName="mascotas">
+            <label><input type="text" class="form-control" formControlName="mascotasd" placeholder= "Especifique:  " style="width: 333px;"></label>
+                   
+          </label>
+
+          <label>¿Fuma o nó?<input type="checkbox" class="form-control" formControlName="fumas">
+            <label><input type="text" class="form-control" formControlName="fumad" placeholder= "Especifique cuantos al dia, desde que edad..:  " style="width: 333px;"></label>
+                   
+          </label>
+
+          <label>¿Toma bebidas alcohólicas?<input type="checkbox" class="form-control" formControlName="tomas">
+            <label><input type="text" class="form-control" formControlName="tomad" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
+                   
+          </label>
+          <label>¿Consume alguna droga?<input type="checkbox" class="form-control" formControlName="drogas">
+            <label><input type="text" class="form-control" formControlName="drogad" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
+                   
+          </label>
+
+          <label>¿Hace ejercicio?<input type="checkbox" class="form-control" formControlName="ejercicios">
+            <label><input type="text" class="form-control" formControlName="ejerciciosd" placeholder= "Especifique cuantas al dia, desde que edad..:  " style="width: 333px;"></label>
+                   
+          </label>
+          <label>¿Cuántas comidas realiza al día?<input type="number" class="form-control" formControlName="comidasdia">
+          </label>
+
+          <label>¿Cuántas litros de agua toma en un solo día?<input type="number" class="form-control" formControlName="litrosdia">
+          </label>
+
+          <label>De 7 días. ¿Cuántas alimentos consume?</label>
+
+          <label>Verduras<input type="number" class="form-control" formControlName="Verduras"></label>
+          <label>Frutas<input type="number" class="form-control" formControlName="Frutas"></label>
+          <label>Pastas<input type="number" class="form-control" formControlName="Pastas"></label>
+          <label>Carne roja<input type="number" class="form-control" formControlName="Carneroja"></label>
+          <label>Carne blanca<input type="number" class="form-control" formControlName="Carneblanca"></label>
+          <label>Embutidos(jamón, salchicha, chorizo)<input type="number" class="form-control" formControlName="Embutidos"></label>
+          <label>Lacteos<input type="number" class="form-control" formControlName="Lacteos"></label>
+          <label>Cereales<input type="number" class="form-control" formControlName="Cereales"></label>
+          <label>Leguminosas<input type="number" class="form-control" formControlName="Leguminosas"></label>
+          <label>Chatarra(refresco, pandulce)<input type="number" class="form-control" formControlName="Chatarra"></label>
+
+          <br>
+          <label>¿Cuántas días a la semana toma un baño?<input type="number" class="form-control" formControlName="semabaño"></label>
+          <label>¿Cuántas cambios se ropa interior realiza a la semana?<input type="number" class="form-control" formControlName="semachones"></label>
+          
+          <label>¿Cuántas veces a la semana cepilla sus dientes?<input type="number" class="form-control" formControlName="semadientes"></label>
+          
+         
+
+          <br>
+          <label style="clear: both;">En su esquema de vacunacion</label>
+
+          <label>Esquema de vacunacion completo<input type="checkbox" class="form-control" formControlName="esquemavacun">
+                 
+          </label>
+
+          <label>Influenza estacional<input type="checkbox" class="form-control" formControlName="Influenza">
+                 
+          </label>
+
+          <label>Tetanos y difteria<input type="checkbox" class="form-control" formControlName="Tetanos">
+                 
+          </label>
+
+          <label>Hepatitis B<input type="checkbox" class="form-control" formControlName="Hepatitisv">
+                 
+          </label>
+          <label>¿Le han hecho una transfusion de sangre?<input type="checkbox" class="form-control" formControlName="transfusion">
+                 
+          </label>
+
+
+
+          
+
+
+   </div>  
+
+
+   <br>
+   <br>
+   <label style="font-weight:888; clear: both;" >Respecto a tus antecendetes personales marca si has tenido el padecimiento</label>       
+   <br>
+<div class="form-group" >
+   
+    
+
+     <div class="col-lg-6">
+
+
+        
+      <!--<div class="col-sm-9">
+      <label style="float:right;">Varicelaa </label>
+    </div> 
+    <div class="col-sm-3"><input type="checkbox" class="form-control" formControlName="padvar">
+    </div> -->
+
+    <div class="col-lg-12">
+      <label>Varicela<input type="checkbox" class="form-control" formControlName="Varicela"></label>
+      </div>
+
+      <div class="col-lg-12">
+        <label>Paperas<input type="checkbox" class="form-control" formControlName="Paperas"></label>
+        </div>
+        <div class="col-lg-12">
+          <label>Tuberculosis<input type="checkbox" class="form-control" formControlName="Tuberculosis"></label>
+          </div>
+          <div class="col-sm-12">
+            <label>Rubeola<input type="checkbox" class="form-control" formControlName="Rubeola"></label>
+            </div>
+            <div class="col-sm-12">
+      <label>Hepatitis<input type="checkbox" class="form-control" formControlName="Hepatitis"></label>
+      </div>
+      <div class="col-lg-12">
+        <label>Oidos tapados<input type="checkbox" class="form-control" formControlName="Oidostapados"></label>
+        </div>
+        <div class="col-lg-12">
+          <label>Dificultad para escuchar<input type="checkbox" class="form-control" formControlName="Dificultadescuchar"></label>
+          </div>
+          <div class="col-sm-12">
+            <label>Dolor, secreción de oídos<input type="checkbox" class="form-control" formControlName="Doloroidos"></label>
+            </div>
+    <div class="col-sm-12">
+      <label>Obstrucción nariz<input type="checkbox" class="form-control" formControlName="Obstrucnariz"></label>
+      </div>
+      <div class="col-lg-12">
+        <label>Secreción nariz<input type="checkbox" class="form-control" formControlName="secrenariz"></label>
+        </div>
+        <div class="col-lg-12">
+          <label>Sangrado nariz frecuente<input type="checkbox" class="form-control" formControlName="sangranariz"></label>
+          </div>
+          <div class="col-sm-12">
+            <label>Crisis de estornudos<input type="checkbox" class="form-control" formControlName="estornudos"></label>
+            </div>
+            <div class="col-sm-12">
+      <label>Tos frecuente<input type="checkbox" class="form-control" formControlName="tosfrec"></label>
+      </div>
+      <div class="col-lg-12">
+        <label>Flema con sangre<input type="checkbox" class="form-control" formControlName="flemasan"></label>
+        </div>
+        <div class="col-lg-12">
+          <label>Dificultad para respirar, asma<input type="checkbox" class="form-control" formControlName="Dificultadrespirar"></label>
+          </div>
+          <div class="col-sm-12">
+            <label>Silbido al respirar<input type="checkbox" class="form-control" formControlName="silbidos"></label>
+            </div>
+
+
+
+            <div class="col-lg-12">
+              <label>Cansancio al caminar o correr<input type="checkbox" class="form-control" formControlName="cansan"></label>
+              </div>
+        
+              <div class="col-lg-12">
+                <label>Cansancio al subir escaleras<input type="checkbox" class="form-control" formControlName="cansanescalar"></label>
+                </div>
+                <div class="col-lg-12">
+                  <label>Sensación opresión en el pecho<input type="checkbox" class="form-control" formControlName="opresiopecho"></label>
+                  </div>
+                  <div class="col-sm-12">
+                    <label>Palpitación, dolor en el pecho<input type="checkbox" class="form-control" formControlName="palpita"></label>
+                    </div>
+                    <div class="col-sm-12">
+              <label>Presión arterial alta<input type="checkbox" class="form-control" formControlName="presionalta"></label>
+              </div>
+              <div class="col-lg-12">
+                <label>Mareo, vertigo o visión borrosa<input type="checkbox" class="form-control" formControlName="mareo"></label>
+                </div>
+                <div class="col-lg-12">
+                  <label>Varices en las piernas o hemorroides<input type="checkbox" class="form-control" formControlName="varices"></label>
+                  </div>
+                  <div class="col-sm-12">
+                    <label>Vómito intenso<input type="checkbox" class="form-control" formControlName="vomito"></label>
+                    </div>
+            <div class="col-sm-12">
+              <label>Ardor estomacal, agruras o indigestión<input type="checkbox" class="form-control" formControlName="agruras"></label>
+              </div>
+              <div class="col-lg-12">
+                <label>Evacuación con sangre<input type="checkbox" class="form-control" formControlName="evacsangre"></label>
+                </div>
+                <div class="col-lg-12">
+                  <label>Aumento o disminución de peso<input type="checkbox" class="form-control" formControlName="aumentopeso"></label>
+                  </div>
+                  <div class="col-sm-12">
+                    <label>Cirujías, Operaciones<input type="checkbox" class="form-control" formControlName="cirujias"></label>
+                    </div>
+               
+
+            </div>
+     <div class="col-lg-6">
+
+      <div class="col-sm-12">
+        <label>Azucar alta /diabetes<input type="checkbox" class="form-control" formControlName="azucaralta"></label>
+        </div>
+      <div class="col-lg-12">
+      <label>Dolor de la vesícula biliar<input type="checkbox" class="form-control" formControlName="vesicula"></label>
+      </div>
+     <div class="col-lg-12">
+      <label>Fracturas, torceduras, luxaciones<input type="checkbox" class="form-control" formControlName="fracturas"></label>
+      </div>
+      <div class="col-sm-12">
+       <label>Artritis<input type="checkbox" class="form-control" formControlName="artritis"></label>
+       </div>
+        <div class="col-sm-12">
+        <label>Lesión del algún tendón<label><input type="checkbox" class="form-control" formControlName="tendonitis"></label></label>
+        </div>
+        <div class="col-lg-12">
+          <label>Dolor cuello espalda, cintura<label><input type="checkbox" class="form-control" formControlName="dolorespalda"></label></label>
+          </div>
+          <div class="col-lg-12">
+            <label>Ardor al orinar<input type="checkbox" class="form-control" formControlName="ardororina"></label>
+            </div>
+            <div class="col-sm-12">
+              <label>Despertar con frecuencia para orinar<input type="checkbox" class="form-control" formControlName="miccionnoche"></label>
+              </div>
+         <div class="col-sm-12">
+        <label>Cálculos o pideras en la orina<input type="checkbox" class="form-control" formControlName="calculos"></label>
+        </div>
+        <div class="col-lg-12">
+          <label>Dificultad para orinar<input type="checkbox" class="form-control" formControlName="difiorinar"></label>
+          </div>
+          <div class="col-lg-12">
+            <label>Sangre o coloración en la orina<input type="checkbox" class="form-control" formControlName="sangreorina"></label>
+            </div>
+            <div class="col-sm-12">
+              <label>Dificultad o dolor al tener relaciones<input type="checkbox" class="form-control" formControlName="dolorsexo"></label>
+              </div>
+      <div class="col-sm-12">
+        <label>Secreciones anormales en el pene<input type="checkbox" class="form-control" formControlName="secrepene"></label>
+        </div>
+        <div class="col-lg-12">
+          <label>Enfermedades de transmisión sexual<input type="checkbox" class="form-control" formControlName="ets"></label>
+          </div>
+          <div class="col-lg-12">
+            <label>Practicas sexuales de riesgo<input type="checkbox" class="form-control" formControlName="riskysex"></label>
+            </div>
+            <div class="col-sm-12">
+              <label>Dolor de cabeza frecuente<input type="checkbox" class="form-control" formControlName="dolorcabeza"></label>
+              </div>
+              <div class="col-sm-12">
+          <label>Paralisis en alguna parte del cuerpo<input type="checkbox" class="form-control" formControlName="paralisis"></label>
+            </div>
+          <div class="col-lg-12">
+          <label>Ataques, convulsiones<input type="checkbox" class="form-control" formControlName="convulsiones"></label>
+          </div>
+          <div class="col-lg-12">
+            <label>Adormecimiento de brazos, manos o pies<input type="checkbox" class="form-control" formControlName="adormeciextremi"></label>
+            </div>
+            <div class="col-sm-12">
+              <label>Ronchas o comezón en la piel<input type="checkbox" class="form-control" formControlName="comezonpiel"></label>
+              </div>
+
+              <div class="col-sm-12">
+                <label>Alergías a medicinas o alimentos<input type="checkbox" class="form-control" formControlName="alergiamedicina"></label>
+                </div>
+                <div class="col-lg-12">
+                  <label>Comezón/Ardor en ojos, nariz, garganta<input type="checkbox" class="form-control" formControlName="ardorojos"></label>
+                  </div>
+                  <div class="col-lg-12">
+                    <label>Hongos en piel o uñas<input type="checkbox" class="form-control" formControlName="hongounas"></label>
+                    </div>
+                    <div class="col-sm-12">
+                      <label>Dificultad para ver de cerca o lejos<input type="checkbox" class="form-control" formControlName="miope"></label>
+                      </div>
+                      <div class="col-sm-12">
+                <label>Tiene tatuajes / perforaciones<input type="checkbox" class="form-control" formControlName="perfos"></label>
+                </div>
+                <div class="col-lg-12">
+                  <label>Transfusiones<input type="checkbox" class="form-control" formControlName="transfus"></label>
+                  </div>
+                  <div class="col-lg-12">
+                    <label>Enfermedad de tiroides<input type="checkbox" class="form-control" formControlName="enftiroides"></label>
+                    </div>
+                    
+  
+         
+        </div>
+
+     
+     
+
+      
+</div>
+
+          <!--<label formArrayName="expos" *ngFor="let exp of exposFormArray.controls; let i = index">
+            <input type="checkbox" [formControlName]="i">
+            {{exposData[i].name}}
+          </label>
+
+          <input type="checkbox" [formControlName]="i">
+          <label>Some asdfmas df</label>-->
+
+          <div class="col-sm-12"><!--ACTUAL SKIP LINE FOR BOOTY COLS-->
+            <br>
+            <br>
+            <label style="display: block; font-weight: 1000;">GIneco obstetricia</label>
+            
+            <hr>
+            <br>
+          </div>
+
+
+        
+          <br>
+          <br>
+          <div class="col-sm-3">
+            <label>Gineco Menarca</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="ginmenarc">
+          </div> 
+          
+          <div class="col-sm-3">
+            <label >Inicio Vida sexual</label>
+          
+          </div>
+          <div class="col-sm-3"><input type="date" class="form-control" formControlName="iniciosex">
+          </div> 
+          
+            <div class="col-sm-3">
+            <label>Numero de parejas </label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="numparejas">
+          </div>
+          
+          <div class="col-sm-3">
+            <label>Métodos de planificación</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="metodosp">
+          </div>
+          <div class="col-sm-3">
+            <label>Gestas</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="gestas">
+          </div>
+          <div class="col-sm-3">
+          <label>Partos</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="partos">
+          </div>
+          <div class="col-sm-3">
+            <label>Cesareas</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="cesars">
+          </div>
+          <div class="col-sm-3">
+          <label>Abortos</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="aborts">
+          </div>
+          <div class="col-sm-3">
+            <label>Último parto</label>
+          </div> 
+          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimoparto">
+          </div>
+          <div class="col-sm-3">
+          <label>Última exploración mamaria</label>
+          </div> 
+          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimamam">
+          </div>
+          <div class="col-sm-3">
+          <label>Última Mastografía</label>
+          </div> 
+          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimamast">
+          </div>
+          <div class="col-sm-3">
+          <label>Resultado Última exploración mamaria</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="ultimamastd">
+          </div>
+          
+          <div class="col-sm-12"><!--ACTUAL SKIP LINE FOR BOOTY COLS-->
+            <br>
+            <label style="display: block; font-weight: 1000;">Exploración física</label>
+            <br>
+          </div>
+         
+          
+          
+          <div class="col-sm-12">
+          <hr>
+                        <label style="display: block;">Signos Vitales</label>
+          
+          </div>
+          <div class="col-sm-3">
+            <label  style="float: right;">Peso (kg)</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="pesosignos">
+            <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('name').invalid && myForm.get('name').touched"></div>-->
+             
+          </div> 
+          
+          <div class="col-sm-3">
+            <label  style="float: right;">Talla (cm)</label>
+          </div>
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="tallasignos">
+          </div> 
+          
+            <div class="col-sm-3">
+            <label  style="float: right;">IMC * </label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="imcsignos">
+          </div>
+          
+          <div class="col-sm-3">
+            <label  style="float: right;">DXTX</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="dxtxsignos">
+          </div>
+          <div class="col-sm-3">
+            <label style="float: right;">TA Izquierdo</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="taisignos">
+          </div>
+          <div class="col-sm-3">
+          <label  style="float: right;">Ta Derecho</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="tadsignos">
+          </div>
+          <div class="col-sm-3">
+            <label style="float: right;">FC</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="fcsignos">
+          </div>
+          <div class="col-sm-3">
+          <label  style="float: right;">FR</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="frsignos">
+          </div>
+          <div class="col-sm-3">
+            <label  style="float: right;">TEMP</label>
+          </div> 
+          <div class="col-sm-3"><input type="number" class="form-control" formControlName="tempsignos">
+          </div>
+          
+          
+          
+          <div class="col-sm-3">
+           <label style="float: right;">Agudeza visual</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="agusignos">
+          </div>
+          <div class="col-sm-3">
+          <label style="float: right;">Binocular S/C</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="binocusignos">
+          </div>
+          <div class="col-sm-3">
+          <label  style="float: right;">C/C</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="ccsignos">
+          </div>
+          
+          <div class="col-sm-3">
+            <label  style="float: right;">Sin lentes: OD/OI</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="sinodsignos">
+          </div>
+          <div class="col-sm-3">
+          <label style="float: right;">Con lentes: OD/OI</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="conodsignos">
+          </div>
+          <div class="col-sm-3">
+          <label style="float: right;">Agudeza visual cercana</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="agucercasignos">
+          </div>
+          <div class="col-sm-3">
+            <label style="float: right;">Campintetría</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="campisignos">
+          </div>
+          <div class="col-sm-3">
+          <label style="float: right;">Daltonismo</label>
+          </div> 
+          <div class="col-sm-3"><input type="checkbox" class="form-control" formControlName="daltosignos">
+          </div>
+          <div class="col-sm-3">
+          <label style="float: right;">Habitos</label>
+          </div> 
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="habisignos">
+          </div>
+          
+          <div class="col-sm-12"><!--ACTUAL SKIP LINE FOR BOOTY COLS-->
+            <br>
+            <br>
+            <hr>
+            <label>Exploración:Descripción</label>
+            <br>
+            <br>
+          </div>
+          
+          <div class="col-lg-6">
+          
+            <div class="col-sm-3">  <label>Cabeza</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="excabeza"></div>
+            <div class="col-sm-3">  <label>Craneo</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="excraneo"></div>
+          
+            <div class="col-sm-3">  <label>Cara</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="excara"></div>
+            <div class="col-sm-3">  <label>Pupilas</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="expupi"></div>
+            <div class="col-sm-3">  <label>Conjuntivas</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exconjun"></div>
+          
+            <div class="col-sm-3">  <label>Nariz</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exnariz"></div>
+            <div class="col-sm-3">  <label>Boca</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exboca"></div>
+            <div class="col-sm-3">  <label>Cavidad oral</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="excavi"></div>
+            <div class="col-sm-3">  <label>Amigdalas</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="examigda"></div>
+            <div class="col-sm-3">  <label>Faringe</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exfarin"></div>
+            <div class="col-sm-3">  <label>Estado dental</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exesdental"></div>
+          
+            <div class="col-sm-3">  <label>Oído izquierdo</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exoi"></div>
+            <div class="col-sm-3">  <label>Pabellón</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exoip"></div>
+            <div class="col-sm-3">  <label>Conducto</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exoic"></div>
+            <div class="col-sm-3">  <label>Tímpano</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exoit"></div>
+            <div class="col-sm-3">  <label>Audición</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exoia"></div>
+          
+            <div class="col-sm-3">  <label>Oído Derecho</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exod"></div>
+            <div class="col-sm-3">  <label>Pabellón</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exodp"></div>
+            <div class="col-sm-3">  <label>Conducto</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exodc"></div>
+            <div class="col-sm-3">  <label>Tímpano</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exodt"></div>
+            <div class="col-sm-3">  <label>Audición</label></div>
+            <div class="col-sm-9"><input type="text" class="form-control" formControlName="exoda"></div>
+          </div>
+            <div class="col-lg-6">
+          
+              <div class="col-sm-3">  <label>Cuello</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="excuello"></div>
+              <div class="col-sm-3">  <label>Torax</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="extorax"></div>
+            
+              <div class="col-sm-4">  <label style="font-size-adjust: initial;">Mov Respiratorios</label></div>
+              <div class="col-sm-8"><input type="text" class="form-control" formControlName="exmovresp"></div>
+              <div class="col-sm-4">  <label>Ruidos cardiacos</label></div>
+              <div class="col-sm-8"><input type="text" class="form-control" formControlName="exruidocardia"></div>
+              <div class="col-sm-4">  <label>Campos pulmonares</label></div>
+              <div class="col-sm-8"><input type="text" class="form-control" formControlName="excampospulmo"></div>
+            
+              <div class="col-sm-3">  <label>Mamas</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exmamas"></div>
+              <div class="col-sm-3">  <label>Abdomen</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exabdomen"></div>
+              <div class="col-sm-3">  <label>Auscultación</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exausculta"></div>
+              <div class="col-sm-3">  <label>Palpaciones</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="expalpa"></div>
+              <div class="col-sm-3">  <label>Visceromealias</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exviscero"></div>
+              <div class="col-sm-3">  <label>Hernias</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exhernias"></div>
+               <div class="col-sm-3">  <label>Tumoraciones</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="extumor"></div>
+              <div class="col-sm-3">  <label>Obervaciones * </label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exobserva"></div>
+              
+              <div class="col-sm-3">  <label>Genitales</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exgenit"></div>
+              <div class="col-sm-3">  <label>Urinario</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exurin"></div>
+              <div class="col-sm-3">  <label>Columna</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="excolumn"></div>
+            
+              <div class="col-sm-4">  <label>Extremidades Sup</label></div>
+              <div class="col-sm-8"><input type="text" class="form-control" formControlName="exexsup"></div>
+              <div class="col-sm-4">  <label>Extremidades Inf</label></div>
+              <div class="col-sm-8"><input type="text" class="form-control" formControlName="exexinf"></div>
+              <div class="col-sm-3">  <label>Piel *</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="expiel"></div>
+              <div class="col-sm-3">  <label>Sistema nervioso</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="exnerv"></div>
+              
+            </div>
+            <div class=col-sm-12><br></div>
+            <div class="col-sm-3">  <label>Diagnóstico clínico</label></div>
+              <div class="col-sm-9"><input type="text" class="form-control" formControlName="diagnos"></div>
+              <div class="col-sm-3">  <label>Observaciones: </label></div>
+              <div class="col-sm-9"><textarea class="form-control" formControlName="observa"></textarea></div>
+          
+              <div class="col-sm-3">  <label>Recomendaciones: </label></div>
+              <div class="col-sm-9"><textarea class="form-control" formControlName="recomenda"></textarea></div>
+          
+              <div class="col-sm-3" style="font-size: 33px; clear: both;">
+                <label style="vertical-align:bottom">APTO: </label>
+                </div> 
+                <div class="col-sm-3"><input type="checkbox" class="form-control" formControlName="apto">
+                </div>
+          
+          
+               
+               <!-- <div id="signed"> MAYBE ON FORMULARIO COMPONENT????
+                  <figure>
+                    <img [src]="path"  class="form-control" formControlName="recomenda"> 
+                    <noscript>
+                        <img src="signtest.jpg"> 
+                    </noscript>    
+                   
+                  </figure>
+                  <button class="btn btn-block btn-danger" (click)="restart()">De nuevo</button>
+                  </div> ngDefaultControl ngDefaultControl-->
+
+                    <div  class="form-control"  formControlName="firma" id="firma" input type="text" ngDefaultControl></div><!--sin defaultcontrol no value acceso for form firma-->
+
+                    <app-signature-pad (childEvent)="emmit($event)" (childEvent2)="emmit2($event)"></app-signature-pad>
+
+      <pre style="clear: both;">{{ exform.value | json }}</pre> 
+      
+
+     
+
+
+    
+    <div class="row justify-content-center">
+      <div class="col-4">
+          <button type="submit" class='btn btn-success'> <!--[disabled]="exform.invalid">-->
+              <span class='fa fa-save'> </span> Guardar
+            </button>
+      </div>
+    </div>
+
+    
+  </form>
+  
+
+  <!--<div class="row justify-content-center">
+    <div class="col-4">
+        <button  class='btn btn-success' (click)="onsavelite()">
+            <span class='fa fa-save'> </span> Guardaraaas
+          </button>
+    </div>
+  </div>-->
+
+  </div>

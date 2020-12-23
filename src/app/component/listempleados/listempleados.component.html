@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Lista de empleados</h4>
+      </div>
+    </div>
+  
+   
+  
+  <input type="text" [(ngModel)]="term">Buscar nombre
+  
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  <table class="table" *ngIf="emps">
+    <thead>
+      <tr>
+        <th scope="col">item</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Puesto</th>
+        <th scope="col">Turno</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+        <tr *ngFor="let ems of items[0]  | filter : term | paginate: { itemsPerPage: 10, currentPage: p }"> 
+      
+                 
+       
+      
+  
+        <th scope="row">{{ ems.id }}</th>
+        <td>{{ ems.nombre }}</td>
+        <td>{{ ems.puesto }}</td>
+        <td>{{ ems.created_at }}</td>
+        <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editEmps(ems)">Editar</button> </td>
+        <td> <button type="button" class="btn btn-primary" title="Turnos" (click)="gototurnos(ems)">Turnos</button> </td>
+        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoreportes(ems)">Reporte médico</button> </td>
+        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoexamenes(ems)">Exámenes periódicos</button> </td>
+      </tr>
+    </tbody>
+  </table>

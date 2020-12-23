@@ -1,0 +1,305 @@
+
+
+    
+<!--
+    <p>Nombre: {{ querid.nombre }}</p>
+    <p>IDEmpleado: {{ querid.id }}</p>-->
+<!--
+<form [formGroup] ="empForm"  (ngSubmit)="onSubmit(empForm.value)" >
+    <div class="form-group row">
+        <div class="col-sm text-center">
+    <p>                                                 
+        <input type="text" name="nombre" class="form-control" formControlName="nombre"  >
+        <strong>Nombre: </strong> 
+    </p>
+    <p>
+        <input type="text" name="puesto" class="form-control" formControlName="puesto"  >
+        <strong>Puesto: </strong> 
+    </p>
+<button class ="button" type ="submit">Registrar</button>
+
+</form>-->
+<div class="container">
+ 
+
+
+
+<form [formGroup]="exform" [hidden]="success"  (ngSubmit)="onGuardarexpediente(exform.value)">
+
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar expediente</h4>
+      </div>
+    </div>
+  
+      
+  
+        <div class="form-group row">
+
+          <label name="idtemp" >IDemepleado(temporal):</label>                     
+          <input type="number" class="form-control" formControlName="idempleado">
+        
+
+
+
+
+            <label name="nombre" class="col-sm-1 col-form-label">Nombre completo:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" formControlName="nombre" ><!-- [ngModel]="exs.nombre"   [ngModelOptions]="{standalone: true}"> WORKSSS BUT DEPRECATED IN ANG6 > [(ngModel)]="exs.nombre"> placeholder="Nombre completo" ng-pattern ="/^[a-zA-Z\s]*$/">-->
+            </div>
+            
+            <div class="alert alert-danger" role="alert" *ngIf="exform.get('nombre').invalid && exform.get('nombre').touched">
+                ¡Nombre no valido!
+            </div>
+
+            <label name="edad" class="col-sm-1 col-form-label">Edad:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" formControlName="edad" placeholder="18" ng-pattern ="/^[0-9]*$/">
+            </div>
+            
+            <div class="alert alert-danger" role="alert" *ngIf="exform.get('edad').invalid && exform.get('edad').touched">
+                ¡Campo edad no valido!
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+          <label for="sexo"  class="col-sm-1 col-form-label">Sexo:</label>
+            <select id="sexo" formControlName="sexo" class="form-control" >
+              <option selected value="" >Elige un estado...</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+             </select>
+
+
+            <label for="estadocivil">Estado civil</label>
+
+            <select name="estadocivil" formControlName="estadocivil" class="form-control">
+            <option value="Soltero">Soltero</option>
+            <option value="Casado">Casado</option>
+             <option value="Vuido">Vuido</option>
+             
+            </select>
+            <!--
+            <label name="estadocivil" class="col-sm-1 col-form-label">Estado civil:</label>
+            <div class="col-sm-7">
+              <input type="text" class="form-control" formControlName="estadocivil" placeholder="Soltera" ng-pattern ="/^[a-zA-Z\s]*$/">
+            </div>
+            -->
+            <div class="alert alert-danger" role="alert" *ngIf="exform.get('estadocivil').invalid && exform.get('estadocivil').touched">
+                ¡Campo estado civil no valido!
+            </div>
+
+            
+            
+            
+            
+
+        </div>
+            
+        <div class="form-group row">
+            
+          <label name="lugarnac" >Lugar de nacimiento:</label>
+             
+           
+          <input type="text" class="form-control" formControlName="lugarnac" placeholder="San Luis Potosi" ng-pattern ="/^[a-zA-Z\s]*$/">
+        
+    
+        <div class="alert alert-danger" role="alert" *ngIf="exform.get('lugarnac').invalid && exform.get('lugarnac').touched">
+            ¡Lugar de nacimiento no valido!
+        </div>
+            
+            <label name="fechan" class="col-sm-1 col-form-label">Fecha:</label>
+            
+           
+              <input formControlName="fechan" type="date"   value="{{today | date:'yyyy-MM-dd'}}">
+              <div class="input-group-prepend">
+                <span class="input-group-text fa fa-calendar-o" id="inputGroupPrepend2"></span>
+            </div>
+            
+            
+            
+        
+    
+          </div>
+
+          <label name="imss" class="col-sm-1 col-form-label">Número IMSS:</label>
+           
+          <input type="text" class="form-control" maxlength="15" formControlName="imss" placeholder="345345-4" value="">
+      
+
+          <label name="sangre" class="col-sm-1 col-form-label">Tipo de sangre:</label>
+         
+            <input type="text" class="form-control" maxlength="4" formControlName="sangre" placeholder="AH+" value="">
+          
+
+
+          <div class="form-group row">
+            <div class="col-lg-12">
+            <label name="domicilio" class="col-sm-1 col-form-label">Domicilio:</label>
+            
+              <input type="text" class="form-control input-lg"  formControlName="domicilio" placeholder="Calle Walabi 620 Colonia P.Sherman" ><!--ngpattern-->
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <!--<div class="form-group col-md-4"> Alex Alvear Implementation  uses f.pac_estado-->
+              <label for="inputState">Estado</label>
+              <select id="inputState" formControlName="pac_estado" class="form-control" >
+              <!--<select id="inputState" formControlName="pac_estado" class="form-control" [ngClass]="{ 'is-invalid': exform.pac_estado.invalid && (exform.pac_estado.dirty || exform.pac_estado.touched) }">-->
+                  <option selected value="" >Elige un estado...</option>
+                  <option value="Aguascalientes">Aguascalientes</option>
+                  <option value="Baja California">Baja California</option>
+                  <option value="Baja California Sur">Baja California Sur</option>
+                  <option value="Campeche">Campeche</option>
+                  <option value="Coahuila de Zaragoza">Coahuila de Zaragoza</option>
+                  <option value="Colima">Colima</option>
+                  <option value="Chiapas">Chiapas</option>
+                  <option value="Chihuahua">Chihuahua</option>
+                  <option value="Distrito Federal">Distrito Federal</option>
+                  <option value="Durango">Durango</option>
+                  <option value="Guanajuato">Guanajuato</option>
+                  <option value="Guerrero">Guerrero</option>
+                  <option value="Hidalgo">Hidalgo</option>
+                  <option value="Jalisco">Jalisco</option>
+                  <option value="México">México</option>
+                  <option value="Michoacán de Ocampo">Michoacán de Ocampo</option>
+                  <option value="Morelos">Morelos</option>
+                  <option value="Nayarit">Nayarit</option>
+                  <option value="Nuevo León">Nuevo León</option>
+                  <option value="Oaxaca">Oaxaca</option>
+                  <option value="Puebla">Puebla</option>
+                  <option value="Querétaro">Querétaro</option>
+                  <option value="Quintana Roo">Quintana Roo</option>
+                  <option value="San Luis Potosí">San Luis Potosí</option>
+                  <option value="Sinaloa">Sinaloa</option>
+                  <option value="Sonora">Sonora</option>
+                  <option value="Tabasco">Tabasco</option>
+                  <option value="Tamaulipas">Tamaulipas</option>
+                  <option value="Tlaxcala">Tlaxcala</option>
+                  <option value="Veracruz de Ignacio de la Llave">Veracruz de Ignacio de la Llave</option>
+                  <option value="Yucatán">Yucatán</option>
+                  <option value="Zacatecas">Zacatecas</option>
+              </select>
+              <div *ngIf="exform.get('pac_estado').invalid && (exform.get('pac_estado').dirty || exform.get('pac_estado').touched)" class="invalid-feedback">
+                  <div *ngIf="exform.get('pac_estado').errors.required">CAMPO REQUERIDO!</div>
+              </div>
+
+         
+
+            <!--<label name="Estado" class="col-sm-1 col-form-label">Estado:</label>
+            <div class="col-md-7">
+              <input type="text" class="form-control" formControlName="estado" placeholder="San Luis Potosi" >
+            </div>-->
+            <label name="cp" class="col-sm-1 col-form-label">CP:</label>
+           
+            <input type="text" class="form-control" maxlength="5" formControlName="cp" placeholder="78000" value="">
+        
+
+            <label name="telelabel" class="col-sm-1 col-form-label">Teléfono:</label>
+           
+              <input type="text" class="form-control" maxlength="10" formControlName="telefon" placeholder="000-000-0000" value="">
+            
+              <label name="cellabel" class="col-sm-1 col-form-label">Celular:</label>
+           
+              <input type="text" class="form-control" maxlength="10" formControlName="celfon" placeholder="444-000-0000" value="">
+           
+        </div>
+
+        <!--Schooll no group no known type-->
+
+        <label for="escolaridad" class="col-sm-1 col-form-label">Escolaridad:</label>
+           
+        <input type="text" id="escolaridad" class="form-control" formControlName="escolaridad" placeholder="Tecnico automotriz" value="">
+        <br>
+
+
+
+        <div class="form-group row">
+          <label name="contactoeme" class="col-sm-2 col-form-label">Contacto de emergencia:</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" formControlName="contactoeme" placeholder="Nombre completo" >
+          </div>
+        </div>
+          
+        <div class="form-group row">
+          <label name="domicilioeme" class="col-sm-1 col-form-label">Domicilio:</label>
+          <input type="text" class="form-control"  formControlName="domicilioeme" placeholder="Calle Walabi 42 Sydney" >
+          
+          <label name="telelabele" class="col-sm-1 col-form-label">Teléfono:</label>
+           
+          <input type="text" class="form-control" maxlength="10" formControlName="telefoneme" placeholder="000-000-0000" value="">
+        
+
+      </div>
+
+<br>
+<br>
+<label>Padecimientos de importancia:</label>
+      <div class="form-group row">
+        
+        
+
+        <label name="padecimientos1" class="col-sm-1 col-form-label">1.</label>
+        <textarea class="form-control"  rows="1" formControlName="padecimientos1" placeholder="" ></textarea>
+          <label name="padecimientos" class="col-sm-1 col-form-label">Tratamiento:</label>
+          <textarea class="form-control"  rows="1" formControlName="tratamientos1" placeholder="" ></textarea>
+            <label name="padecimientos1" class="col-sm-1 col-form-label">2.</label>
+        <textarea class="form-control"  rows="1" formControlName="padecimientos2" placeholder="" ></textarea>
+          <label name="padecimientos" class="col-sm-1 col-form-label">Tratamiento:</label>
+          <textarea class="form-control"  rows="1" formControlName="tratamientos2" placeholder="" ></textarea>
+        
+     <!--should use another fromgrouprow??? <div class="form-group row">-->
+    
+      <label name="medem" class="col-sm-2 col-form-label">Médico de la empresa</label>
+      <div class="col-sm-7">
+        <input type="text" class="form-control" formControlName="medem" placeholder="" >
+      </div>
+      <label name="dmedims" class="col-sm-2 col-form-label">Médico del IMSS:</label>
+      <div class="col-lg-7">
+        <input type="text" class="form-control" formControlName="medimss" placeholder="" >
+      </div>
+    
+
+
+    </div>
+
+    <br>
+
+    <label>Accidentes de planta:</label>
+      <div class="form-group row">
+        
+        
+
+        <label name="padecimientos1" class="col-sm-1 col-form-label">1.</label>
+        <textarea class="form-control"  rows="1" formControlName="acci1" placeholder="" ></textarea>
+          <label name="padecimientos" class="col-sm-1 col-form-label">2</label>
+          <textarea class="form-control"  rows="1" formControlName="acci1" placeholder="" ></textarea>
+            <label name="padecimientos1" class="col-sm-1 col-form-label">3.</label>
+        <textarea class="form-control"  rows="1" formControlName="acci3" placeholder="" ></textarea>
+          <label name="padecimientos" class="col-sm-3 col-form-label">Breve descipcion con diagnóstico:</label>
+          <textarea class="form-control"  rows="2" formControlName="accidescrip" placeholder="" ></textarea>
+        
+     
+    </div>
+
+    <label name="firma1" class="col-sm-1 col-form-label">Firma del trabajador...(?)</label>
+
+
+  <br>
+  <br>
+      <div class="row justify-content-center">
+        <div class="col-4">
+            <button type="submit" class='btn btn-success' [disabled]="exform.invalid">
+                <span class='fa fa-save'> </span> Guardar
+              </button>
+        </div>
+      </div>
+  
+    </form>
+  
+
+
+   </div>
