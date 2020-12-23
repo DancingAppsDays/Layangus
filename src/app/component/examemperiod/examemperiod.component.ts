@@ -18,7 +18,7 @@ export class ExamemperiodComponent implements OnInit {
   exform: FormGroup; 
   exs: any;
   sucessdata: any;
-
+ 
  
 
 
@@ -35,7 +35,7 @@ export class ExamemperiodComponent implements OnInit {
  }
 
  emmit2($event){
-     //console.log($event);
+     console.log($event);
     // var signdiv = (<HTMLInputElement>document.getElementById("firma")).value = localStorage.getItem("signaturetemp");
    
      
