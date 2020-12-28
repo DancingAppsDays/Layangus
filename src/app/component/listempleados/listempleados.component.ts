@@ -106,6 +106,15 @@ export class ListempleadosComponent implements OnInit {
  })
 }
 gotoexamenes(equipo:any){
+  this.router.navigate(['examemperiodlist'],{
+    queryParams:{
+      id:equipo.id,
+      nombre:equipo.nombre
+    }
+
+})
+}
+gotolastexamen(equipo:any){
   this.router.navigate(['examemperiod'],{
     queryParams:{
       id:equipo.id,

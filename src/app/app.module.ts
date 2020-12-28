@@ -18,6 +18,7 @@ import { ReportaccidenteComponent } from './component/reportaccidente/reportacci
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SignaturePadComponent } from './component/signature-pad/signature-pad.component';
+import { ExamenperiodlistComponent } from './component/examenperiodlist/examenperiodlist.component';
 
 //import SignaturePad from 'signature_pad'; //fuck this
 //import { HttpserviceService } from './service/httpservice.service';
@@ -33,7 +34,8 @@ import { SignaturePadComponent } from './component/signature-pad/signature-pad.c
     ExpedientemComponent,
     ExamemperiodComponent,
     ReportaccidenteComponent,
-    SignaturePadComponent
+    SignaturePadComponent,
+    ExamenperiodlistComponent
   ],
   imports: [
     BrowserModule,

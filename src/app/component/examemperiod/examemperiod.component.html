@@ -629,48 +629,24 @@
                            
                   </label>
                   </div>
-       <!--<div class="row">
-         <div class="column">
-
-          <div class="col-sm-6">
-              <label>Vibraciones<input type="checkbox" class="form-control" formControlName="ruidobodx">
-               </label>
-              </div>
-              <div class="col-sm-6">
-                <label>Vibraciones asdf sadf<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                 </label>
-                </div>
-                <div class="col-sm-6">
-                  <label>Vibraciones fdkjyerty jhf<input type="checkbox" class="form-control" formControlName="ruidobodx">
-                   </label>
-                  </div>
-
-          </div> 
-
-          <div class="column">
-          <label>Vibraciones<input type="checkbox" class="form-control" formControlName="ruidobodx">
-          </label>
-          
-          
-           </div>
-        </div> --> 
+       
       </div>
 
-
+      <div class="col-sm-12" style="clear: both;">
       <br>
       <br>
-  <div class="form-group" style="clear: both;">
+  
       
       <label style="font-weight:888;clear: both;">Antecedentes personales no patológicos</label>       
         <br>
-
+        <br>
 
         <label  class="col-sm-1 col-form-label">Habita en casa:</label>
         <div class="col-sm-4">
         <select id="inputState" formControlName="casatipo" class="form-control">
           <option value="Propia">Propia</option>
           <option value="Rentada">Rentada</option>
-          <option value="Prestada">Prestada</option><!--sure.....-->
+          <option value="Prestada">Prestada</option>
          </select>
         </div>
 
@@ -715,8 +691,10 @@
 
           <label>¿Cuántas litros de agua toma en un solo día?<input type="number" class="form-control" formControlName="litrosdia">
           </label>
-
-          <label>De 7 días. ¿Cuántas alimentos consume?</label>
+          <br>
+          <br>
+          <br>
+          <label style="clear: both;">De 7 días a la semana. ¿Cuántas alimentos consume?</label>
 
           <label>Verduras<input type="number" class="form-control" formControlName="Verduras"></label>
           <label>Frutas<input type="number" class="form-control" formControlName="Frutas"></label>
@@ -736,10 +714,10 @@
           <label>¿Cuántas veces a la semana cepilla sus dientes?<input type="number" class="form-control" formControlName="semadientes"></label>
           
          
-
+          <br>
           <br>
           <label style="clear: both;">En su esquema de vacunacion</label>
-
+          <br>
           <label>Esquema de vacunacion completo<input type="checkbox" class="form-control" formControlName="esquemavacun">
                  
           </label>
@@ -766,12 +744,13 @@
 
    </div>  
    
-
+   <div class="col-sm-12">
    <br>
    <br>
    <label style="font-weight:888; clear: both;" >Respecto a tus antecendetes personales marca si has tenido el padecimiento</label>       
    <br>
-<div class="form-group" >
+   <br>
+  </div>  
    
     
 
@@ -779,11 +758,7 @@
 
 
         
-      <!--<div class="col-sm-9">
-      <label style="float:right;">Varicelaa </label>
-    </div> 
-    <div class="col-sm-3"><input type="checkbox" class="form-control" formControlName="padvar">
-    </div> -->
+     
 
     <div class="col-lg-12">
       <label>Varicela<input type="checkbox" class="form-control" formControlName="Varicela"></label>
@@ -970,7 +945,7 @@
      
 
       
-</div>
+
 
           <!--<label formArrayName="expos" *ngFor="let exp of exposFormArray.controls; let i = index">
             <input type="checkbox" [formControlName]="i">
@@ -1305,7 +1280,7 @@
                   <button class="btn btn-block btn-danger" (click)="restart()">De nuevo</button>
                   </div> ngDefaultControl ngDefaultControl      [hidecanvas]=false-->
 
-                    <div  class="form-control"  formControlName="firma" id="firma" input type="text" ngDefaultControl></div><!--sin defaultcontrol no value acceso for form firma-->
+                    <div  class="form-control"  formControlName="firma" id="firma" input type="text" ngDefaultControl style="clear: both;visibility: hidden;"></div><!--sin defaultcontrol no value acceso for form firma-->
 
                     <app-signature-pad id="signaler" #signaler (childEvent)="emmit($event)" (childEvent2)="emmit2($event)"   [_hidecanvas]="hidecanvasp" ></app-signature-pad>
 

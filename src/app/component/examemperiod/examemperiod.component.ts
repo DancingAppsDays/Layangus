@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 import SignaturePad from 'signature_pad';
 import { Constantes } from 'src/app/constantes';
 import { SignaturePadComponent } from '../signature-pad/signature-pad.component';
@@ -20,10 +21,10 @@ export class ExamemperiodComponent implements OnInit {
   exs: any;
   sucessdata: any;
  hidecanvasp = false;
- 
+ querid:any;
 
 
-  constructor(private fb:FormBuilder, private http:HttpClient) { }
+  constructor(private fb:FormBuilder, private http:HttpClient, private router2:ActivatedRoute) { }
 
   emmit($event){
      //console.log($event);
@@ -74,7 +75,12 @@ changechild()  //after getdata is called....
   ngOnInit(): void {
 
     
-
+     this.router2.queryParams.subscribe(async (params:Params)=>{
+          console.log(params);
+          console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
+          this.querid=params.id;
+    
+      });
      
      //  console.log(this.child.showImage()); // I am a child!
      
@@ -1016,16 +1022,18 @@ changechild()  //after getdata is called....
                          // Validators.required,
         ]],  
 
-                   
-
-
-
-
-
-      
-    });
+        
+    });   // end formbuilder
     
-    this.getfromdata();
+  //  this.getfromdata();     //TODO: only if accesed by query   
+    if(this.querid != undefined)// = undefined  != "undefined")
+    {
+     //window.alert("Some ided");
+     this.getfromdata();
+    }else{
+        console.log("registrar new examen.. pero de quien");
+    }
+
 
 }//end of ONinit
 
@@ -1036,7 +1044,7 @@ getcurry()
 
 }
 
-getfromdata()//id: int)
+getfromdata()//id: int)       //TODO GET INT BY QUERY
 {
   this.http.get(Constantes.capiURL+"Examenme/2").subscribe(data => {
 
