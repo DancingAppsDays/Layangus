@@ -765,7 +765,7 @@
 
 
    </div>  
-
+   
 
    <br>
    <br>
@@ -1303,11 +1303,13 @@
                    
                   </figure>
                   <button class="btn btn-block btn-danger" (click)="restart()">De nuevo</button>
-                  </div> ngDefaultControl ngDefaultControl-->
+                  </div> ngDefaultControl ngDefaultControl      [hidecanvas]=false-->
 
                     <div  class="form-control"  formControlName="firma" id="firma" input type="text" ngDefaultControl></div><!--sin defaultcontrol no value acceso for form firma-->
 
-                    <app-signature-pad (childEvent)="emmit($event)" (childEvent2)="emmit2($event)"></app-signature-pad>
+                    <app-signature-pad id="signaler" #signaler (childEvent)="emmit($event)" (childEvent2)="emmit2($event)"   [_hidecanvas]="hidecanvasp" ></app-signature-pad>
+
+
 
       <pre style="clear: both;">{{ exform.value | json }}</pre> 
       

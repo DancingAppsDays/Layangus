@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import SignaturePad from 'signature_pad';
 
 @Component({
@@ -7,11 +7,21 @@ import SignaturePad from 'signature_pad';
   styleUrls: ['./signature-pad.component.scss']
 })
 export class SignaturePadComponent implements OnInit, AfterViewInit {
+
   @ViewChild('sPad', {static: true}) signaturePadElement;
+ 
   signaturePad: any;
   filePathHelper: any;
   path: any;
   //const childEvent:any;
+
+
+  //UNUsed, mejor viewchield acces method....
+  @Input() _hidecanvas: any;
+    set hidecanvas(any)
+    {
+      this.whoIam();
+    }
 
   constructor() { }
 
@@ -29,29 +39,34 @@ export class SignaturePadComponent implements OnInit, AfterViewInit {
     //localStorage.getItem("signaturetemp");
 }
 
-  setsigned()     //mejor usar showImage, pero primero usa el value from data para almacenar en locostorage
-  {
-    var signdiv = document.getElementById("signahide");
-    
-   signdiv.style.display='none';
 
-   var signed = document.getElementById("signed");
-      
-   signed.style.display='block';
+  
 
 
-   console.log("Hidde signpad, show signed");
+  whoIam() {
+    return 'I am a child!!';
   }
-
 
   ngOnInit(): void {
 
     //this.childEvent.emit("This is the child component");
-    
     var signed = document.getElementById("signed");
     
    signed.style.display='none';
+    if(this.hidecanvas)
+    {
+    //
+
+   this.showImage(); 
+
+    }
   }
+
+  ngOnChanges() {
+    console.log("onchangedd"); // reference with this
+    //this.hidecanvas =...
+}
+
 
   ngAfterViewInit(): void {
     this.signaturePad = new SignaturePad(this.signaturePadElement.nativeElement);

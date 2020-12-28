@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import SignaturePad from 'signature_pad';
 import { Constantes } from 'src/app/constantes';
 import { SignaturePadComponent } from '../signature-pad/signature-pad.component';
 
@@ -18,7 +19,7 @@ export class ExamemperiodComponent implements OnInit {
   exform: FormGroup; 
   exs: any;
   sucessdata: any;
- 
+ hidecanvasp = false;
  
 
 
@@ -44,16 +45,39 @@ export class ExamemperiodComponent implements OnInit {
           
           //console.log("RE erased");
  }
+ //@Input() hidecanvas: "true";
+ //@ViewChild('signar')singar//, { static: false }) singar          //angular 8 ondward...
+/*
+ addevent(){
+ //    this.childEvent.emit();
+ }
 
- @ViewChild(SignaturePadComponent, { static: false }) singar          //angular 8 ondward...
+
+ 
     //private childcomp: SignaturePadComponent;
 
     increase() {
          console.log("increase func test");
-       this.singar.setsigned();
-    }
+       this.singar.setsigned();         //UNRECOGNIZEDDD....
+    }*/
+
+    @ViewChild("signaler", {static: true}) child:SignaturePadComponent;         //IT WORKSSSSS
+
+
+changechild()  //after getdata is called....
+{
+     //console.log("child func test");
+     this.hidecanvasp = true;
+     this.child.showImage(); //is TODO IMAGETR CON PATCH VALUIE
+}
 
   ngOnInit(): void {
+
+    
+
+     
+     //  console.log(this.child.showImage()); // I am a child!
+     
 
      
 
@@ -1377,21 +1401,26 @@ apto: this.exs.apto,
 firma:this.exs.firma,  
 
 
-          
-
+      //localStorage.setItem("signaturetemp",)    
+    
 
 
       }
       );
+
+      localStorage.setItem("signaturetemp", this.exs.firma);
+
+      this.changechild();  //hiddes child signcanvas shows images....
 
     }else{
       window.alert(this.sucessdata['mensaje']);// + '    No autorizado');
       //this.router.navigate(['/']);
 
     }
-  });  
 
- this.increase();  //hiddes child signcanvas shows images....
+
+  });  
+ 
 
 }
 onsavelite(data)
