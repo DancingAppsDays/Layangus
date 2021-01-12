@@ -19,9 +19,30 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SignaturePadComponent } from './component/signature-pad/signature-pad.component';
 import { ExamenperiodlistComponent } from './component/examenperiodlist/examenperiodlist.component';
+import { EstudiosmeComponent } from './component/estudiosme/estudiosme.component';
+
+
+import { AngularFireModule } from '@angular/fire';
+//import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from 'src/environments/environment';
+import { LoginComponent } from './component/login/login.component';
+import { RegistraruserComponent } from './component/registraruser/registraruser.component';
+import { TurnosempleadoComponent } from './component/turnosempleado/turnosempleado.component';
+
 
 //import SignaturePad from 'signature_pad'; //fuck this
 //import { HttpserviceService } from './service/httpservice.service';
+
+/*    //Safety ffirst biach
+var firebaseConfig = {
+  apiKey: "asdfasdf",
+  authDomain: "asdfasdf",
+  projectId: "asdf",
+  storageBucket: "asdfasdf",
+  messagingSenderId: "ghdffhdfgh36",
+  appId: "hdfghdfghdfghdfgh"
+};*/
 
 @NgModule({
   declarations: [
@@ -35,13 +56,26 @@ import { ExamenperiodlistComponent } from './component/examenperiodlist/examenpe
     ExamemperiodComponent,
     ReportaccidenteComponent,
     SignaturePadComponent,
-    ExamenperiodlistComponent
+    ExamenperiodlistComponent,
+    EstudiosmeComponent,
+    LoginComponent,
+    RegistraruserComponent,
+    TurnosempleadoComponent,
+    //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
+    //AngularFireStorageModule,
+    //AngularFireStorage
   ],
-  imports: [
+
+
+
+  
+  imports: [ AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
     HttpClientModule,
+
     ReactiveFormsModule,     
     NgxPaginationModule,
     Ng2SearchPipeModule,
@@ -65,3 +99,4 @@ import { ExamenperiodlistComponent } from './component/examenperiodlist/examenpe
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

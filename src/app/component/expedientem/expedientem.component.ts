@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params,  Router } from '@angular/router';
 import { Constantes } from 'src/app/constantes';
 
 @Component({
@@ -16,19 +17,41 @@ export class ExpedientemComponent implements OnInit {
   exform: FormGroup; 
   sucessdata:any;
   exs : any;
+querid: any;
+queridempleado: any;
+queridnombre:any;
+
+@Input() inputs: any;
+
+inputstr ="HELLO BIACH";
 
 
+ngOnChanges() { //use SimpleChanges for multiple INPUTS
 
-  constructor(private fb:FormBuilder, private http:HttpClient) { }
+  //this.doSomething(this.myFirstInputParameter);
+  console.log("onchangesng onchages");
+}
+
+  constructor(private fb:FormBuilder, private http:HttpClient,private router:Router, private router2:ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.router2.queryParams.subscribe(async (params:Params)=>{
+      console.log(params);
+      console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
+      this.querid=params.idempleado;
+      this.queridempleado= params.idempleado;
+  });
+    
 
     this.exform = this.fb.group({
       //fecha: this.today,
      // hora: '',
       nombre: ['', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z ]*$')
+        Validators.pattern('^[a-zA-Z ]*$'), //TEMPORAL PARA PRUEBAS
+        Validators.minLength(3),
+        Validators.maxLength(8)
       ]],
       idempleado: ['', [
         Validators.required,
@@ -51,6 +74,10 @@ export class ExpedientemComponent implements OnInit {
                    ]],
       fechan: ['', [
           Validators.required,
+          //Validators.pattern('(/^(\d{2}|\d{1})\/(\d{2}|\d{1})\/\d{4}$/)')
+          //Validators.pattern('(^(((0[1-9]|1[0-9]|2[0-8])[\/](0[1-9]|1[012]))|((29|30|31)[\/](0[13578]|1[02]))|((29|30)[\/](0[4,6,9]|11)))[\/](19|[2-9][0-9])\d\d$)|(^29[\/]02[\/](19|[2-9][0-9])(00|04|08|12|16|20|24|28|32|36|40|44|48|52|56|60|64|68|72|76|80|84|88|92|96)$)')
+            //Validators.pattern('/^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/')
+         // Validators.pattern('/^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))/')
                ]],
     
       pac_estado: ['', [
@@ -128,8 +155,30 @@ export class ExpedientemComponent implements OnInit {
     });
 
 
-      this.getfromdata();
+    if(this.querid != undefined)// = undefined  != "undefined")  //editar no guardar neuvo
+    {
+     //cambiarbotonsave();
+     //this.editar = true; //declara que el submit editara no creara nuevo registro
+     this.getfromdata(this.querid);
 
+    }
+    /*else{                                        //else new examen con idempleado readonyl
+     console.log(this.queridempleado);
+    
+     this.exform.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
+   
+     //document.getElementById('idtemp').style.display = "none";
+     //(<HTMLInputElement>document.getElementById('idemplea')).readOnly = true;//.value;
+    
+    }
+    document.getElementById('idtemp').style.display = "none";
+    //IF not query from 1... ?? then again solo debería haber uno...
+      this.getfromdata(this.querid.id);*/
+
+
+     // console.log("PREEEOnvalue chagnes iniited");
+      this.onValueChanges();
+    //  console.log("PODTOnvalue chagnes iniited");
   }//end of ONinit
 
 
@@ -139,9 +188,10 @@ export class ExpedientemComponent implements OnInit {
 
   }
 
-  getfromdata()//id: int)
+  getfromdata(idemp)//id: int)
   {
-    this.http.get(Constantes.capiURL+"Expediente/1").subscribe(data => {
+    console.log("instant get expendiente");
+    this.http.get(Constantes.capiURL+"Expediente/"+idemp).subscribe(data => {
 
       this.sucessdata = data;
       if(this.sucessdata['status'] == "success"){
@@ -182,16 +232,49 @@ export class ExpedientemComponent implements OnInit {
         );
 
       }else{
+        window.alert("Expediente no encontrado. " + this.sucessdata['mensaje']);// + '    No autorizado');
+        //this.router.navigate(['/']);
+  
+      }
+    });  
+  
+    
+  }
+
+   somchangesdeselect()
+  {
+    console.log("deselected input");    //if valid, check right now on database....
+    if(this.exform.get('nombre').valid)
+    this.checkvalidondatabase();
+    else
+    console.log("deselected NO valid dont httpreqeust"); 
+  }
+  
+  checkvalidondatabase(){
+
+    this.http.get(Constantes.capiURL+"Expediente").subscribe(data => {
+
+      this.sucessdata = data;
+      if(this.sucessdata['status'] == "success"){
+  
+      //this.eqs = this.sucessdata['data'];
+      window.alert(this.sucessdata['mensaje']);
+      }else{
         window.alert(this.sucessdata['mensaje']);// + '    No autorizado');
         //this.router.navigate(['/']);
   
       }
     });  
   
-
-
   }
 
+onValueChanges(){
+  /*
+  console.log("Onvalue chagnes iniited");
+    this.exform.get('nombre').valueChanges.subscribe(val=>{
+      console.log(val);
+    });*/
+  }
   onGuardarexpediente(data)
 {
   console.log("sendtoguardarsu usuario");
@@ -203,6 +286,16 @@ export class ExpedientemComponent implements OnInit {
 
     //this.eqs = this.sucessdata['data'];
     window.alert(this.sucessdata['mensaje']);
+
+
+
+
+    this.exform.reset();
+
+    this.router.navigate(['/pages/pacientes']);
+    //this.webcamImage = null;
+    //this.cancel();    
+
     }else{
       window.alert(this.sucessdata['mensaje']);// + '    No autorizado');
       //this.router.navigate(['/']);

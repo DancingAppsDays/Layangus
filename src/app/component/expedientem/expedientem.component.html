@@ -36,16 +36,16 @@
   
         <div class="form-group row">
 
-          <label name="idtemp" >IDemepleado(temporal):</label>                     
+          <label name="idtemp" >IDemepleado(temporal):                    
           <input type="number" class="form-control" formControlName="idempleado">
-        
+        </label> 
 
 
 
 
             <label name="nombre" class="col-sm-1 col-form-label">Nombre completo:</label>
             <div class="col-sm-7">
-              <input type="text" class="form-control" formControlName="nombre" ><!-- [ngModel]="exs.nombre"   [ngModelOptions]="{standalone: true}"> WORKSSS BUT DEPRECATED IN ANG6 > [(ngModel)]="exs.nombre"> placeholder="Nombre completo" ng-pattern ="/^[a-zA-Z\s]*$/">-->
+              <input type="text" class="form-control" formControlName="nombre" (change)=" somchangesdeselect()" > <!--onBlur="this.somafun()">  [ngModel]="inputstr"> [ngModel]="exs.nombre"   [ngModelOptions]="{standalone: true}"> WORKSSS BUT DEPRECATED IN ANG6 > [(ngModel)]="exs.nombre"> placeholder="Nombre completo" ng-pattern ="/^[a-zA-Z\s]*$/">-->
             </div>
             
             <div class="alert alert-danger" role="alert" *ngIf="exform.get('nombre').invalid && exform.get('nombre').touched">
@@ -113,11 +113,13 @@
             <label name="fechan" class="col-sm-1 col-form-label">Fecha:</label>
             
            
-              <input formControlName="fechan" type="date"   value="{{today | date:'yyyy-MM-dd'}}">
+              <input formControlName="fechan" type="date" max="2999-12-31" min="1900-01-01"> <!--value="{{today | date:'yyyy-MM-dd'}}"> ng-pattern ="/^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/">-->
               <div class="input-group-prepend">
                 <span class="input-group-text fa fa-calendar-o" id="inputGroupPrepend2"></span>
             </div>
-            
+            <div class="alert alert-danger" role="alert" *ngIf="exform.get('fechan').invalid && exform.get('fechan').touched">
+              ¡Campo fecha no valido!
+          </div>
             
             
         
@@ -183,8 +185,8 @@
                   <option value="Yucatán">Yucatán</option>
                   <option value="Zacatecas">Zacatecas</option>
               </select>
-              <div *ngIf="exform.get('pac_estado').invalid && (exform.get('pac_estado').dirty || exform.get('pac_estado').touched)" class="invalid-feedback">
-                  <div *ngIf="exform.get('pac_estado').errors.required">CAMPO REQUERIDO!</div>
+              <div *ngIf="exform.get('pac_estado').invalid && (exform.get('pac_estado').dirty || exform.get('pac_estado').touched)"> <!--class="invalid-feedback">-->
+                  <div *ngIf="exform.get('pac_estado').errors.required"  class="alert alert-danger" role="alert" >CAMPO REQUERIDO!</div>
               </div>
 
          

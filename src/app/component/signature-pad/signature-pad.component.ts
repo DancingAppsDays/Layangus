@@ -1,8 +1,13 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/storage';
 import SignaturePad from 'signature_pad';
 
+//import { AngularFirestore} from '@angular/fire/firestore';
+//import{AngularFireStorage, AngularFireStorageModule} from '@angular/fire/storage';
+
+
 @Component({
-  selector: 'app-signature-pad',
+  selector: 'eatass-signature-pad',
   templateUrl: './signature-pad.component.html',
   styleUrls: ['./signature-pad.component.scss']
 })
@@ -18,12 +23,19 @@ export class SignaturePadComponent implements OnInit, AfterViewInit {
 
   //UNUsed, mejor viewchield acces method....
   @Input() _hidecanvas: any;
-    set hidecanvas(any)
-    {
-      this.whoIam();
-    }
+  set hidecanvas(any)
+  {
+    this.whoIam();
+  }
 
-  constructor() { }
+  
+  filePath: string;
+  //storage: any;
+
+
+   
+                                 //couldnt find... at first
+  constructor(private storage: AngularFireStorage) { }
 
  // @Input() name: string;
   @Output()
@@ -224,7 +236,23 @@ showImage() { this.path = ''; setTimeout(() => { this.path = localStorage.getIte
       alert('Please provide a signature first.');
     } else {
       const dataURL = this.signaturePad.toDataURL();
-      this.download(dataURL, 'signature.png');
+      //this.download(dataURL, 'signature.png');
+      this.onUpload(dataURL);
     }
   }
+
+  //de Alex Alvear
+  onUpload(DATA_URL) {
+    const namephoto: string = "somastring.jpg";//this.pacienteForm.controls['pac_curp'].value+'.jpg'; this.pacienteForm.controls['pac_curp'].value
+    //this.filePath = 'uploads/'+"namepaciente"+ '/' + namephoto;
+    this.filePath = 'uploads/somfile.jpg';
+
+    const ref = this.storage.ref(this.filePath);          //declared property storage??
+    const task = ref.putString(DATA_URL, 'data_url');
+
+    return this.filePath;
+  }
+
+  
+
 }

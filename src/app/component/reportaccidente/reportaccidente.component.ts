@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Constantes } from 'src/app/constantes';
 
 @Component({
@@ -17,17 +18,33 @@ export class ReportaccidenteComponent implements OnInit {
   sucessdata:any;
   exs : any;
 
+  querid:any;
+  queridempleado: any;
+  editar: boolean;
 
 
-  constructor(private fb:FormBuilder, private http:HttpClient) { }
+
+  constructor(private fb:FormBuilder, private http:HttpClient, private router2:ActivatedRoute) { }
 
   ngOnInit(): void {
 
+
+    this.router2.queryParams.subscribe(async (params:Params)=>{
+      console.log(params);
+      console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
+      this.querid=params.id;
+      this.queridempleado= params.idempleado;
+  });
+
+
     this.myForm = this.fb.group({
      
+     idempleado: ['', [
+        Validators.required       
+      ]],
       nombrel: ['', [
-        Validators.required,
-        Validators.pattern('^[a-zA-Z ]*$')
+        Validators.required//,
+        //Validators.pattern('^[a-zA-Z ]*$')
       ]],
       depa: ['', [
         Validators.required,
@@ -50,7 +67,7 @@ export class ReportaccidenteComponent implements OnInit {
       mecan: ['', [
         Validators.required,
              ]],
-      tipoacc: ['', [
+      tipoacci: ['', [
         Validators.required,
              ]],
       dispo: ['', [
@@ -78,6 +95,23 @@ export class ReportaccidenteComponent implements OnInit {
 
 
     });
+    if(this.querid != undefined)// = undefined  != "undefined")  //editar no guardar neuvo
+    {
+     //cambiarbotonsave();
+     this.editar = true; //declara que el submit editara no creara nuevo registro
+     this.getfromdata(this.querid);
+
+    }else{                                        //else new examen con idempleado readonyl
+     console.log(this.queridempleado);
+    
+     this.myForm.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
+   
+     //document.getElementById('idtemp').style.display = "none";
+     //(<HTMLInputElement>document.getElementById('idemplea')).readOnly = true;//.value;
+    
+    }
+    document.getElementById('idtemp').style.display = "none";
+
 
 
      // this.getfromdata();
@@ -91,9 +125,9 @@ export class ReportaccidenteComponent implements OnInit {
 
   }
 
-  getfromdata()                             //EXAMPLEE:.. FIX WITH(INT i)
+  getfromdata(id)                             //EXAMPLEE:.. FIX WITH(INT i)
   {
-    this.http.get(Constantes.capiURL+"Accidente/1").subscribe(data => {
+    this.http.get(Constantes.capiURL+"Accidente/"+id).subscribe(data => {
 
       this.sucessdata = data;
       if(this.sucessdata['status'] == "success"){

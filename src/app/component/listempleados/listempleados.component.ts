@@ -100,7 +100,8 @@ export class ListempleadosComponent implements OnInit {
    this.router.navigate(['reportes'],{
      queryParams:{
        id:equipo.id,
-       nombre:equipo.nombre
+       nombre:equipo.nombre,
+       idempleado:equipo.idempleado,
      }
 
  })
@@ -114,10 +115,29 @@ gotoexamenes(equipo:any){
 
 })
 }
-gotolastexamen(equipo:any){
+gotonuevoexamen(equipo:any){
   this.router.navigate(['examemperiod'],{
     queryParams:{
+      idempleado:equipo.id,
+      nombre:equipo.nombre
+    }
+
+})
+}
+
+gotoincidentes(equipo:any){
+  this.router.navigate(['reportes'],{
+    queryParams:{
       id:equipo.id,
+      nombre:equipo.nombre
+    }
+
+})
+}
+gotoexpediente(equipo:any){
+  this.router.navigate(['expedientem'],{
+    queryParams:{
+      idempleado:equipo.id,
       nombre:equipo.nombre
     }
 

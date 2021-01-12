@@ -1,1 +1,26 @@
-<p>empleadoedit works!</p>
+
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar empleado</h4>
+      </div>
+    </div>
+  
+
+    
+<!--
+    <p>Nombre: {{ querid.nombre }}</p>
+    <p>IDEmpleado: {{ querid.id }}</p>-->
+
+<form [formGroup] ="empForm"  (ngSubmit)="onSubmit(empForm.value)" >
+    <p>                                                 <!--//to avoid formcontrol error-->
+        <input type="text" name="nombre" class="form-control" formControlName="nombre"  >
+        <strong>Nombre: </strong> 
+    </p>
+    <p>
+        <input type="text" name="puesto" class="form-control" formControlName="puesto"  >
+        <strong>Puesto: </strong> 
+    </p>
+<button class ="button" type ="submit">Registrar</button>
+
+</form>

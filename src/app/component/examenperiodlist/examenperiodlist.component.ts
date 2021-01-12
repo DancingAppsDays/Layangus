@@ -69,13 +69,22 @@ editexa(examen: any)
     console.log(examen)
     this.router.navigate(['examemperiod'],{
       queryParams:{
-        id:examen.id,
+        id:examen.id
+        //idempleado: examen.q
         //nombre:examen.nombre,
         //puesto:examen.puesto
       }
     })
 
   }
-
-
+/*
+  nuevoexamen(equipo:any){
+    this.router.navigate(['examemperiod'],{
+      queryParams:{
+        idempleado:equipo.idempleado,
+        nombre:equipo.nombre
+      }
+  
+  })
+  }*/
 }

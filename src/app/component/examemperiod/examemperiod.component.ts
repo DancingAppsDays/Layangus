@@ -22,6 +22,8 @@ export class ExamemperiodComponent implements OnInit {
   sucessdata: any;
  hidecanvasp = false;
  querid:any;
+     queridempleado: any;
+     editar: boolean;
 
 
   constructor(private fb:FormBuilder, private http:HttpClient, private router2:ActivatedRoute) { }
@@ -76,13 +78,13 @@ changechild()  //after getdata is called....
 
     
      this.router2.queryParams.subscribe(async (params:Params)=>{
-          console.log(params);
-          console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
+          //console.log(params);
+          //console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
           this.querid=params.id;
-    
+          this.queridempleado= params.idempleado;
       });
      
-     //  console.log(this.child.showImage()); // I am a child!
+    
      
 
      
@@ -1025,28 +1027,37 @@ changechild()  //after getdata is called....
         
     });   // end formbuilder
     
-  //  this.getfromdata();     //TODO: only if accesed by query   
-    if(this.querid != undefined)// = undefined  != "undefined")
-    {
-     //window.alert("Some ided");
-     this.getfromdata();
-    }else{
-        console.log("registrar new examen.. pero de quien");
-    }
+    
 
+    if(this.querid != undefined)// = undefined  != "undefined")  //editar no guardar neuvo
+    {
+     //cambiarbotonsave();
+     this.editar = true; //declara que el submit editara no creara nuevo registro
+     this.getfromdata(this.querid);
+
+    }else{                                        //else new examen con idempleado readonyl
+     console.log(this.queridempleado);
+    
+     this.exform.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
+   
+     //document.getElementById('idtemp').style.display = "none";
+     //(<HTMLInputElement>document.getElementById('idemplea')).readOnly = true;//.value;
+    
+    }
+    document.getElementById('idtemp').style.display = "none";
 
 }//end of ONinit
 
 
-getcurry()
+getcurry()     //UNUSED
 {
   return JSON.stringify(this.fb); //exform.fb?
 
 }
 
-getfromdata()//id: int)       //TODO GET INT BY QUERY
+getfromdata(id)//id: int)       //TODO GET INT BY QUERY
 {
-  this.http.get(Constantes.capiURL+"Examenme/2").subscribe(data => {
+  this.http.get(Constantes.capiURL+"Examenme/"+id).subscribe(data => {
 
     this.sucessdata = data;
     if(this.sucessdata['status'] == "success"){
@@ -1075,7 +1086,8 @@ getfromdata()//id: int)       //TODO GET INT BY QUERY
         domiclioeme: this.exs.domicilioeme,
         telefoneme: this.exs.telefoneme,
         
-
+        cp: this.exs.cp,
+        lugarnac: this.exs.lugarnac,
 
 
 
@@ -1445,6 +1457,15 @@ onsavelite(data)
          // this.onGuardarexpediente(data);
 }
 
+cambiarbotonsave()
+{
+
+     document.getElementById("botonguardar").style.visibility = "false";
+document.getElementById("botoneditar").style.visibility = "false";
+
+
+}
+
 
 onGuardarexpediente(data)
 {
@@ -1452,11 +1473,32 @@ onGuardarexpediente(data)
      //var signdiv = (<HTMLInputElement>document.getElementById("firma")).value = localStorage.getItem("signaturetemp");     
      //this.exform.patchValue({          firma: signdiv}); // pATCH AFTER post...... WEIRD
 
-
-
-     console.log("sendtoguardarsu usuario");
+     if(this.editar == true)
+     {
+          console.log("sendtoactualizar examen");
 //console.log(data);
-this.http.post(Constantes.capiURL+"Examenmedico",data).subscribe(data => {
+this.http.post(Constantes.capiURL+"Examenme/"+this.querid,data).subscribe(data => {
+
+  this.sucessdata = data;
+  if(this.sucessdata['status'] == "success"){
+
+  //this.eqs = this.sucessdata['data'];
+  window.alert(this.sucessdata['mensaje']);
+  }else{
+    window.alert(this.sucessdata['mensaje']);// + '    No autorizado');
+    //this.router.navigate(['/']);
+
+  }
+});  
+
+
+
+          return
+     }
+
+     console.log("sendtoguardarsu examen");
+//console.log(data);
+this.http.post(Constantes.capiURL+"Examenme",data).subscribe(data => {
 
   this.sucessdata = data;
   if(this.sucessdata['status'] == "success"){

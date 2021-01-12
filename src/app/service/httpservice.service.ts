@@ -31,7 +31,7 @@ submitted = false;
     }
 
    }
-
+/*
   method1()
   {
       return console.log('method1formservice');
@@ -88,5 +88,5 @@ submitted = false;
 
     );
 
-  }
+  }*/
 }

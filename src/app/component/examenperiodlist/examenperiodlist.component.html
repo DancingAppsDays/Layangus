@@ -16,8 +16,8 @@
         <tr>
           <th scope="col">IDempleado</th>
           <th scope="col">Nombre empleado</th>
-          <th scope="col">Fecha</th>
-              <th scope="col">Area</th>
+          <th scope="col">Fecha de ingreso</th>
+              <th scope="col">Area laboral</th>
           <th scope="col">Acciones</th>
         </tr>
       </thead>
@@ -25,7 +25,7 @@
         <tr *ngFor="let exa of json">
           <th scope="row">{{ exa.idempleado }}</th>
           <td>{{ querid.nombre }}</td>
-          <td>{{ exa.fechan }}</td>
+          <td>{{ exa.fechaingreso }}</td>
           <td>{{ exa.area }}</td>
           <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editexa(exa)">Ver examen</button> </td>
          </tr>

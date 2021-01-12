@@ -9,15 +9,15 @@
 
 <form [formGroup]="exform" [hidden]="success" (ngSubmit)="onGuardarexpediente(exform.value)"> <!--(ngSubmit)="onGuardarexpediente(exform.value)">-->
 
-    <div class="form-group row">
+    <div class="col-sm-12">
       <div class="col-sm text-center">
-        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar expediente</h4>
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar examen periódico</h4>
       </div>
     </div>
   
-    <label name="idtemp" >IDemepleado(temporal):</label>                     
-    <input type="number" class="form-control" formControlName="idempleado">
-  
+    <label id="idtemp"  >IDemepleado:                    
+    <input type="number" class="form-control" formControlName="idempleado"  id="idemplea">
+  </label> 
   
         <div class="form-group row">
             <label name="nombre" class="col-sm-1 col-form-label">Nombre:</label>
@@ -38,9 +38,20 @@
                 ¡Campo edad no valido!
             </div>
 
+           
+
         </div>
 
         <div class="form-group row">
+          <label name="imss" class="col-sm-1 col-form-label">Número IMSS:</label>
+           
+          <input type="text" class="form-control" maxlength="15" formControlName="imss" placeholder="345345-4" value="">
+      
+
+          <label name="sangre" class="col-sm-1 col-form-label">Tipo de sangre:</label>
+         
+            <input type="text" class="form-control" maxlength="4" formControlName="sangre" placeholder="AH+" value="">
+
 
           <label for="sexo"  class="col-sm-1 col-form-label">Sexo:</label>
             <select id="inputState" formControlName="sexo" class="form-control" >
@@ -209,7 +220,7 @@
       
 
 
-      <div class="col-sm-12">
+      <div class="col-sm-12 ">
             
         <label name="fecha" >Fecha de ingreso a la empresa:               
         <input formControlName="fechaingreso" type="date"   value="{{today | date:'yyyy-MM-dd'}}">
@@ -217,14 +228,16 @@
           <span class="input-group-text fa fa-calendar-o" id="inputGroupPrepend2"></span>
       </div>
     </label> 
-        <label name="area" >Area:</label>         
-        <input type="text" class="form-control" formControlName="area" placeholder="Prensas 1"> <!--ng-pattern ="/^[a-zA-Z\s]*$/">-->
-      
-        <label name="area" >CC:</label>         
-        <input type="text" class="form-control" formControlName="cc" placeholder="400">
+  </div>
 
-      </div>
-      <div class="form-group row">
+   <label name="area"  class="col-sm-4 col-form-label" >Area:         
+   <input type="text" class="form-control col-sm-4" formControlName="area" placeholder="Prensas 1"></label> <!--ng-pattern ="/^[a-zA-Z\s]*$/">-->
+      
+        <label name="area"  class="col-sm-4 col-form-label">CC:         
+         <input type="text" class="form-control  col-sm-4" formControlName="cc" placeholder="400"></label>
+
+     
+      <div class="col-sm-12">
         <label name="area" >Número de nomina:</label>         
         <input type="number" class="form-control" formControlName="numnomina"> 
         
@@ -239,7 +252,7 @@
 
         </div>
 
-        <div class="form-group row">
+        <div class="col-sm-12">
         <label name="activipuest" class="col-sm-3 col-form-label">Describa las actividades de su puesto actual</label>
         <textarea class="form-control"  rows="1" formControlName="puestoacdesc" ></textarea>
       </div>
@@ -1074,12 +1087,12 @@
           <div class="col-sm-3">
             <label style="float: right;">TA Izquierdo</label>
           </div> 
-          <div class="col-sm-3"><input type="number" class="form-control" formControlName="taisignos">
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="taisignos">
           </div>
           <div class="col-sm-3">
           <label  style="float: right;">Ta Derecho</label>
           </div> 
-          <div class="col-sm-3"><input type="number" class="form-control" formControlName="tadsignos">
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="tadsignos">
           </div>
           <div class="col-sm-3">
             <label style="float: right;">FC</label>
@@ -1282,7 +1295,7 @@
 
                     <div  class="form-control"  formControlName="firma" id="firma" input type="text" ngDefaultControl style="clear: both;visibility: hidden;"></div><!--sin defaultcontrol no value acceso for form firma-->
 
-                    <app-signature-pad id="signaler" #signaler (childEvent)="emmit($event)" (childEvent2)="emmit2($event)"   [_hidecanvas]="hidecanvasp" ></app-signature-pad>
+                    <eatass-signature-pad id="signaler" #signaler (childEvent)="emmit($event)" (childEvent2)="emmit2($event)"   [_hidecanvas]="hidecanvasp" ></eatass-signature-pad>
 
 
 
@@ -1295,11 +1308,13 @@
     
     <div class="row justify-content-center">
       <div class="col-4">
-          <button type="submit" class='btn btn-success'> <!--[disabled]="exform.invalid">-->
+          <button type="submit" class='btn btn-success' id="botonguardar"> <!--[disabled]="exform.invalid">-->
               <span class='fa fa-save'> </span> Guardar
             </button>
       </div>
     </div>
+
+   
 
     
   </form>

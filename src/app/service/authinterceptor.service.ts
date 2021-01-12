@@ -10,6 +10,9 @@ import { Observable } from 'rxjs';///Observable';
 @Injectable()
 export class AuthinterceptorService implements HttpInterceptor {
   constructor() {}
+
+token:string;
+
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 /*
     request = request.clone({
@@ -21,10 +24,15 @@ export class AuthinterceptorService implements HttpInterceptor {
   }*/
  // var headers = new Headers();
   //headers.append("Authorization", "somevalue");
+   this.token = localStorage.getItem('token');    //ERA CONSTANTE  CONST
+  if(this.token == undefined)
+  {
+    this.token = "emptytoken";
+  }
 
   httpRequest = httpRequest.clone({
     setHeaders: {
-      Authorization: 'Bearer '+"bellachao" //`Bearer ${this.auth.getToken()}`
+      Authorization: 'Bearer '+this.token
     }
   });
   return next.handle(httpRequest);
