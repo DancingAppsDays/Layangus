@@ -29,6 +29,9 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './component/login/login.component';
 import { RegistraruserComponent } from './component/registraruser/registraruser.component';
 import { TurnosempleadoComponent } from './component/turnosempleado/turnosempleado.component';
+import { ListaincidentesComponent } from './component/listaincidentes/listaincidentes.component';
+import { ReportgrafComponent } from './component/reportgraf/reportgraf.component';
+import { ListareportgrafComponent } from './component/listareportgraf/listareportgraf.component';
 
 
 //import SignaturePad from 'signature_pad'; //fuck this
@@ -61,6 +64,9 @@ var firebaseConfig = {
     LoginComponent,
     RegistraruserComponent,
     TurnosempleadoComponent,
+    ListaincidentesComponent,
+    ReportgrafComponent,
+    ListareportgrafComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage

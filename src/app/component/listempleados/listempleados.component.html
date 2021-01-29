@@ -5,8 +5,11 @@
       </div>
     </div>
   
-   
-  
+
+    <br>
+    <button type="button" class="btn btn-primary" title="novo" (click)="nuevoemp()">Registrar empleado</button> 
+    <br>
+
   <input type="text" [(ngModel)]="term">Buscar nombre
   
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
@@ -35,11 +38,12 @@
         <td> <button type="button" class="btn btn-primary" title="Expediente" (click)="gotoexpediente(ems)">Expediente médico</button> </td>
         <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editEmps(ems)">Editar</button> </td>
         <td> <button type="button" class="btn btn-primary" title="Turnos" (click)="gototurnos(ems)">Turnos</button> </td>
-        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoreportes(ems)">Incidentes médico</button> </td>
+        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoincidenteslist(ems)">Incidentes médico</button> </td>
+        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoincidentes(ems)">Registrar Incidentes</button> </td>
         <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoexamenes(ems)">Exámenes periódicos</button> </td>
         <!--<td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotolastexamen(ems)">Último examen</button> </td>-->
         <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotonuevoexamen(ems)">Registrar examen</button> </td>
-        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoincidentes(ems)">Incidentes</button> </td>
+        
         
       </tr>
     </tbody>

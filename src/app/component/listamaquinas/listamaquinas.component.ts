@@ -30,7 +30,7 @@ export class ListamaquinasComponent implements OnInit {
       this.sucessdata = data;
       if(this.sucessdata['status'] == "success"){
 
-      this.eqs = this.sucessdata['dat'];
+      this.eqs = this.sucessdata['data'];
       }else{
         window.alert(this.sucessdata['data']);// + '    No autorizado');
         this.router.navigate(['/']);

@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Constantes } from 'src/app/constantes';
 
+//import { DatePipe } from '@angular/common'
+
 @Component({
   selector: 'app-reportaccidente',
   templateUrl: './reportaccidente.component.html',
@@ -42,7 +44,7 @@ export class ReportaccidenteComponent implements OnInit {
      idempleado: ['', [
         Validators.required       
       ]],
-      nombrel: ['', [
+      nombre: ['', [
         Validators.required//,
         //Validators.pattern('^[a-zA-Z ]*$')
       ]],
@@ -101,6 +103,9 @@ export class ReportaccidenteComponent implements OnInit {
      this.editar = true; //declara que el submit editara no creara nuevo registro
      this.getfromdata(this.querid);
 
+
+      console.log("editar, no nuevo  " + this.querid)
+
     }else{                                        //else new examen con idempleado readonyl
      console.log(this.queridempleado);
     
@@ -135,31 +140,65 @@ export class ReportaccidenteComponent implements OnInit {
         console.log(this.exs);
       window.alert(this.sucessdata['mensaje']);
 
+
+      var datess = this.exs.fechacci;//'2018/08/09 20:54';
+     //datess = new Date();
+    // console.log(datess);
+    // datess = datess.replace(' ', 'T');
+     //console.log(datess);
+    // let newdate = new Date(Date.parse(datess));
+
+     //console.log(newdate);
+     var datess = this.exs.fechaservi;
+    // let newdate2 = new Date(Date.parse(datess));
+     //Date.parse(datess)
+    //let ass =this.datpipe.transform(datess,'yyyy-MM-dd');     
+    
+    //console.log(ass);
+    // console.log(datess.toISOString());
+    // datess = date("Y-m-d\TH:i:s", strtotime($yourdate))
+
+    //datess = new Date(datess.value).toISOString();//failed to
+
+    //let dateTimeParts= datess.split(/[- :]/); // regular expression split that creates array with: year, month, day, hour, minutes, seconds values
+    //dateTimeParts[1]--; // monthIndex begins with 0 for January and ends with 11 for December so we need to decrement by one
+    
+    //const dateObject = new Date(dateTimeParts);
+
+    //console.log(dateObject);
+    //datess = strtotime(datess))
+/*
+      console.log(datess);// + "fecha adquiridaaa");
+      //var todayString  = datess.toDateString(); 
+      //var datt = new Date();
+      datess = datess.replace(' ', 'T');
+      console.log(datess);
+
+      //datess = datess.substring(0,datess.Length-3)  //or remove without the 0 index
+      datess = datess.substring(16,datess.Length-3);
+      console.log(datess);
+        */
+     //  datess: {{'1990-11-25T14:35:00Z' | date:"dd/MM/yyyy HH:mm"}}
+
+      //Date: {{datess | datess:"dd/MM/yyyy HH:mm"}}
+     // datess = datess.toISOString().slice(0, 16);
+
+
         this.myForm.patchValue({
           nombre: this.exs.nombre,
-          imss: this.exs.imss,
-          sangre: this.exs.sangre,
-          edad: this.exs.edad,
-          estadocivil: this.exs.estadocivil,
-          sexo: this.exs.sexo,
-          fechan: this.exs.fechan,
-          domicilio: this.exs.domicilio,
-          telefon: this.exs.telefon,
-          celfon: this.exs.celfon,
-          escolaridad: this.exs.escolaridad,
-          contactoeme: this.exs.contactoeme,
-          domiclioeme: this.exs.domicilioeme,
-          telefoneme: this.exs.telefoneme,
-          tratamientos1: this.exs.tratamientos1,
-          tratamientos2: this.exs.tratamientos2,
-          padecimientos1: this.exs.padecimientos1,
-          padecimientos2: this.exs.padecimientos2,
-          medem: this.exs.medem,
-          medimss: this.exs.medimss,
-          acci1: this.exs.acci1,
-          acci2: this.exs.acci2,
-          acci3: this.exs.acci3,
-          accidescrip: this.exs.accidescrip
+          depa: this.exs. depa,
+          fechaacci: '1990-11-25T14:30:00Z',//newdate,// this.exs.fechaacci,
+          fechaservi: '1990-11-25T14:35:00Z',//this.exs.fechaservi,
+          partec: this.exs.partec,
+          diagnos: this.exs.diagnos,
+          tratat: this.exs.tratat,
+          mecan: this.exs.mecan,
+          tipoacci: this.exs.tipoacci,
+          dispo: this.exs.dispo,
+          grave: this.exs.grave,
+          pronos: this.exs.pronos,
+          observa: this.exs.observa,
+          nombredoc: this.exs.nombredoc
         }
         );
 
@@ -176,7 +215,7 @@ export class ReportaccidenteComponent implements OnInit {
 
   onGuardarexpediente(data)
 {
-  console.log("sendtoguardarsu usuario");
+  //console.log("sendtoguardarsu usuario");
   //console.log(data);
   this.http.post(Constantes.capiURL+"Accidente",data).subscribe(data => {
 

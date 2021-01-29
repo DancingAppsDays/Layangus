@@ -49,9 +49,9 @@ ngOnChanges() { //use SimpleChanges for multiple INPUTS
      // hora: '',
       nombre: ['', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z ]*$'), //TEMPORAL PARA PRUEBAS
-        Validators.minLength(3),
-        Validators.maxLength(8)
+        //Validators.pattern('^[a-zA-Z ]*$'), //TEMPORAL PARA PRUEBAS
+        Validators.minLength(3)
+        //Validators.maxLength(8)
       ]],
       idempleado: ['', [
         Validators.required,

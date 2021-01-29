@@ -22,8 +22,8 @@
     <div class="col-sm-4" style="clear: both;">
       <label  >Nombre del lesionado:</label>
     </div> 
-    <div class="col-sm-8"><input type="text" class="form-control" formControlName="nombrel">
-      <div class="alert alert-danger" role="alert" *ngIf="myForm.get('nombrel').invalid && myForm.get('nombrel').touched">No valid</div>
+    <div class="col-sm-8"><input type="text" class="form-control" formControlName="nombre">
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched">No valid</div>
     </div> 
     <div class="col-sm-4">
         <label  >Departamento y puesto:</label>
@@ -35,14 +35,14 @@
       <div class="col-sm-4">
         <label  >Fecha y hora del accidente</label>
       </div> 
-      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechacci">
+      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechacci" ><!-- max="2999-12-31" min="1900-01-01">-->
         <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
       </div> 
 
       <div class="col-sm-4">
         <label  >Fecha y hora en que se acude al servicio:</label>
       </div> 
-      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechaservi">
+      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechaservi" ><!-- max="2999-12-31" min="1900-01-01">-->
         <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
       </div> 
 
@@ -116,4 +116,18 @@
       <div class="col-sm-8"><input type="text" class="form-control" formControlName="nombredoc">
         <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
       </div> 
+      <br>
+      <br>
+          <div class="row justify-content-center">
+            <div class="col-4">
+                <button type="submit" class='btn btn-success'><!--</button> [disabled]="myForm.invalid">-->
+                    <span class='fa fa-save'> </span> Guardar
+                  </button>
+            </div>
+          </div>
+
+
+
     </form>
+
+    <pre style="clear: both;">{{ myForm.value | json }}</pre> 

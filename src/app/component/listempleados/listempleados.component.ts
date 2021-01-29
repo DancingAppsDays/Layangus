@@ -76,7 +76,7 @@ export class ListempleadosComponent implements OnInit {
  }
  editEmps(equipo: any){
    console.log(equipo)
-   this.router.navigate(['empform'],{
+   this.router.navigate(['empleadoform'],{
      queryParams:{
        id:equipo.id,
        nombre:equipo.nombre,
@@ -85,6 +85,18 @@ export class ListempleadosComponent implements OnInit {
    })
 
  }
+ nuevoemp(){
+  //console.log(equipo)
+  this.router.navigate(['empleadoform']);/*,{
+    queryParams:{
+      id:equipo.id,
+      nombre:equipo.nombre,
+      puesto:equipo.puesto
+    }
+  })*/
+
+}
+
 
  gototurnos(equipo:any){
    this.router.navigate(['turnosform'],{
@@ -96,16 +108,7 @@ export class ListempleadosComponent implements OnInit {
  })
 }
 
- gotoreportes(equipo:any){
-   this.router.navigate(['reportes'],{
-     queryParams:{
-       id:equipo.id,
-       nombre:equipo.nombre,
-       idempleado:equipo.idempleado,
-     }
 
- })
-}
 gotoexamenes(equipo:any){
   this.router.navigate(['examemperiodlist'],{
     queryParams:{
@@ -124,11 +127,21 @@ gotonuevoexamen(equipo:any){
 
 })
 }
-
-gotoincidentes(equipo:any){
-  this.router.navigate(['reportes'],{
+gotoincidenteslist(equipo:any){
+  this.router.navigate(['listaincidentes'],{
     queryParams:{
       id:equipo.id,
+      nombre:equipo.nombre,
+      idempleado:equipo.idempleado,
+    }
+
+})
+}
+gotoincidentes(equipo:any){
+  this.router.navigate(['incidentes'],{
+    queryParams:{
+      id:equipo.id,
+      idempleado:equipo.id,
       nombre:equipo.nombre
     }
 

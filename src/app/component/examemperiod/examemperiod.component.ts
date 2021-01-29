@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
-import SignaturePad from 'signature_pad';
+
 import { Constantes } from 'src/app/constantes';
 import { SignaturePadComponent } from '../signature-pad/signature-pad.component';
 

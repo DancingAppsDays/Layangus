@@ -63,8 +63,8 @@ export class LoginComponent implements OnInit {
             let token = res['data']['token'];  //res.data.acces.... not
             localStorage.setItem("token",'Bearer' +token);
 
-            //sessionStorage.setItem("name",this.successdata['data']['name']);
-           // sessionStorage.setItem("session","true");                       //experimental sess
+            sessionStorage.setItem("name",this.successdata['data']['name']);
+            sessionStorage.setItem("session","true");                       //experimental sess
 
             
             this.router.navigate(['/']);

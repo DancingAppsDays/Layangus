@@ -36,14 +36,14 @@
   
         <div class="form-group row">
 
-          <label name="idtemp" >IDemepleado(temporal):                    
+          <label name="idtemp"  class="col-sm-2 col-form-label" >IDemepleado(temporal):                    
           <input type="number" class="form-control" formControlName="idempleado">
         </label> 
 
 
 
 
-            <label name="nombre" class="col-sm-1 col-form-label">Nombre completo:</label>
+            <label name="nombre" class="col-sm-1 col-form-label" style="clear: both;">Nombre completo:</label>
             <div class="col-sm-7">
               <input type="text" class="form-control" formControlName="nombre" (change)=" somchangesdeselect()" > <!--onBlur="this.somafun()">  [ngModel]="inputstr"> [ngModel]="exs.nombre"   [ngModelOptions]="{standalone: true}"> WORKSSS BUT DEPRECATED IN ANG6 > [(ngModel)]="exs.nombre"> placeholder="Nombre completo" ng-pattern ="/^[a-zA-Z\s]*$/">-->
             </div>
@@ -52,7 +52,7 @@
                 ¡Nombre no valido!
             </div>
 
-            <label name="edad" class="col-sm-1 col-form-label">Edad:</label>
+            <label name="edad" class="col-sm-1 col-form-label" style="clear: both;">Edad:</label>
             <div class="col-sm-7">
               <input type="text" class="form-control" formControlName="edad" placeholder="18" ng-pattern ="/^[0-9]*$/">
             </div>
