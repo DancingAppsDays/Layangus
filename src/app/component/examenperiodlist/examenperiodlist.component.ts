@@ -22,9 +22,9 @@ export class ExamenperiodlistComponent implements OnInit {
   ngOnInit(): void {
 
     this.router2.queryParams.subscribe(async (params:Params)=>{
-      console.log(params);
-      console.log(params.id + "id of params...");
-      this.querid=params;
+     // console.log(params);
+      //console.log(params.id + "id of params...");
+      this.querid=params;   //id, nombre
 
   });
   this.getdata();
@@ -69,15 +69,15 @@ editexa(examen: any)
     console.log(examen)
     this.router.navigate(['examemperiod'],{
       queryParams:{
-        id:examen.id
-        //idempleado: examen.q
-        //nombre:examen.nombre,
+        id:examen.id,
+        idempleado: examen.idempleado,
+        nombre: this.querid.nombre,
         //puesto:examen.puesto
       }
     })
 
   }
-/*
+
   nuevoexamen(equipo:any){
     this.router.navigate(['examemperiod'],{
       queryParams:{
@@ -86,5 +86,6 @@ editexa(examen: any)
       }
   
   })
-  }*/
+  }
+  
 }

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Constantes } from 'src/app/constantes';
 import { SignaturePadComponent } from '../signature-pad/signature-pad.component';
@@ -21,12 +21,13 @@ export class ExamemperiodComponent implements OnInit {
   exs: any;
   sucessdata: any;
  hidecanvasp = false;
+ query:any;    //all params
  querid:any;
      queridempleado: any;
      editar: boolean;
 
 
-  constructor(private fb:FormBuilder, private http:HttpClient, private router2:ActivatedRoute) { }
+  constructor(private fb:FormBuilder, private http:HttpClient, private router2:ActivatedRoute, private router:Router) { }
 
   emmit($event){
      //console.log($event);
@@ -82,6 +83,7 @@ changechild()  //after getdata is called....
           //console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
           this.querid=params.id;
           this.queridempleado= params.idempleado;
+          this.query = params;
       });
      
     
@@ -92,7 +94,7 @@ changechild()  //after getdata is called....
     this.exform = this.fb.group({
       nombre: ['', [
         Validators.required,
-        Validators.pattern('^[a-zA-Z ]*$')
+        Validators.pattern('[^",]*$')
       ]],
       idempleado: ['', [
         Validators.required,
@@ -1070,7 +1072,7 @@ getfromdata(id)//id: int)       //TODO GET INT BY QUERY
 
       //Alex alvear solution
       this.exform.patchValue({
-        nombre: this.exs.nombre,
+        nombre: this.query.nombre,//  this.exs.nombre,
         idempleado: this.exs.idempleado,
         imss: this.exs.imss,
         sangre: this.exs.sangre,
@@ -1484,6 +1486,8 @@ this.http.post(Constantes.capiURL+"Examenme/"+this.querid,data).subscribe(data =
 
   //this.eqs = this.sucessdata['data'];
   window.alert(this.sucessdata['mensaje']);
+    this.router.navigate(['/']);
+
   }else{
     window.alert(this.sucessdata['mensaje']);// + '    No autorizado');
     //this.router.navigate(['/']);
@@ -1493,24 +1497,28 @@ this.http.post(Constantes.capiURL+"Examenme/"+this.querid,data).subscribe(data =
 
 
 
-          return
-     }
+          // return  //USEFUL
+     }else{
 
      console.log("sendtoguardarsu examen");
 //console.log(data);
 this.http.post(Constantes.capiURL+"Examenme",data).subscribe(data => {
 
   this.sucessdata = data;
-  if(this.sucessdata['status'] == "success"){
+      if(this.sucessdata['status'] == "success"){
 
   //this.eqs = this.sucessdata['data'];
   window.alert(this.sucessdata['mensaje']);
-  }else{
+  //this.exform.reset(); ID NULL now....
+  this.router.navigate(['/']);
+      }else{
     window.alert(this.sucessdata['mensaje']);// + '    No autorizado');
     //this.router.navigate(['/']);
 
-  }
-});  
+      }
+  
+     });  
+     }
 
 
 //console.log("post postsendtoguardarsu usuario");
