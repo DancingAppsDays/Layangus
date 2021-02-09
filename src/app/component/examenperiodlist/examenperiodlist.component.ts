@@ -81,7 +81,7 @@ editexa(examen: any)
   nuevoexamen(equipo:any){
     this.router.navigate(['examemperiod'],{
       queryParams:{
-        idempleado:equipo.idempleado,
+        idempleado:equipo.id,
         nombre:equipo.nombre
       }
   

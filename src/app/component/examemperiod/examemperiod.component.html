@@ -22,7 +22,7 @@
         <div class="form-group row">
             <label name="nombre" class="col-sm-1 col-form-label">Nombre:</label>
             <div class="col-sm-7">
-              <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre completo" ng-pattern ="/^[a-zA-Z\s]*$/">
+              <input type="text" class="form-control" formControlName="nombre" id="nombre1" placeholder="Nombre completo" > <!-- DISABLED ng-pattern ="/^[a-zA-Z\s]*$/">-->
             </div>
             
             <div class="alert alert-danger" role="alert" *ngIf="exform.get('nombre').invalid && exform.get('nombre').touched">

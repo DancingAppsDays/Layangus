@@ -21,6 +21,29 @@
         <input type="text" name="puesto" class="form-control" formControlName="puesto"  >
         <strong>Puesto: </strong> 
     </p>
+
+    <p>
+        <input type="number"  class="form-control" formControlName="area"  oninput="this.value=(parseInt(this.value)||0)">
+        <strong>Area: </strong> 
+    </p>
+    <p>
+        <input type="number" class="form-control" formControlName="positionx"  >
+        <strong>Posicion en x: </strong> 
+    </p>
+    <p>
+        <input type="number"  class="form-control" formControlName="positiony" >
+        <strong>Posicion en y: </strong> 
+    </p>
+
+    <p>
+        <input type="text"  class="form-control" formControlName="profilepic" style="visibility:hidden;" />
+        
+        <!--<input type="file"         id="filepic"        (change)="handleFileInput($event.target.files)">   (change)="fuckmethod($event)" THI WORkS-->
+        <input type="file" (change)="getBase64($event)" />
+        <strong>Foto de perfil: </strong> 
+    </p>
 <button class ="button" type ="submit">Registrar</button>
 
 </form>
+
+<pre style="clear: both;">{{ empForm.value | json }}</pre> 

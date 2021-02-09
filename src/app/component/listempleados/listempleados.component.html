@@ -16,7 +16,7 @@
   <table class="table" *ngIf="emps">
     <thead>
       <tr>
-        <th scope="col">item</th>
+        <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Puesto actual</th>
         <th scope="col">Fecha de ingreso</th>
@@ -36,13 +36,19 @@
         <td>{{ ems.puesto }}</td>
         <td>{{ ems.created_at }}</td>
         <td> <button type="button" class="btn btn-primary" title="Expediente" (click)="gotoexpediente(ems)">Expediente médico</button> </td>
-        <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editEmps(ems)">Editar</button> </td>
+        
         <td> <button type="button" class="btn btn-primary" title="Turnos" (click)="gototurnos(ems)">Turnos</button> </td>
         <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoincidenteslist(ems)">Incidentes médico</button> </td>
-        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoincidentes(ems)">Registrar Incidentes</button> </td>
+       
         <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoexamenes(ems)">Exámenes periódicos</button> </td>
-        <!--<td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotolastexamen(ems)">Último examen</button> </td>-->
-        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotonuevoexamen(ems)">Registrar examen</button> </td>
+       
+
+          <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editEmps(ems)">Editar</button> </td>
+ <!--
+           <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoincidentes(ems)">Registrar Incidentes</button> </td>
+          
+          <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotolastexamen(ems)">Último examen</button> </td>
+        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotonuevoexamen(ems)">Registrar examen</button> </td>-->
         
         
       </tr>

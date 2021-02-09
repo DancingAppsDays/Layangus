@@ -1041,12 +1041,13 @@ changechild()  //after getdata is called....
      console.log(this.queridempleado);
     
      this.exform.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
-   
+     this.exform.controls['nombre'].setValue(this.query.nombre);
      //document.getElementById('idtemp').style.display = "none";
      //(<HTMLInputElement>document.getElementById('idemplea')).readOnly = true;//.value;
     
     }
     document.getElementById('idtemp').style.display = "none";
+    (<HTMLInputElement>document.getElementById('nombre1')).readOnly = true;//"disabled";//didntwok
 
 }//end of ONinit
 

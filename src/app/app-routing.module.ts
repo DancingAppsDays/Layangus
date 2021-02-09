@@ -14,12 +14,14 @@ import { RegistraruserComponent } from './component/registraruser/registraruser.
 import { ReportaccidenteComponent } from './component/reportaccidente/reportaccidente.component';
 import { ReportgrafComponent } from './component/reportgraf/reportgraf.component';
 import { TurnosempleadoComponent } from './component/turnosempleado/turnosempleado.component';
+import { MaquinaeditComponent } from './component/maquinaedit/maquinaedit.component';
 
 const routes: Routes = [
 
   {path: 'listempleado', component: ListempleadosComponent},
   {path: 'empleadoform', component:EmpleadoeditComponent},
   {path: 'listamaquina', component:ListamaquinasComponent},
+  {path: 'equipos', component:MaquinaeditComponent},
   {path: 'expedientem', component:ExpedientemComponent},
   {path: 'examemperiod', component:ExamemperiodComponent},
   {path: 'incidentes', component:ReportaccidenteComponent},

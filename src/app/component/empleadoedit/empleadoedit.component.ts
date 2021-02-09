@@ -12,6 +12,7 @@ import { Constantes } from 'src/app/constantes';
 export class EmpleadoeditComponent implements OnInit {
   empForm: FormGroup;
   equipo:any;
+  profilestring: string;
 
   constructor(    private formBuilder: FormBuilder ,private router: Router,  private http :HttpClient,
     private router2: ActivatedRoute, /*private alertService: AlertService*/ ) {   }
@@ -21,18 +22,34 @@ export class EmpleadoeditComponent implements OnInit {
  ngOnInit(): void {
    
    this.empForm = this.formBuilder.group({
-     id: '',nombre:['',[Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
-      puesto: ''})
+     id: '',
+     nombre:['',[Validators.required, Validators.pattern('[^",]')]],
+      puesto: '',
+      area:'',
+      positionx:0,
+      positiony:0,
+      profilepic:""
+    
+    
+    })
 
      this.router2.queryParams.subscribe(async (params:Params)=>{
-       console.log(params)
-       console.log(params.id)
+       //console.log(params)
+       //console.log(params.id)
        this.equipo=params
        this.empForm.get('id').setValue(this.equipo.id)
-       this.empForm.get('nombre').setValue(this.equipo.nombre)
-       this.empForm.get('puesto').setValue(this.equipo.puesto)
+       //this.empForm.get('nombre').setValue(this.equipo.nombre)
+       //this.empForm.get('puesto').setValue(this.equipo.puesto)
        console.log(this.equipo.id)
      })
+
+     if(this.equipo.id != undefined)// = undefined  != "undefined")  //editar no guardar neuvo
+     {
+      //cambiarbotonsave();
+      //this.editar = true; //declara que el submit editara no creara nuevo registro
+      this.getEmpleado(this.equipo.id);
+ 
+     }
  }
 
 
@@ -88,9 +105,10 @@ postempleado(customerData)
  { 
    this.http.get(Constantes.capiURL+"Empleado"+'/'+index).subscribe(data =>
      {console.log(data);
-       this.empForm.get("name").setValue(data)
+       //this.empForm.get("name").setValue(data)
        //this.empm.name =
        //this.empm = data;
+       //this.exs =  data;//data['dat'];     //NOT STANDARIZED APIREST
        this.updateform(data);
      }, 
      error =>{console.log(error);},
@@ -102,9 +120,57 @@ postempleado(customerData)
     
  }
 
- updateform(data)
+ updateform(json)
  {
 
+  this.empForm.patchValue({
+    nombre: json.nombre,//  this.exs.nombre,
+    puesto:  json.puesto,
+    area:json.area,
+    
+    positionx:json.positionx,
+    positiony: json.positiony,
+    
+    profilepic: json.profilepic
+
+});
 
  }
+ 
+
+ encodeImageFileAsURL(element) {
+ // var file = element.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+    console.log('RESULT', reader.result)
+  }
+  reader.readAsDataURL(element);
+}
+
+
+  getBase64(event) {
+  let me = this;
+  let file = event.target.files[0];
+  let reader = new FileReader();
+  reader.readAsDataURL(file);
+  /*
+  reader.onload = function () {
+    //me.modelvalue = reader.result;
+    //console.log(reader.result);
+    //this.patchfile(reader.result);
+   
+  };*/
+  reader.onload = (event:any) => {
+    this.empForm.get('profilepic').setValue(reader.result)
+}
+
+
+  reader.onerror = function (error) {
+    console.log('Error: ', error);
+  };
+
+  //console.log(reader.result);
+  //this.patchfile(reader.result);
+}
+
 }
