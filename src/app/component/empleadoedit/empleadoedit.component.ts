@@ -134,9 +134,16 @@ postempleado(customerData)
     profilepic: json.profilepic
 
 });
+  this.showImage();
 
  }
  
+ showImage()
+ {
+  this.profilestring =this.empForm.controls.profilepic.value;
+
+
+ }
 
  encodeImageFileAsURL(element) {
  // var file = element.files[0];
@@ -161,7 +168,9 @@ postempleado(customerData)
    
   };*/
   reader.onload = (event:any) => {
-    this.empForm.get('profilepic').setValue(reader.result)
+    this.empForm.get('profilepic').setValue(reader.result);
+    this.profilestring = reader.result.toString();
+    console.log(this.profilestring);
 }
 
 

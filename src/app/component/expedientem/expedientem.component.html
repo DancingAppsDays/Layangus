@@ -36,16 +36,16 @@
   
         <div class="form-group row">
 
-          <label name="idtemp"  class="col-sm-2 col-form-label" >IDemepleado(temporal):                    
+          <label name="idtemp" style="visibility: hidden;" class="col-sm-2 col-form-label" >IDemepleado(temporal):                    
           <input type="number" class="form-control" formControlName="idempleado">
         </label> 
 
 
 
 
-            <label name="nombre" class="col-sm-1 col-form-label" style="clear: both;">Nombre completo:</label>
+            <label name="nombre"  class="col-sm-1 col-form-label" style="clear: both;">Nombre completo:</label>
             <div class="col-sm-7">
-              <input type="text" class="form-control" formControlName="nombre" (change)=" somchangesdeselect()" > <!--onBlur="this.somafun()">  [ngModel]="inputstr"> [ngModel]="exs.nombre"   [ngModelOptions]="{standalone: true}"> WORKSSS BUT DEPRECATED IN ANG6 > [(ngModel)]="exs.nombre"> placeholder="Nombre completo" ng-pattern ="/^[a-zA-Z\s]*$/">-->
+              <input type="text"  id="nombre" class="form-control" formControlName="nombre" (change)=" somchangesdeselect()" > <!--onBlur="this.somafun()">  [ngModel]="inputstr"> [ngModel]="exs.nombre"   [ngModelOptions]="{standalone: true}"> WORKSSS BUT DEPRECATED IN ANG6 > [(ngModel)]="exs.nombre"> placeholder="Nombre completo" ng-pattern ="/^[a-zA-Z\s]*$/">-->
             </div>
             
             <div class="alert alert-danger" role="alert" *ngIf="exform.get('nombre').invalid && exform.get('nombre').touched">
@@ -216,8 +216,9 @@
            
         <input type="text" id="escolaridad" class="form-control" formControlName="escolaridad" placeholder="Tecnico automotriz" value="">
         <br>
-
-
+        
+            <hr>
+            <br>
 
         <div class="form-group row">
           <label name="contactoeme" class="col-sm-2 col-form-label">Contacto de emergencia:</label>
@@ -237,7 +238,9 @@
 
       </div>
 
+
 <br>
+            <hr>
 <br>
 <label>Padecimientos de importancia:</label>
       <div class="form-group row">
@@ -287,7 +290,7 @@
      
     </div>
 
-    <label name="firma1" class="col-sm-1 col-form-label">Firma del trabajador...(?)</label>
+    <!--<label name="firma1" class="col-sm-1 col-form-label">Firma del trabajador...(?)</label>-->
 
 
   <br>
@@ -303,5 +306,5 @@
     </form>
   
 
-
+   <!--<pre style="clear: both;">{{ exform.value | json }}</pre> -->
    </div>

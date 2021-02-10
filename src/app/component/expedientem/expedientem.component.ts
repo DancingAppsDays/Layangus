@@ -37,10 +37,11 @@ ngOnChanges() { //use SimpleChanges for multiple INPUTS
   ngOnInit(): void {
 
     this.router2.queryParams.subscribe(async (params:Params)=>{
-      console.log(params);
-      console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
+      //console.log(params);
+      //console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
       this.querid=params.idempleado;
       this.queridempleado= params.idempleado;
+      this.queridnombre=params.nombre;
   });
     
 
@@ -161,6 +162,9 @@ ngOnChanges() { //use SimpleChanges for multiple INPUTS
      //this.editar = true; //declara que el submit editara no creara nuevo registro
      this.getfromdata(this.querid);
 
+     (<HTMLInputElement>document.getElementById('nombre')).readOnly = true;
+     this.exform.get('nombre').setValue(this.queridnombre);
+     this.exform.get('idempleado').setValue(this.queridempleado);
     }
     /*else{                                        //else new examen con idempleado readonyl
      console.log(this.queridempleado);
@@ -190,7 +194,7 @@ ngOnChanges() { //use SimpleChanges for multiple INPUTS
 
   getfromdata(idemp)//id: int)
   {
-    console.log("instant get expendiente");
+    //console.log("instant get expendiente");
     this.http.get(Constantes.capiURL+"Expediente/"+idemp).subscribe(data => {
 
       this.sucessdata = data;
@@ -201,7 +205,11 @@ ngOnChanges() { //use SimpleChanges for multiple INPUTS
 
                                             //nice try but needs model also
       //this.exform.get('nombre').setValue("exs.nombre");   //formgroup solution instead of ngmodel
+        if(this.exs == null)
+        {
+          console.log("Expediente vacio");
 
+        }else{
         //Alex alvear solution
         this.exform.patchValue({
           nombre: this.exs.nombre,
@@ -216,7 +224,12 @@ ngOnChanges() { //use SimpleChanges for multiple INPUTS
           celfon: this.exs.celfon,
           escolaridad: this.exs.escolaridad,
           contactoeme: this.exs.contactoeme,
-          domiclioeme: this.exs.domicilioeme,
+          domicilioeme: this.exs.domicilioeme,
+
+          pac_estado: this.exs.pac_estado,
+          cp: this.exs.cp,
+          lugarnac: this.exs.lugarnac,
+
           telefoneme: this.exs.telefoneme,
           tratamientos1: this.exs.tratamientos1,
           tratamientos2: this.exs.tratamientos2,
@@ -230,12 +243,17 @@ ngOnChanges() { //use SimpleChanges for multiple INPUTS
           accidescrip: this.exs.accidescrip
         }
         );
+      } //not empty data
 
       }else{
         window.alert("Expediente no encontrado. " + this.sucessdata['mensaje']);// + '    No autorizado');
         //this.router.navigate(['/']);
   
       }
+        //at the end of subscribed
+      this.exform.get('nombre').setValue(this.queridnombre);
+     this.exform.get('idempleado').setValue(this.queridempleado);
+
     });  
   
     
@@ -279,7 +297,7 @@ onValueChanges(){
 {
   console.log("sendtoguardarsu usuario");
   //console.log(data);
-  this.http.post(Constantes.capiURL+"Expediente",data).subscribe(data => {
+  this.http.post(Constantes.capiURL+"Expediente/"+this.queridempleado,data).subscribe(data => {
 
     this.sucessdata = data;
     if(this.sucessdata['status'] == "success"){
@@ -292,7 +310,7 @@ onValueChanges(){
 
     this.exform.reset();
 
-    this.router.navigate(['/pages/pacientes']);
+    this.router.navigate(['/']);
     //this.webcamImage = null;
     //this.cancel();    
 

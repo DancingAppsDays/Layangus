@@ -1038,8 +1038,9 @@ changechild()  //after getdata is called....
      this.getfromdata(this.querid);
 
     }else{                                        //else new examen con idempleado readonyl
-     console.log(this.queridempleado);
+     //console.log(this.queridempleado);
     
+
      this.exform.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
      this.exform.controls['nombre'].setValue(this.query.nombre);
      //document.getElementById('idtemp').style.display = "none";
@@ -1441,6 +1442,8 @@ firma:this.exs.firma,
 
     }
 
+    this.exform.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
+     this.exform.controls['nombre'].setValue(this.query.nombre);
 
   });  
  

@@ -95,7 +95,7 @@ postempleado(customerData)
    console.log(idd); 
    
    //lara dont allow put/patch, better fix in store
-   this.http.post(Constantes.capiURL+"Empleado"+'/'+idd, customerData).subscribe(data =>
+   this.http.post(Constantes.capiURL+"Maquina"+'/'+idd, customerData).subscribe(data =>
      {console.log(data);
        window.alert("Elemento modificado correctamente");
        this.router.navigate(['/']);}, 
@@ -105,7 +105,7 @@ postempleado(customerData)
 
  getEmpleado(index)
  { 
-   this.http.get(Constantes.capiURL+"Empleado"+'/'+index).subscribe(data =>
+   this.http.get(Constantes.capiURL+"Maquina"+'/'+index).subscribe(data =>
      {console.log(data);
       this.exs =  data;//data['dat'];     //NOT STANDARIZED APIREST
       console.log(this.exs);
@@ -129,6 +129,8 @@ postempleado(customerData)
  
  updateform(json)
  {
+    var fecha = json.lastcheck.substring(0,10);
+
  
       this.eqForm.patchValue({
         nombre: json.nombre,//  this.exs.nombre,
@@ -139,7 +141,7 @@ postempleado(customerData)
         positiony: json.positiony,
         riskfactor:json.riskfactor,
         ruido: json.ruido,
-        lastcheck:json.lastcheck
+        lastcheck:fecha //json.lastcheck
 
  });
 
