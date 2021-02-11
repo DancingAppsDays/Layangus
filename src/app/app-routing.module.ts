@@ -15,6 +15,7 @@ import { ReportaccidenteComponent } from './component/reportaccidente/reportacci
 import { ReportgrafComponent } from './component/reportgraf/reportgraf.component';
 import { TurnosempleadoComponent } from './component/turnosempleado/turnosempleado.component';
 import { MaquinaeditComponent } from './component/maquinaedit/maquinaedit.component';
+import { ExameneslastsComponent } from './component/exameneslasts/exameneslasts.component';
 
 const routes: Routes = [
 
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path:'registry',component:RegistraruserComponent},
   {path:'turnosform',component:TurnosempleadoComponent},
   {path:'reportem',component:ListareportgrafComponent},
-  {path:'reportsingle',component:ReportgrafComponent}
+  {path:'reportsingle',component:ReportgrafComponent},
+  {path: 'examenlasts', component:ExameneslastsComponent}
  
 
 

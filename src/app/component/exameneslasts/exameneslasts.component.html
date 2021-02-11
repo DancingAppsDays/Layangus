@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="form-group row">
+    <div class="col-sm text-center">
+    <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Estado de salud
+    empleados</h4>
+    
+    </div>
+    </div>
+    
+    <p>Filtrar por:</p>
+    
+    <label>IMC<input type="checkbox" (change)="multicheck($event)" id="1" name="boxx1">
+    
+    <input id="checkf1" type="number" placeholder="0" value="0"  (change)="multicheckf($event)" id="1f"
+    style="visibility: hidden;">
+    </label>
+    <br>
+    <label>Peso<input type="checkbox" (change)="multicheck($event)" id="2" name="boxx2">
+    <input id="checkf1" type="number" placeholder="0"  value="0"  (change)="multicheckf($event)" id="2f"
+    style="visibility: hidden;">
+    </label>
+    <br>
+    <label>FC<input type="checkbox" (change)="multicheck($event)" id="3" >
+    <input id="checkf1" type="number" placeholder="0"  value="0"  (change)="multicheckf($event)" id="3f"
+    style="visibility: hidden;">
+    </label>
+    <br>
+    <label>FR<input type="checkbox" (change)="multicheck($event)" id="4">
+    <input id="checkf1" type="number" placeholder="0"   value="0" (change)="multicheckf($event)" id="4f"
+    style="visibility: hidden;">
+    </label>
+    <br>
+    
+    <!--<button type="button" class="btn btn-primary" title="Nuevo" (click)="nuevoexamen(querid)">Nuevo
+    examen</button>-->
+    <table class="table" *ngIf="json">
+    <thead>
+    <tr>
+    
+    <th scope="col">ID Empleado</th>
+    
+    <th scope="col">Nombre</th>
+    <th scope="col">Area</th>
+    <th scope="col">IMC</th>
+    <th scope="col">PEso</th>
+    <th scope="col">FR</th>
+    <th scope="col">FC</th>
+    <th scope="col">Perfil</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let exa of json; let i=index"> <!-- filterjson()funciona pero no es dynamic... either pipe | func o
+    nGif en cada td json">-->
+    
+    <td *ngIf="listajsonb[i] == true" >{{ exa.idempleado }}</td>
+    <td *ngIf="listajsonb[i] == true">{{ exa.nombre }}</td>
+    <td *ngIf="listajsonb[i] == true">{{ exa.area }}</td>
+    <td *ngIf="listajsonb[i] == true">{{ exa.imcsignos }}</td>
+    <td *ngIf="listajsonb[i] == true">{{ exa.pesosignos }}</td>
+    <td *ngIf="listajsonb[i] == true">{{ exa.frsignos }}</td>
+    <td *ngIf="listajsonb[i] == true">{{ exa.fcsignos }}</td>
+    <td *ngIf="listajsonb[i] == true"> <button type="button" class="btn btn-primary" title="Editar" (click)="editexa(exa)">Ver
+    perfil</button> </td>
+    
+    </tr>
+    </tbody>
+    </table>

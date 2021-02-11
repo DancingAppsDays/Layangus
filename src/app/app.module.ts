@@ -32,6 +32,7 @@ import { TurnosempleadoComponent } from './component/turnosempleado/turnosemplea
 import { ListaincidentesComponent } from './component/listaincidentes/listaincidentes.component';
 import { ReportgrafComponent } from './component/reportgraf/reportgraf.component';
 import { ListareportgrafComponent } from './component/listareportgraf/listareportgraf.component';
+import { ExameneslastsComponent } from './component/exameneslasts/exameneslasts.component';
 
 
 //import SignaturePad from 'signature_pad'; //fuck this
@@ -67,6 +68,7 @@ var firebaseConfig = {
     ListaincidentesComponent,
     ReportgrafComponent,
     ListareportgrafComponent,
+    ExameneslastsComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage
