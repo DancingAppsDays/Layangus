@@ -22,6 +22,7 @@ export class ReportaccidenteComponent implements OnInit {
 
   querid:any;
   queridempleado: any;
+  queridnombre:any;
   editar: boolean;
 
 
@@ -36,6 +37,7 @@ export class ReportaccidenteComponent implements OnInit {
       console.log(params.id + "id of params...");       //ERROR PRONE? //nah its undefined....
       this.querid=params.id;
       this.queridempleado= params.idempleado;
+      this.queridnombre=params.nombre;
   });
 
 
@@ -110,7 +112,10 @@ export class ReportaccidenteComponent implements OnInit {
      console.log(this.queridempleado);
     
      this.myForm.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
-   
+     (<HTMLInputElement>document.getElementById('nombre')).readOnly = true;
+     this.myForm.get('nombre').setValue(this.queridnombre);
+     
+      
      //document.getElementById('idtemp').style.display = "none";
      //(<HTMLInputElement>document.getElementById('idemplea')).readOnly = true;//.value;
     
@@ -149,7 +154,10 @@ export class ReportaccidenteComponent implements OnInit {
     // let newdate = new Date(Date.parse(datess));
 
      //console.log(newdate);
-     var datess = this.exs.fechaservi;
+     var datess2 = this.exs.fechaservi;
+
+     datess = datess.substring(22,0);
+     datess2 = datess.substring(22,0);
     // let newdate2 = new Date(Date.parse(datess));
      //Date.parse(datess)
     //let ass =this.datpipe.transform(datess,'yyyy-MM-dd');     
@@ -187,8 +195,8 @@ export class ReportaccidenteComponent implements OnInit {
         this.myForm.patchValue({
           nombre: this.exs.nombre,
           depa: this.exs. depa,
-          fechaacci: '1990-11-25T14:30:00Z',//newdate,// this.exs.fechaacci,
-          fechaservi: '1990-11-25T14:35:00Z',//this.exs.fechaservi,
+          fechaacci: datess,///'1990-11-25T14:30:00Z',//newdate,// this.exs.fechaacci,
+          fechaservi: datess2,//'1990-11-25T14:35:00Z',//this.exs.fechaservi,
           partec: this.exs.partec,
           diagnos: this.exs.diagnos,
           tratat: this.exs.tratat,

@@ -70,20 +70,21 @@ editacci(examen: any)
       queryParams:{
         id:examen.id,
         idempleado: examen.q,
-        nombre:examen.nombre,
+        nombre:examen.nombre
         //puesto:examen.puesto
       }
     })
 
   }
-/*
-  nuevoexamen(equipo:any){
-    this.router.navigate(['examemperiod'],{
+
+  nuevoacci(){
+    this.router.navigate(['incidentes'],{
       queryParams:{
-        idempleado:equipo.idempleado,
-        nombre:equipo.nombre
+        idempleado:this.querid.id,
+        nombre:this.querid.nombre
+        //nombre:equipo.nombre
       }
   
   })
-  }*/
+  }
 }

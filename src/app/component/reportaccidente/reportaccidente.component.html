@@ -22,7 +22,7 @@
     <div class="col-sm-4" style="clear: both;">
       <label  >Nombre del lesionado:</label>
     </div> 
-    <div class="col-sm-8"><input type="text" class="form-control" formControlName="nombre">
+    <div class="col-sm-8"><input type="text" class="form-control" formControlName="nombre" id="nombre">
       <div class="alert alert-danger" role="alert" *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched">No valid</div>
     </div> 
     <div class="col-sm-4">
@@ -130,4 +130,4 @@
 
     </form>
 
-    <pre style="clear: both;">{{ myForm.value | json }}</pre> 
+    <!--<pre style="clear: both;">{{ myForm.value | json }}</pre>-->

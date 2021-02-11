@@ -10,6 +10,10 @@
   
   <p>Nombre: {{ querid.nombre }}</p>
   <p>IDEmpleado: {{ querid.id }}</p>
+
+  <br>
+    <button type="button" class="btn btn-primary" title="novo" (click)="nuevoacci()">Registrar incidente</button> 
+    <br>
   
   <table class="table" *ngIf="json">
       <thead>

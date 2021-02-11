@@ -70,7 +70,7 @@ export class MaquinaeditComponent implements OnInit {
 }
 postempleado(customerData)
  {
-   this.http.post(Constantes.capiURL+"Empleado",customerData/*,  { headers: { Authorization:localStorage.getItem('token') } }*/).subscribe(data =>
+   this.http.post(Constantes.capiURL+"Maquina",customerData/*,  { headers: { Authorization:localStorage.getItem('token') } }*/).subscribe(data =>
      {
        if(data['status'] == "success"){
 
