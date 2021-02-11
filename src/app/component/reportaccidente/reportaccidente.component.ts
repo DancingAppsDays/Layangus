@@ -157,7 +157,13 @@ export class ReportaccidenteComponent implements OnInit {
      var datess2 = this.exs.fechaservi;
 
      datess = datess.substring(22,0);
-     datess2 = datess.substring(22,0);
+     datess = datess.replace(' ', 'T');
+     datess = datess+".00";
+
+
+     datess2 = datess2.substring(22,0);
+     datess2 = datess2.replace(' ', 'T');
+     datess2 = datess2+".00";
     // let newdate2 = new Date(Date.parse(datess));
      //Date.parse(datess)
     //let ass =this.datpipe.transform(datess,'yyyy-MM-dd');     
@@ -195,7 +201,7 @@ export class ReportaccidenteComponent implements OnInit {
         this.myForm.patchValue({
           nombre: this.exs.nombre,
           depa: this.exs. depa,
-          fechaacci: datess,///'1990-11-25T14:30:00Z',//newdate,// this.exs.fechaacci,
+          fechacci: datess2,///'1990-11-25T14:30:00Z',//newdate,// this.exs.fechaacci,
           fechaservi: datess2,//'1990-11-25T14:35:00Z',//this.exs.fechaservi,
           partec: this.exs.partec,
           diagnos: this.exs.diagnos,

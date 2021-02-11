@@ -35,14 +35,14 @@
       <div class="col-sm-4">
         <label  >Fecha y hora del accidente</label>
       </div> 
-      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechacci" ><!-- max="2999-12-31" min="1900-01-01">-->
+      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechacci"  max="2999-12-31T00:00:00.00" min="1900-01-01">-->
         <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
       </div> 
 
       <div class="col-sm-4">
         <label  >Fecha y hora en que se acude al servicio:</label>
       </div> 
-      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechaservi" ><!-- max="2999-12-31" min="1900-01-01">-->
+      <div class="col-sm-8"><input type="datetime-local" class="form-control" formControlName="fechaservi"  max="2999-12-31T00:00:00.00" min="1900-01-01">-->
         <!--<div class="alert alert-danger" role="alert"> *ngIf="myForm.get('nombre').invalid && myForm.get('nombre').touched"></div>-->
       </div> 
 
