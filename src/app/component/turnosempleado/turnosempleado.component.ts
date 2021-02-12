@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Constantes } from 'src/app/constantes';
 
 @Component({
@@ -16,7 +16,7 @@ export class TurnosempleadoComponent implements OnInit {
   created_at: string = '';
   name: string = '';
   puesto: string = '';
-  constructor(private http :HttpClient, private router2: ActivatedRoute) { }
+  constructor(private http :HttpClient, private router2: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -39,4 +39,16 @@ export class TurnosempleadoComponent implements OnInit {
 
 
     }
+
+    adduso(equipo:any){
+      this.router.navigate(['usodetailnew'],{
+        queryParams:{
+          id:equipo.id,
+          nombre:this.querid.nombre,
+          idempleado:equipo.idempleado,
+          fecha:equipo.fecha
+        }
+   
+    })
+   }
   }

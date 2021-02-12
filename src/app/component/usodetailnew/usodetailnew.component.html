@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar uso detalles de maquina</h4>
+      </div>
+    </div>
+  
+
+    
+
+    <p> Turno de : {{art.nombre }}</p>
+    <!--
+    <p>IDEmpleado: {{ querid.id }}</p>-->
+
+<form [formGroup] ="tForm"  (ngSubmit)="onSubmit(tForm.value)" >
+   
+   
+    <p>                                               
+        <input type="number" id="idempleado" class="form-control" formControlName="idempleado"  >
+        <strong>IDEmpleado: </strong> 
+    </p>
+
+    <p>                                               
+        <input type="number"  class="form-control"   id="idturno"formControlName="idturno"  >
+        <strong>IDTurno: </strong> 
+    </p>
+   
+    <!--
+    <p>                                               
+        <input type="text" name="nombre" class="form-control" formControlName="nombre"  >
+        <strong>Nombre: </strong> 
+    </p>-->
+    
+     
+    <p>
+         <input  type="date"   id="fecha"  value="{{today | date:'yyyy-MM-dd'}}"  formControlName="fecha">
+       <!-- <input type="date"  class="form-control" formControlName="fecha"   value="{{today | date:'yyyy-MM-dd'}}" >  | date:'yyyy-MM-dd'}}">-->
+        <strong>Fecha: </strong> 
+    </p>
+
+    <p>                                               
+        <input type="number"  class="form-control" formControlName="idmaquina"  >
+        <strong>IDMaquina: </strong> 
+    </p>
+
+
+    
+
+
+
+   
+<button class ="btn btn-success"    type ="submit">Registrar</button>
+
+</form>
+
+<pre style="clear: both;">{{ tForm.value | json }}</pre> 

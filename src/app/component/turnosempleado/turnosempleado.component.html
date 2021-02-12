@@ -19,6 +19,11 @@
           <th scope="col">Fecha</th>
           <th scope="col">Turno dia</th>
           <th scope="col">Area</th>
+          
+          <th scope="col">Puesto</th>
+          <th scope="col">ID Maquina</th>
+          <th scope="col">Registrar Uso</th>
+          
         </tr>
       </thead>
       <tbody>
@@ -26,7 +31,11 @@
           <th scope="row">{{ ems.idempleado }}</th>
           <td>{{ querid.nombre }}</td>
           <td>{{ ems.fecha }}</td>
+          <td>{{ ems.horario }}</td>
           <td>{{ ems.area }}</td>
+          <td>{{ ems.puesto }}</td>
+          <td>{{ ems.idmaquina }}</td>
+          <td> <button type="button" class="btn btn-primary" title="Expediente" (click)="adduso(ems)">Añadir usodetalles</button> </td>
          </tr>
       </tbody>
     </table>
