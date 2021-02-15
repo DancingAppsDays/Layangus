@@ -39,7 +39,7 @@ export class MaquinaeditComponent implements OnInit {
        //console.log(params)
        //console.log(params.id)
        this.equipo=params
-       //this.eqForm.get('id').setValue(this.equipo.id)
+       this.eqForm.get('id').setValue(this.equipo.id)
        //this.eqForm.get('nombre').setValue(this.equipo.nombre)
        //this.eqForm.get('puesto').setValue(this.equipo.puesto)
        //console.log(this.equipo.id)
@@ -50,6 +50,8 @@ export class MaquinaeditComponent implements OnInit {
      //cambiarbotonsave();
      //this.editar = true; //declara que el submit editara no creara nuevo registro
      this.getEmpleado(this.equipo.id);
+
+     //this.eqForm.get('id').setValue(this.equipo.id)   //could be even befo
 
     }
  }
@@ -75,31 +77,36 @@ postempleado(customerData)
        if(data['status'] == "success"){
 
        console.log(data);
-     window.alert(data['data']);   //debe decir agregadooo
-     this.router.navigate(['/']);}else{
+     window.alert(data['mensaje']);   //debe decir agregadooo
+     this.router.navigate(['/']);}
+     else{
 
-       window.alert(data['data']);// + '    No autorizado');
-       this.router.navigate(['/']);
+       window.alert(data['mensaje']  + "  Registro falló");// + '    No autorizado');
+       //this.router.navigate(['/']);
 
-     }/*
-   }, 
+     }
+    }, 
      error =>{
        console.log(error);
-       window.alert("Error: "+ error);
-     }*/
-   });
+       window.alert("Error: Registro falló "+ error);
+     }
+   );
  }
 
  putempleado(customerData,idd: number)
  {  
-   console.log(idd); 
-   
+   /*console.log(idd+ "almacenar"); 
+   this.eqForm.patchValue({
+    id: idd})*/     //dont patch enouff fast! ! ! !
+
+
+
    //lara dont allow put/patch, better fix in store
    this.http.post(Constantes.capiURL+"Maquina"+'/'+idd, customerData).subscribe(data =>
      {console.log(data);
        window.alert("Elemento modificado correctamente");
        this.router.navigate(['/']);}, 
-     error =>{console.log(error);}
+     error =>{ window.alert("  Registro falló");console.log(error);}
      );
  }
 
@@ -107,9 +114,20 @@ postempleado(customerData)
  { 
    this.http.get(Constantes.capiURL+"Maquina"+'/'+index).subscribe(data =>
      {console.log(data);
-      this.exs =  data;//data['dat'];     //NOT STANDARIZED APIREST
+      this.exs = data['data']; //failed bc data instaead of new data[data]    //NOT STANDARIZED APIREST
       console.log(this.exs);
-    //window.alert(data['mensaje']);
+      if(data['status'] == "success"){
+
+        //console.log(data);
+      //window.alert(data['mensaje']);   //debe decir agregadooo
+      //this.router.navigate(['/']);}
+      }else{
+ 
+        window.alert(data['mensaje']);// + '    No autorizado');
+        this.router.navigate(['/']);
+ 
+      }
+      //window.alert(data['mensaje']);
 
 
        //this.eqForm.get("name").setValue(data)
@@ -118,7 +136,11 @@ postempleado(customerData)
        this.updateform(this.exs);
       
      }, 
-     error =>{console.log(error);},
+     error =>{console.log(error);
+    
+      //window.alert(error['data']);
+
+    },
 
 
      );
@@ -129,8 +151,9 @@ postempleado(customerData)
  
  updateform(json)
  {
-    var fecha = json.lastcheck.substring(0,10);
-
+    if(json.lastcheck != null)
+    var fecha = json.lastcheck.substring(0,10);  //prone to fail if not correct on data
+    
  
       this.eqForm.patchValue({
         nombre: json.nombre,//  this.exs.nombre,
@@ -141,7 +164,7 @@ postempleado(customerData)
         positiony: json.positiony,
         riskfactor:json.riskfactor,
         ruido: json.ruido,
-        lastcheck:fecha //json.lastcheck
+        lastcheck: fecha//json.lastcheck //was fecha? workedddd?
 
  });
 

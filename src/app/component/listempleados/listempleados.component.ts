@@ -54,7 +54,7 @@ export class ListempleadosComponent implements OnInit {
     // window.alert("Datos recuperados  con éxito con sesion");
        
        //this.emps =result.json();
-       this.emps = this.sucessdata['dat'];         // result;//this.sucessdata;//data;
+       this.emps = this.sucessdata['data'];         // result;//this.sucessdata;//data;
        
        //this.emps.push(data);  
          this.items.push(this.emps);

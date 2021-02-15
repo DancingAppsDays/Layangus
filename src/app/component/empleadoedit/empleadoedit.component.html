@@ -12,7 +12,7 @@
     <p>Nombre: {{ querid.nombre }}</p>
     <p>IDEmpleado: {{ querid.id }}</p>-->
 
-<form [formGroup] ="empForm"  (ngSubmit)="onSubmit(empForm.value)" >
+<form [formGroup] ="empForm"  (ngSubmit)="onSubmit(empForm.value)"  [hidden]="success">
     <p>                                                 <!--//to avoid formcontrol error-->
         <input type="text" name="nombre" class="form-control" formControlName="nombre"  >
         <strong>Nombre: </strong> 
@@ -45,9 +45,9 @@
        
         <strong>Foto de perfil: </strong> 
     </p>
-<button class ="btn btn-success"    type ="submit">Registrar</button>
+<button class ="btn btn-success"    [disabled]="empForm.invalid"  type ="submit">Registrar</button>
 
 </form>
 
 
-<!--<pre style="clear: both;">{{ empForm.value | json }}</pre>-->
+<pre style="clear: both;">{{ empForm.value | json }}</pre>

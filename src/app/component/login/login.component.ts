@@ -35,11 +35,14 @@ export class LoginComponent implements OnInit {
       if(this.successdata['status'] == "success")
       {      window.alert("Usuario " + sessionStorage.name + " cerró sesion");
           localStorage.clear();
-          //sessionStorage.clear();
+          sessionStorage.clear();
          //this.successdata['data']['name']+" has been Login successfully");
       }
-      else  
+      else  {
       console.log(res);
+      sessionStorage.clear();   //regardless?? ? //Frontend validation primero, no importa que siga validado en server
+      }
+
       //window.alert("unknown erorr at lougout");
 
   });}

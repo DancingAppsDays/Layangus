@@ -46,11 +46,11 @@
     </p>
 
     <p>
-        <input type="date"  class="form-control" formControlName="lastcheck"  >
+        <input type="date"  class="form-control" formControlName="lastcheck" max="2999-01-01">
         <strong>Último chequeo: </strong> 
     </p>
-<button class ="btn btn-success" type ="submit">Registrar</button>
+<button class ="btn btn-success" type ="submit"   [disabled]="eqForm.invalid">Registrar</button>
 
 </form>
 
-<!--<pre style="clear: both;">{{ eqForm.value | json }}</pre> -->
+<pre style="clear: both;">{{ eqForm.value | json }}</pre> 

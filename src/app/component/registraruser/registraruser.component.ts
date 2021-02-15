@@ -80,7 +80,10 @@ onGuardarUsuario(data)
                 let token = res['data']['token'];  //res.data.acces.... not
                 localStorage.setItem("token",'Bearer' +token);
 
-                console.log("TOken = " + token);
+                sessionStorage.setItem("name",this.sucessdata['data']['name']);
+            sessionStorage.setItem("session","true");    
+
+                //console.log("TOken = " + token);
               //this.htt.defaults.headers.common['Authorization'] = ' Bearer' +token;
               this.router.navigate(['/']);
 

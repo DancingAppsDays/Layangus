@@ -46,7 +46,9 @@ export class TurnoanadirComponent implements OnInit {
      })
 
      if(this.art.id != undefined)// = undefined  != "undefined")  //editar no guardar neuvo
-     { this.tForm.get('idempleado').setValue(this.art.id)
+     { this.tForm.get('idempleado').setValue(this.art.id);
+     (<HTMLInputElement>document.getElementById('idempleado')).readOnly = true;
+     
      //this.tForm.get('nombre').setValue(this.art.nombre)
       //cambiarbotonsave();
       //this.editar = true; //declara que el submit editara no creara nuevo registro
@@ -80,10 +82,10 @@ posturno(customerData)
        if(data['status'] == "success"){
 
        console.log(data);
-     window.alert(data['data']);   //debe decir agregadooo
+     window.alert(data['mensaje']);   //debe decir agregadooo
      this.router.navigate(['/']);}else{
 
-       window.alert(data['data']);// + '    No autorizado');
+       window.alert(data['mensaje']);// + '    No autorizado');
        this.router.navigate(['/']);
 
      }/*

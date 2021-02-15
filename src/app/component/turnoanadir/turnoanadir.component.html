@@ -11,11 +11,11 @@
     <p>Nombre: {{ querid.nombre }}</p>
     <p>IDEmpleado: {{ querid.id }}</p>-->
 
-<form [formGroup] ="tForm"  (ngSubmit)="onSubmit(tForm.value)" >
+<form [formGroup] ="tForm"  (ngSubmit)="onSubmit(tForm.value)"><!--class="row g-3 needs-validation" novalidate>-->
    
    
     <p>                                               
-        <input type="number" name="nombre" class="form-control" formControlName="idempleado"  >
+        <input type="number" name="nombre" class="form-control" formControlName="idempleado"  id="idempleado" >
         <strong>IDEmpleado: </strong> 
     </p>
    
@@ -27,9 +27,9 @@
     
      
     <p>
-         <input  type="date"   value="{{today | date:'yyyy-MM-dd'}}"  formControlName="fecha">
+         <input  type="date"   value="{{today | date:'yyyy-MM-dd'}}"  formControlName="fecha" >
        <!-- <input type="date"  class="form-control" formControlName="fecha"   value="{{today | date:'yyyy-MM-dd'}}" >  | date:'yyyy-MM-dd'}}">-->
-        <strong>Fecha: </strong> 
+        <strong>Fecha: </strong>  
     </p>
 
 
@@ -44,7 +44,7 @@
     </p>
 
     <p>
-        <input type="text"  class="form-control" formControlName="area"  >
+        <input type="number"  class="form-control" formControlName="area"  >
         <strong>Area : </strong> 
     </p>
 
@@ -68,8 +68,8 @@
     </p>-->
 
    
-<button class ="btn btn-success"    type ="submit">Registrar</button>
+<button class ="btn btn-success"  [disabled]="tForm.invalid"  type ="submit">Registrar</button>
 
 </form>
 
-<pre style="clear: both;">{{ tForm.value | json }}</pre> 
+<!--pre style="clear: both;">{{ tForm.value | json }}</pre> -->

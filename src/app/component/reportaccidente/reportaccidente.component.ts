@@ -66,25 +66,25 @@ export class ReportaccidenteComponent implements OnInit {
         Validators.required,
              ]],
       tratat: ['', [
-        Validators.required,
+        //Validators.required,
              ]],
       mecan: ['', [
-        Validators.required,
+        //Validators.required,
              ]],
       tipoacci: ['', [
-        Validators.required,
+        //Validators.required,
              ]],
       dispo: ['', [
-        Validators.required,
+        //Validators.required,
              ]],
       grave: ['', [
-        Validators.required,
+        //Validators.required,
              ]],
       pronos: ['', [
-        Validators.required,
+        //Validators.required,
              ]],
       observa: ['', [
-        Validators.required,
+       // Validators.required,
              ]],
              nombredoc: ['', [
               Validators.required,

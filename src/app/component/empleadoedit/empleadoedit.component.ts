@@ -14,6 +14,8 @@ export class EmpleadoeditComponent implements OnInit {
   equipo:any;
   profilestring: string;
 
+  success = false;
+
   constructor(    private formBuilder: FormBuilder ,private router: Router,  private http :HttpClient,
     private router2: ActivatedRoute, /*private alertService: AlertService*/ ) {   }
  
@@ -22,13 +24,19 @@ export class EmpleadoeditComponent implements OnInit {
  ngOnInit(): void {
    
    this.empForm = this.formBuilder.group({
-     id: '',
-     nombre:['',[Validators.required, Validators.pattern('[^",]')]],
-      puesto: '',
-      area:'',
-      positionx:0,
-      positiony:0,
-      profilepic:""
+     id: ['', [
+      //Validators.required,
+           ]],
+     nombre:['',[Validators.required]],// Validators.pattern('[^",]')]],//pattern for json desmenusa (NO " " o , )
+      puesto: ['', [
+        Validators.required,
+             ]],
+      //area:'',
+     // positionx:0,
+     // positiony:0,
+      profilepic:['', [
+        //Validators.required,
+             ]],
     
     
     })
@@ -73,11 +81,12 @@ postempleado(customerData)
        if(data['status'] == "success"){
 
        console.log(data);
-     window.alert(data['data']);   //debe decir agregadooo
-     this.router.navigate(['/']);}else{
+     window.alert(data['mensaje']);   //debe decir agregadooo
+     this.router.navigate(['/']);}
+     else{
 
-       window.alert(data['data']);// + '    No autorizado');
-       this.router.navigate(['/']);
+       window.alert(data['mensaje'] + "Falló registro");// + '    No autorizado');
+       //this.router.navigate(['/']);
 
      }/*
    }, 
@@ -97,7 +106,7 @@ postempleado(customerData)
      {console.log(data);
        window.alert("Elemento modificado correctamente");
        this.router.navigate(['/']);}, 
-     error =>{console.log(error);}
+     error =>{ window.alert("  Registro falló");console.log(error);}
      );
  }
 

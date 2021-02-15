@@ -77,15 +77,15 @@ export class UsodetailnewComponent implements OnInit {
 }
 posturno(customerData)
  {
-   this.http.post(Constantes.capiURL+"usodetalle",customerData/*,  { headers: { Authorization:localStorage.getItem('token') } }*/).subscribe(data =>
+   this.http.post(Constantes.capiURL+"Usodetalle",customerData/*,  { headers: { Authorization:localStorage.getItem('token') } }*/).subscribe(data =>
      {
        if(data['status'] == "success"){
 
        console.log(data);
-     window.alert(data['data']);   //debe decir agregadooo
+     window.alert(data['mensaje']);   //debe decir agregadooo
      this.router.navigate(['/']);}else{
 
-       window.alert(data['data']);// + '    No autorizado');
+       window.alert(data['mensaje']);// + '    No autorizado');
        this.router.navigate(['/']);
 
      }/*

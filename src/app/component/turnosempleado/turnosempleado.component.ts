@@ -40,6 +40,19 @@ export class TurnosempleadoComponent implements OnInit {
 
     }
 
+    nuevoturn()
+    {
+      this.router.navigate(['turnonew'],{
+        queryParams:{
+          id:this.querid.id,
+          nombre:this.querid.nombre
+         
+        }
+
+
+    })
+  }
+
     adduso(equipo:any){
       this.router.navigate(['usodetailnew'],{
         queryParams:{

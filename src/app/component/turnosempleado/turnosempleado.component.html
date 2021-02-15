@@ -10,6 +10,11 @@
   
   <p>Nombre: {{ querid.nombre }}</p>
   <p>IDEmpleado: {{ querid.id }}</p>
+
+  <br>
+  <button type="button" class="btn btn-primary" title="turnonuevo" (click)="nuevoturn()">Registrar turno</button> 
+  <br>
+
   
   <table class="table" *ngIf="eqs">
       <thead>
