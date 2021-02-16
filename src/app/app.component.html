@@ -15,13 +15,17 @@
     <!--<nav class="navbar  navbar-light bg-light navbar-fixed-top" name="menu">-->
       <nav class="navbar  navbar-blue bg-dark navbar-fixed-top" name="menu" style="background-color:azure">
       <ul  class="nav navbar-nav ">
-        <li class="divider"  ><a href="#" routerLink="/login">Login  </a></li>
-        <li class="divider"  ><a href="#" routerLink="/registry">Registrar usuario  </a></li>
+        <li class="divider"   *ngIf="this.sesion == null"><a href="#" routerLink="/login">Login  </a></li>
+        <li class="divider" *ngIf="this.sesion != null" > <a href="#" (click)="onLogoutSubmit()">Cerrar sesión </a></li>
+        <li class="divider" *ngIf="this.sesion != null"  ><a href="#" routerLink="/registry">Registrar usuario  </a></li>
         
-        <li class="divider"  *ngIf="this.sesion != true"><a href="#" routerLink="/listempleado">ListaEmpleados  </a></li>
-        <li class="divider"  *ngIf="this.sesion != true" ><a href="#" routerLink="/listamaquina">ListaEquipos  </a></li>
-        <li class="divider"  *ngIf="this.sesion != true"><a href="#" routerLink="/examenlasts">Estados de salud  </a></li>
-        <li class="divider" *ngIf="this.sesion != true" ><a href="#" routerLink="/turnonew">Añadir turno </a></li>
+        <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/listempleado">ListaEmpleados  </a></li>
+        <li class="divider"  *ngIf="this.sesion != null" ><a href="#" routerLink="/listamaquina">ListaEquipos  </a></li>
+        <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/examenlasts">Estados de salud  </a></li>
+        <li class="divider" *ngIf="this.sesion != null" ><a href="#" routerLink="/turnonew">Añadir turno </a></li>
+      
+      
+      
         <!--*ngIf="sessionStorage.getItem('session') == true"
         <li class="divider"><a href="#" routerLink="/equipos">RegistrarEquipo  </a></li>
         <li class="divider"><a href="#" routerLink="/empleadoform">RegistrarEmpleado  </a></li>
@@ -30,8 +34,14 @@
         <li class="divider"><a href="#" routerLink="/reportes">RegistrarAccidente  </a></li>-->
         <!--<li><a href="#" routerLink="/up1">FileUpload1</a></li>-->
         
+
+        
       </ul>
     </nav>
+
+
+    
+
   </div>
 
 <!--

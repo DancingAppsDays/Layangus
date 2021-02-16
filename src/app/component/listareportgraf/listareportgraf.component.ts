@@ -13,8 +13,8 @@ export class ListareportgrafComponent implements OnInit {
   
   url = Constantes.capiURL + "Reportem/";
 
-  urlxxxxx: string = "https://novatechdpw2.000webhostapp.com/api/Reportem/";
-  urlz: string = "http://127.0.0.1:8000/api/Reportem/";    //could be reportem1 " para un single reporte by ID"
+  //urlxxxxx: string = "https://novatechdpw2.000webhostapp.com/api/Reportem/";
+  //urlz: string = "http://127.0.0.1:8000/api/Reportem/";    //could be reportem1 " para un single reporte by ID"
   eqs: any;
   querid: any;
   id: string = '';
@@ -32,15 +32,15 @@ export class ListareportgrafComponent implements OnInit {
       //console.log(this.querid.id);
 
     })
-
-    this.http.get(this.url+ this.querid.id).subscribe(result => 
+/*
+    this.http.get(Constantes+"Reportem/"+ this.querid.id).subscribe(result => 
          
       {//this.emps =result.json();
         this.eqs = result;//data;
        
         console.log(this.eqs);
       });
-
+*/
     }
     
 

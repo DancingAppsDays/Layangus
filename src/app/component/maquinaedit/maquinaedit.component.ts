@@ -118,6 +118,7 @@ postempleado(customerData)
       console.log(this.exs);
       if(data['status'] == "success"){
 
+        this.updateform(this.exs);
         //console.log(data);
       //window.alert(data['mensaje']);   //debe decir agregadooo
       //this.router.navigate(['/']);}
@@ -133,7 +134,7 @@ postempleado(customerData)
        //this.eqForm.get("name").setValue(data)
        //this.empm.name =
        //this.empm = data;
-       this.updateform(this.exs);
+     
       
      }, 
      error =>{console.log(error);

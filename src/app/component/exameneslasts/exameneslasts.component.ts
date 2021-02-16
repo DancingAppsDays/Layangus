@@ -18,7 +18,7 @@ url = Constantes.capiURL + "Examenmesx";
 checks: boolean[]= [];
 listajsonb: boolean[] =[];
 
-checksf: any[] = [] //performance??
+checksf: number[] = [] //performance??
 
 constructor(private http :HttpClient, private router2: ActivatedRoute, private router:Router) { }
 
@@ -193,7 +193,8 @@ relist()
 filterjson()
 {
 
-let listajson: string[] = [];
+
+//let listajson: string[] = [];
 
 //let listajsonb : boolean[] = [];
 this.listajsonb =[]; //reset array;
@@ -212,27 +213,29 @@ let j=0;  //counter
 
 for(let result of this.json)
 {
+  //console.log(result.frsignos);
+
 var falsed = false;
 
 if(this.checks[1] == true){
 
-  console.log("check11");
+ // console.log("check11");
 
-  console.log("valuetocheck "+this.checksf[1])
-if(result.imcsignos>= this.checksf[1])//this.checksf[1])
+  //console.log("valuetocheck "+this.checksf[1])
+if(parseInt(result.imcsignos)>= this.checksf[1])//this.checksf[1])
 {
 //console.log("aproved");
 falsed = false;
 
 }else falsed = true;
 }
-console.log("about to check2 " + this.checks[2]) 
+//console.log("about to check2 " + this.checks[2]) 
 
 if(this.checks[2] == true){
-  console.log("check22FOCK YAA ISA TRUEE");
+  //console.log("check22FOCK YAA ISA TRUEE");
 
-  console.log("valuetocheck "+this.checksf[2])
-if(result.pesosignos>this.checksf[2])
+  //console.log("valuetocheck "+this.checksf[2])
+if(parseInt(result.pesosignos)>this.checksf[2])
 {
 //console.log("aproved");
 
@@ -240,16 +243,21 @@ if(result.pesosignos>this.checksf[2])
 }
 if(this.checks[3] == true){
 
-  console.log("check33");
-  console.log("valuetocheck "+this.checksf[3])
-if(result.frsignos>this.checksf[3])
+  //console.log("check33");
+  //console.log("valuetocheck "+this.checksf[3])
+  console.log(this.checksf[3]);
+
+if(parseInt(result.frsignos)>this.checksf[3])
 {
-//console.log("aproved");
+//console.log(result.frsignos + "is mayor que.. ");
+
 
 }else falsed = true;
 }
+
 if(this.checks[4] == true){
-if(result.fcsignos>this.checksf[4])
+
+if(parseInt(result.fcsignos)>this.checksf[4])
 {
 //console.log("aproved");
 
