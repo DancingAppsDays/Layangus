@@ -10,6 +10,9 @@
     <button type="button" class="btn btn-primary" title="novo" (click)="nuevoeq()">Registrar maquina</button> 
     <br>
 
+    <input type="text" [(ngModel)]="term" placeholder="Buscar cadena">
+  
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   
   <table class="table" *ngIf="eqs">
     <thead>
@@ -22,7 +25,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let ems of eqs">
+      <tr *ngFor="let ems of eqs  | filter : term | paginate: { itemsPerPage: 10, currentPage: p }">
         <th scope="row">{{ ems.id }}</th>
         <td>{{ ems.nombre }}</td>
         <td>{{ ems.puesto }}</td>

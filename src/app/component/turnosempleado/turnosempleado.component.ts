@@ -16,6 +16,10 @@ export class TurnosempleadoComponent implements OnInit {
   created_at: string = '';
   name: string = '';
   puesto: string = '';
+
+  term: string = '';
+ p: number = 1;
+ 
   constructor(private http :HttpClient, private router2: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {

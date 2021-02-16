@@ -32,20 +32,20 @@ export class ListareportgrafComponent implements OnInit {
       //console.log(this.querid.id);
 
     })
-/*
-    this.http.get(Constantes+"Reportem/"+ this.querid.id).subscribe(result => 
+
+    this.http.get(Constantes.capiURL+"Reportem/"+ this.querid.id).subscribe(result => 
          
       {//this.emps =result.json();
         this.eqs = result;//data;
        
         console.log(this.eqs);
       });
-*/
+
     }
     
 
     abrirreporte(equipo:any){
-      this.router.navigate(['reportem'],{
+      this.router.navigate(['reportsingle'],{
         queryParams:{
           id:equipo.idempleado,//,  //id of reporte, no idempleado
           nombre:this.querid.nombre

@@ -139,7 +139,7 @@ gotoincidenteslist(equipo:any){
 }
 
 gotoreportes(equipo:any){
-  this.router.navigate(['reportem'],{
+  this.router.navigate(['reportsingle'],{
     queryParams:{
       id:equipo.id,
       idempleado:equipo.id,

@@ -18,6 +18,9 @@ export class ListamaquinasComponent implements OnInit {
   puesto: string = '';
   sucessdata:any;
 
+  term: string = '';
+ p: number = 1;
+
   constructor(private _http: HttpClient,private router:Router) {
 
   }

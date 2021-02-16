@@ -284,15 +284,15 @@ return this.listajsonb;
 //return listajson;
 }
 
-editexa(examen: any)
+editexa(examen: any)  //more like graficar
 {
 
 console.log(examen)
-this.router.navigate(['examemperiod'],{
+this.router.navigate(['reportsingle'],{
 queryParams:{
 id:examen.id,
 idempleado: examen.idempleado,
-nombre: this.querid.nombre,
+nombre: examen.nombre,//this.querid.nombre,
 
 //puesto:examen.puesto
 }
@@ -303,6 +303,7 @@ nombre: this.querid.nombre,
 nuevoexamen(equipo:any){
 this.router.navigate(['examemperiod'],{
 queryParams:{
+  id:equipo.id,
 idempleado:equipo.id,
 nombre:equipo.nombre
 }

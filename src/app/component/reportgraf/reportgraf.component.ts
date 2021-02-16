@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ChartDataSets } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 import { Constantes } from 'src/app/constantes';
 
 
@@ -18,7 +20,7 @@ import { Constantes } from 'src/app/constantes';
 export class ReportgrafComponent implements OnInit {
 
  
-  url = Constantes.capiURL + "Reportem/";
+  url = Constantes.capiURL +"Examenmes/" //"Reportem/";   //remportem1 ? ?
   urlz: string = "http://127.0.0.1:8000/api/Reportem/";
   eqs: any;
   querid: any;
@@ -31,7 +33,7 @@ export class ReportgrafComponent implements OnInit {
 
   //lineChartData: ChartDataSets[];
 
- // lineChartLabels: Label[] ;
+  // lineChartLabels: Label[] ;
 
   constructor(private http :HttpClient, private router: Router, private router2: ActivatedRoute) { }
   
@@ -42,14 +44,14 @@ export class ReportgrafComponent implements OnInit {
      
       this.querid=params; })
 
- /*
-      this.http.get(this.url+ this.querid.id).subscribe(result => 
+ 
+      this.http.get(this.url+ this.querid.idempleado).subscribe(result => 
           {
-          this.eqs = result;//data;
+          this.eqs = result['data'];//data;
          
           console.log(this.eqs);
 
-          //this.arraytemp = []; //refresh every time... maybe, con los otros no fue necesario, check nav
+          this.arraytemp = []; //refresh every time... maybe, con los otros no fue necesario, check nav
 
             //IF RESULT GOOD... obvious since last compoenent.
 
@@ -62,19 +64,26 @@ export class ReportgrafComponent implements OnInit {
                 //console.log(element.azucar);   //FUNCIONAAAA
                      //DIRECTO DEL JSON:... bad practice??
               
-                var $strink = element.fecha;
-                var $strink2 = element.azucar;
+                var $strink = element.created_at;//fecha;
+                var $strink2 = element.imcsignos;//azucar;
                 
                                         
-                //this.lineChartData.push({data:$strink2.toString()});  //create 5 data sets....
-                this.arraytemp.push($strink2.toString())
-                this.arraytemp2.push(element.colesterol)
-                this.arraytemp3.push(element.presionA)
-                this.lineChartLabels.push($strink.toString()); //tosintrg()??
+                //this.lineChartData.push({data:$strink2.toString()});  //create 5 data sets.... //was mute
+
+
+                this.arraytemp.push($strink2); //  .toString()) cannot tostring nyull--
+                this.arraytemp2.push(element.fcsignos)
+                this.arraytemp3.push(element.frsignos);//presionA)
+
+
+                this.lineChartLabels.push($strink.toString()); //tosintrg()??   //was mute
                //, label:"Somethingelse");
               });
                 console.log("afterrr arrayedd");
-                this.lineChartData = [    { data: this.arraytemp, label: 'Azucar' },  { data: this.arraytemp2, label: 'Colesterol' }, { data: this.arraytemp3, label: 'Presion' }  ];
+
+
+                //last muted
+                this.lineChartData = [    { data: this.arraytemp, label: 'IMC' },  { data: this.arraytemp2, label: 'FC' }, { data: this.arraytemp3, label: 'FR' }  ];
           
         });
 
@@ -85,12 +94,21 @@ export class ReportgrafComponent implements OnInit {
  
   lineChartData: ChartDataSets[] = [
     { data: [], label: 'Change on init' },
+
+
   ];
 
   lineChartLabels: Label[] = [];//'January', 'February', 'March', 'April', 'May', 'June'];
 
   lineChartOptions = {
-    responsive: true//,
+    responsive: true,//,,
+
+
+    /*  //didnt do shitt...
+    pointBorderWidth : 113,
+    pointHitRadius : 111,
+    pointStyle : 'triangle'*/
+
     //onClick: this.alertbox()  //did it activate on INIT??yes, and not much else
   };
 
@@ -101,10 +119,18 @@ export class ReportgrafComponent implements OnInit {
     },
   ];
 
+ 
+  borderWidth= 51;
+  hoverBorderWidth=  51;
+
   lineChartLegend = true;
   lineChartPlugins = [];
-  lineChartType = 'line';
-  
+  lineChartType = 'bar';//line';
+
+  /*
+  pointBorderWidth = 113;
+  pointHitRadius = 111;
+  pointStyle = 'triangle';*/
 
    alertbox(): void {
       
@@ -112,6 +138,6 @@ export class ReportgrafComponent implements OnInit {
       console.log("ALERBOX")
     }
 
-*/
-  }   //ERASEEE
+
+     //ERASEEE*/
 }

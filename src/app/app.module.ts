@@ -36,6 +36,7 @@ import { ExameneslastsComponent } from './component/exameneslasts/exameneslasts.
 import { TurnoanadirComponent } from './component/turnoanadir/turnoanadir.component';
 import { UsodetailnewComponent } from './component/usodetailnew/usodetailnew.component';
 
+import { ChartsModule } from 'ng2-charts';
 
 //import SignaturePad from 'signature_pad'; //fuck this
 //import { HttpserviceService } from './service/httpservice.service';
@@ -92,7 +93,7 @@ var firebaseConfig = {
     NgxPaginationModule,
     Ng2SearchPipeModule,
    
-    
+    ChartsModule
 
 
   ],

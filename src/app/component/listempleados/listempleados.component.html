@@ -10,7 +10,7 @@
     <button type="button" class="btn btn-primary" title="novo" (click)="nuevoemp()">Registrar empleado</button> 
     <br>
 
-  <input type="text" [(ngModel)]="term">Buscar nombre
+  <input type="text" [(ngModel)]="term" placeholder="Buscar cadena">
   
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
   <table class="table" *ngIf="emps">
