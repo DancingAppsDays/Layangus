@@ -60,7 +60,7 @@ export class MaquinaeditComponent implements OnInit {
 
  onSubmit(customerData)
  {//console.log("submitted");
- this.eqForm.reset();
+ //this.eqForm.reset();
                                      //if this equipo not come from list, new, else patch
  if(this.equipo.id !=undefined){     
      //console.log("not null patch no post");

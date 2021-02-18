@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Lista de equipos</h4>
+      </div>
+    </div>
+
+    <br>
+    <button type="button" class="btn btn-primary" title="novo" (click)="nuevoeq()">Registrar puesto</button> 
+    <br>
+
+    <input type="text" [(ngModel)]="term" placeholder="Buscar cadena">
+  
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  
+  <table class="table" *ngIf="eqs">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Posicion x</th>
+        <th scope="col">Posicion y</th>
+        <th scope="col">Area</th>
+        <th scope="col">ID Maquina</th>
+        <th scope="col">Descripcion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ems of eqs  | filter : term | paginate: { itemsPerPage: 10, currentPage: p }">
+        <th scope="row">{{ ems.id }}</th>
+        <td>{{ ems.nombre }}</td>
+        <td>{{ ems.positionx }}</td>
+        <td>{{ ems.positionx }}</td>
+        <td>{{ ems.area }}</td>
+        <td>{{ ems.idmaquina }}</td>
+        <td>{{ ems.descripcion }}</td>
+        <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editpuesto(ems)">Editar</button> </td>
+      </tr>
+    </tbody>
+  </table>

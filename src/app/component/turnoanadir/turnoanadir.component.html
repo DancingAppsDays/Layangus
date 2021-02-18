@@ -10,12 +10,12 @@
 <!--
     <p>Nombre: {{ querid.nombre }}</p>
     <p>IDEmpleado: {{ querid.id }}</p>-->
-
+    <div style="padding: 12px;border: 4px solid hsl(0, 0%, 93%);">
 <form [formGroup] ="tForm"  (ngSubmit)="onSubmit(tForm.value)"><!--class="row g-3 needs-validation" novalidate>-->
    
    
     <p>                                               
-        <input type="number" name="nombre" class="form-control" formControlName="idempleado"  id="idempleado" >
+        <input type="number" name="nombre" class="form-control" formControlName="idempleado"  id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">
         <strong>IDEmpleado: </strong> 
     </p>
    
@@ -34,22 +34,26 @@
 
 
     <p>
-        <input type="number"  class="form-control" formControlName="horario"  >
+        <select   class="form-control" formControlName="horario" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}" >
+            <option value="1">1</option>
+            <option value="2">2</option>
+             <option value="3">3</option>
+            </select>
         <strong>Horario: </strong> 
     </p>
 
     <p>
-        <input type="number"  class="form-control" formControlName="puesto"  >
+        <input type="number"  class="form-control" formControlName="puesto" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}" >
         <strong>ID Puesto: </strong> 
     </p>
 
     <p>
-        <input type="number"  class="form-control" formControlName="area"  >
+        <input type="number"  class="form-control" formControlName="area" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}" >
         <strong>Area : </strong> 
     </p>
 
     <p>
-        <input type="number"  class="form-control" formControlName="idmaquina"  >
+        <input type="number"  class="form-control" formControlName="idmaquina" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}" >
         <strong>ID Maquina: </strong> 
     </p>
 
@@ -71,5 +75,6 @@
 <button class ="btn btn-success"  [disabled]="tForm.invalid"  type ="submit">Registrar</button>
 
 </form>
+    </div>
 
 <!--pre style="clear: both;">{{ tForm.value | json }}</pre> -->

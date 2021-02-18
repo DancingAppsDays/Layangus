@@ -37,6 +37,9 @@ import { TurnoanadirComponent } from './component/turnoanadir/turnoanadir.compon
 import { UsodetailnewComponent } from './component/usodetailnew/usodetailnew.component';
 
 import { ChartsModule } from 'ng2-charts';
+import { PuestoeditComponent } from './component/puestoedit/puestoedit.component';
+import { ListpuestoComponent } from './component/listpuesto/listpuesto.component';
+import { PortadaComponent } from './component/portada/portada.component';
 
 //import SignaturePad from 'signature_pad'; //fuck this
 //import { HttpserviceService } from './service/httpservice.service';
@@ -74,6 +77,9 @@ var firebaseConfig = {
     ExameneslastsComponent,
     TurnoanadirComponent,
     UsodetailnewComponent,
+    PuestoeditComponent,
+    ListpuestoComponent,
+    PortadaComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage

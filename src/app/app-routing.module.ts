@@ -18,6 +18,9 @@ import { MaquinaeditComponent } from './component/maquinaedit/maquinaedit.compon
 import { ExameneslastsComponent } from './component/exameneslasts/exameneslasts.component';
 import { TurnoanadirComponent } from './component/turnoanadir/turnoanadir.component';
 import { UsodetailnewComponent } from './component/usodetailnew/usodetailnew.component';
+import { PuestoeditComponent } from './component/puestoedit/puestoedit.component';
+import { ListpuestoComponent } from './component/listpuesto/listpuesto.component';
+import { PortadaComponent } from './component/portada/portada.component';
 
 const routes: Routes = [
 
@@ -38,7 +41,10 @@ const routes: Routes = [
   {path:'reportsingle',component:ReportgrafComponent},
   {path: 'examenlasts', component:ExameneslastsComponent},
   {path: 'turnonew',component:TurnoanadirComponent},
-  {path: 'usodetailnew', component:UsodetailnewComponent}
+  {path: 'usodetailnew', component:UsodetailnewComponent},
+  {path: 'puestos',component:PuestoeditComponent},
+  {path:'listapuestos',component:ListpuestoComponent},
+  {path:'', component:PortadaComponent}
  
 
 

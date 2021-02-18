@@ -23,6 +23,9 @@
         <li class="divider"  *ngIf="this.sesion != null" ><a href="#" routerLink="/listamaquina">ListaEquipos  </a></li>
         <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/examenlasts">Estados de salud  </a></li>
         <li class="divider" *ngIf="this.sesion != null" ><a href="#" routerLink="/turnonew">Añadir turno </a></li>
+
+        <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/listapuestos">Lista puestos</a></li>
+        
       
       
       
@@ -40,7 +43,7 @@
     </nav>
 
 
-    
+    <!--<img src="https://www.privacidadlogica.es/wp-content/uploads/2014/09/historia_clinica-644x362.jpeg">-->
 
   </div>
 
@@ -83,9 +86,11 @@
   </nav>-->
 </header>
 
+
+
 <router-outlet></router-outlet>
 <!--<div class="container">
-  
+  <img [src]="https://www.privacidadlogica.es/wp-content/uploads/2014/09/historia_clinica-644x362.jpeg";>
 </div>-->
 
 
