@@ -33,13 +33,40 @@ export class TurnosempleadoComponent implements OnInit {
 
     })
 
-    this.http.get(Constantes.capiURL+"Turno/"+ this.querid.id).subscribe(result => 
+    //console.log(Constantes.capiURL+"Turno/"+ this.querid.id);
+
+    this.http.get(Constantes.capiURL+"Turno/"+ this.querid.id).subscribe(data => 
          
-      {//this.emps =result.json();
-        this.eqs = result;//data;
-       
-        console.log(this.eqs);
+      {
+        //console.log(data);
+        //this.eqs = data;//['data'];
+        //console.log(this.eqs);
+
+        if(data['status'] == "success"){
+
+          this.eqs = data['data'];
+          console.log(this.eqs);
+          //console.log(data);
+        //window.alert(data['mensaje']);   //debe decir agregadooo
+        //this.router.navigate(['/']);}
+        }else{
+   
+          window.alert(data['mensaje'] + "Falló consulta");// + '    No autorizado');
+          //this.router.navigate(['/']);
+   
+        }
+      }, 
+        error =>{
+          console.log(error);
+          window.alert("Error: "+ error);
+        
       });
+
+
+        //this.eqs = result;//data;
+       
+        //console.log(this.eqs);
+     // });
 
 
     }
@@ -48,7 +75,7 @@ export class TurnosempleadoComponent implements OnInit {
     {
       this.router.navigate(['turnonew'],{
         queryParams:{
-          id:this.querid.id,
+          idempleado:this.querid.id,
           nombre:this.querid.nombre
          
         }
@@ -56,6 +83,20 @@ export class TurnosempleadoComponent implements OnInit {
 
     })
   }
+
+  editarturn(equipo:any)
+  {
+    this.router.navigate(['turnonew'],{
+      queryParams:{
+        id:equipo.id,
+        idempleado:this.querid.id,
+        nombre:this.querid.nombre
+       
+      }
+
+
+  })
+}
 
     adduso(equipo:any){
       this.router.navigate(['usodetailnew'],{

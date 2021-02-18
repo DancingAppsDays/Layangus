@@ -88,12 +88,12 @@ postempleado(customerData)
        window.alert(data['mensaje'] + "Falló registro");// + '    No autorizado');
        //this.router.navigate(['/']);
 
-     }/*
+     }
    }, 
      error =>{
        console.log(error);
-       window.alert("Error: "+ error);
-     }*/
+       window.alert("Error: "+ error.error.message);
+     
    });
  }
 

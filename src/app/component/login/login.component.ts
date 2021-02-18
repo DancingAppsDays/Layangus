@@ -52,11 +52,10 @@ export class LoginComponent implements OnInit {
 
 
 
-  onLoginSubmit(logindata) {
+  onLoginSubmit(logindata) { 
    
 
-    return this.htt.post(Constantes.capiURL+"Login"          //'http://localhost/therichpost/public/api/login'
-      , logindata).subscribe((res: Response) => {
+    return this.htt.post(Constantes.capiURL+"Login", logindata).subscribe((res: Response) => {
         this.successdata = res;
         
         if(this.successdata['status'] == "success")
@@ -74,9 +73,7 @@ export class LoginComponent implements OnInit {
             
 
           
-        }else 
-
-        if(this.successdata['status'] == "error")
+        }else if(this.successdata['status'] == "error")
         {
           window.alert(this.successdata['error']);//"Datos de login incorrectos");
          /* Swal.fire({
@@ -87,11 +84,18 @@ export class LoginComponent implements OnInit {
         }else {
           window.alert("unknown BUG");
         }
+
+        //
       
         
-    });
-    }
+    },  
+    error =>{ window.alert("Error de conexión");   //error.message);
+        console.log(error.message);}
+    
+    );
   }
+
+}
 
 
 

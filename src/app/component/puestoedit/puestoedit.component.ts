@@ -13,6 +13,7 @@ export class PuestoeditComponent implements OnInit {
   pForm: FormGroup;
   art:any;
   exs:any;
+  successdata: any;
   
   constructor(    private formBuilder: FormBuilder ,private router: Router,  private http :HttpClient,
     private router2: ActivatedRoute, /*private alertService: AlertService*/ ) {   }
@@ -23,7 +24,7 @@ export class PuestoeditComponent implements OnInit {
    
    this.pForm = this.formBuilder.group({
      id: '',
-     nombre: '',
+     nombre:['',[Validators.required,]], 
      positionx:'',
      positiony:'',
      rotation:'',
@@ -79,23 +80,24 @@ export class PuestoeditComponent implements OnInit {
 }
 postpuesto(customerData)
  {
-   this.http.post(Constantes.capiURL+"Puesto",customerData/*,  { headers: { Authorization:localStorage.getItem('token') } }*/).subscribe(data =>
+   this.http.post(Constantes.capiURL+"Puesto",customerData/*,  { headers: { Authorization:localStorage.getItem('token') } }*/).subscribe((res: Response) =>
      {
-       if(data['status'] == "success"){
+      this.successdata = res;
+       if(this.successdata['status'] == "success"){
 
-       console.log(data);
-     window.alert(data['mensaje']);   //debe decir agregadooo
+       console.log(this.successdata);
+     window.alert(this.successdata['mensaje']);   //debe decir agregadooo
      this.router.navigate(['/']);}else{
 
-       window.alert(data['mensaje']);// + '    No autorizado');
+       window.alert(this.successdata['mensaje']);// + '    No autorizado');
        this.router.navigate(['/']);
 
-     }/*
+     }
    }, 
      error =>{
        console.log(error);
-       window.alert("Error: "+ error);
-     }*/
+       window.alert("Error de registro: "+ error.error.message);
+     
    });
  }
 

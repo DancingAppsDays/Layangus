@@ -23,11 +23,12 @@
     <p>                                               
         <input type="text" name="nombre" class="form-control" formControlName="nombre"  >
         <strong>Nombre: </strong> 
-    </p>-->
+    </p>'MM/DD/YYYY hh:mm A'           {{today | date:'yyyy-MM-dd'}} DIDNT TO SHIE value="todaystring | date:'dd-MM-yyyy'"-->
     
      
-    <p>
-         <input  type="date"   value="{{today | date:'yyyy-MM-dd'}}"  formControlName="fecha" >
+    <p> 
+       
+         <input  type="date"    formControlName="fecha"  max="2888-01-01">
        <!-- <input type="date"  class="form-control" formControlName="fecha"   value="{{today | date:'yyyy-MM-dd'}}" >  | date:'yyyy-MM-dd'}}">-->
         <strong>Fecha: </strong>  
     </p>
@@ -77,4 +78,4 @@
 </form>
     </div>
 
-<!--pre style="clear: both;">{{ tForm.value | json }}</pre> -->
+<!--<pre style="clear: both;">{{ tForm.value | json }}</pre>-->
