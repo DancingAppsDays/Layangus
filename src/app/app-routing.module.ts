@@ -23,6 +23,7 @@ import { ListpuestoComponent } from './component/listpuesto/listpuesto.component
 import { PortadaComponent } from './component/portada/portada.component';
 import { AudioexlistComponent } from './component/audioexlist/audioexlist.component';
 import { AudioexComponent } from './component/audioex/audioex.component';
+import { AudioexgrafComponent } from './component/audioexgraf/audioexgraf.component';
 
 const routes: Routes = [
 
@@ -48,7 +49,8 @@ const routes: Routes = [
   {path:'listapuestos',component:ListpuestoComponent},
   {path:'', component:PortadaComponent},
   {path:'listaaudios', component:AudioexlistComponent},
-  {path:'audioex', component:AudioexComponent}
+  {path:'audioex', component:AudioexComponent},
+  {path:'audioexgraf', component:AudioexgrafComponent}
  
 
 

@@ -98,5 +98,19 @@ export class AudioexlistComponent implements OnInit {
   })
 }
 
+
+gotoexgraf()
+    {
+      this.router.navigate(['audioexgraf'],{
+        queryParams:{
+          idempleado:this.querid.id,
+          nombre:this.querid.nombre
+         
+        }
+
+
+    })
+  }
+
    
   }
