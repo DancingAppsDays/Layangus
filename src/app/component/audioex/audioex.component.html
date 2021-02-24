@@ -1,0 +1,208 @@
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar Audiometría</h4>
+      </div>
+    </div>
+  
+
+    
+<!--
+    <p>Nombre: {{ querid.nombre }}</p>
+    <p>IDEmpleado: {{ querid.id }}</p>-->
+    <div style="padding: 12px;border: 4px solid hsl(0, 0%, 93%);">
+
+
+<form [formGroup] ="aForm"  (ngSubmit)="onSubmit(aForm.value)"><!--class="row g-3 needs-validation" novalidate>-->
+   
+   
+    <p>                                               
+        <input type="number" name="nombre" class="form-control" formControlName="idempleado"  id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">
+        <strong>IDEmpleado: </strong> 
+    </p>
+    <p>                                                 <!--//to avoid formcontrol error-->
+        <input type="text" name="nombre" class="form-control" formControlName="nombre"  id="nombre" >
+        <strong>Nombre: </strong> 
+    </p>
+    <p> 
+       
+        <input  type="date"    formControlName="fecha"  max="2888-01-01">
+      <!-- <input type="date"  class="form-control" formControlName="fecha"   value="{{today | date:'yyyy-MM-dd'}}" >  | date:'yyyy-MM-dd'}}">-->
+       <strong>Fecha: </strong>  
+   </p>
+    <br>
+    <p> Oido izquierdo</p>
+    <br>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="i250">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>I250 </strong> 
+    </p>
+
+    <p>                                               
+        <input type="number" class="form-control" formControlName="i500">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>I500 </strong> 
+    </p>
+
+    <p>                                               
+        <input type="number" class="form-control" formControlName="i1000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>I1000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="i2000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>I2000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="i3000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>I3000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="i4000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>I4000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="i6000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>I6000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="i8000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>I8000 </strong> 
+    </p>
+
+    
+    
+
+    <p> Oido derecho</p>
+    <br>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="d250">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>D250 </strong> 
+    </p>
+
+    <p>                                               
+        <input type="number" class="form-control" formControlName="d500">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>D500 </strong> 
+    </p>
+
+    <p>                                               
+        <input type="number" class="form-control" formControlName="d1000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>D1000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="d2000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>D2000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="d3000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>D3000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="d4000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>D4000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="d6000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>D6000 </strong> 
+    </p>
+    <p>                                               
+        <input type="number" class="form-control" formControlName="d8000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+        <strong>D8000 </strong> 
+    </p>
+
+    <br>
+    <label>Conducción osea?<input type="checkbox" (change)="checkbone($event)" id="1" name="boxx1"> </label>
+
+
+        
+    <div id="bone" style="visibility: hidden;">
+        <br>
+        <p> Oido izquierdo</p>
+        <br>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="i250">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>I250 </strong> 
+        </p>
+    
+        <p>                                               
+            <input type="number" class="form-control" formControlName="i500">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>I500 </strong> 
+        </p>
+    
+        <p>                                               
+            <input type="number" class="form-control" formControlName="i1000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>I1000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="i2000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>I2000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="i3000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>I3000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="i4000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>I4000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="i6000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>I6000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="i8000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>I8000 </strong> 
+        </p>
+    
+        
+        
+    
+        <p> Oido derecho</p>
+        <br>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="d250">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>D250 </strong> 
+        </p>
+    
+        <p>                                               
+            <input type="number" class="form-control" formControlName="d500">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>D500 </strong> 
+        </p>
+    
+        <p>                                               
+            <input type="number" class="form-control" formControlName="d1000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>D1000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="d2000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>D2000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="d3000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>D3000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="d4000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>D4000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="d6000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>D6000 </strong> 
+        </p>
+        <p>                                               
+            <input type="number" class="form-control" formControlName="d8000">  <!--id="idempleado" oninput="if(this.value>0){this.value=(parseInt(this.value)||0)}else{this.value=0}">-->
+            <strong>D8000 </strong> 
+        </p>
+    
+    </div>
+
+        <br>
+    <p>
+    <textarea class="form-control" formControlName="descripcion"></textarea>
+    <strong>Descripción/Diagnóstico</strong> 
+    </p>
+   
+<button class ="btn btn-success"  [disabled]="aForm.invalid"  type ="submit">Registrar</button>
+
+</form>
+    </div>
+
+<!--<pre style="clear: both;">{{ aForm.value | json }}</pre>-->

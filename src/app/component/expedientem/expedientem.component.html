@@ -21,18 +21,18 @@
 </form>-->
 <div class="container">
  
-
-
+  <div class="form-group row">
+    <div class="col-sm text-center">
+      <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar expediente</h4>
+    </div>
+  </div>
+  <div style="padding: 30px;border: 3px solid hsl(0, 0%, 93%);">
 
 <form [formGroup]="exform" [hidden]="success"  (ngSubmit)="onGuardarexpediente(exform.value)">
 
-    <div class="form-group row">
-      <div class="col-sm text-center">
-        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar expediente</h4>
-      </div>
-    </div>
+   
   
-      
+   
   
         <div class="form-group row">
 
@@ -302,9 +302,9 @@
               </button>
         </div>
       </div>
-  
+    
     </form>
   
-
+  </div>
    <!--<pre style="clear: both;">{{ exform.value | json }}</pre> -->
    </div>

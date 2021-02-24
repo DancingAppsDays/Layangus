@@ -50,7 +50,22 @@
 
           <label name="sangre" class="col-sm-1 col-form-label">Tipo de sangre:</label>
          
-            <input type="text" class="form-control" maxlength="4" formControlName="sangre" placeholder="AH+" value="">
+          <select class="form-control" formControlName="sangre">
+            <option value="O +">O positivo</option>
+            <option value="O -">O negativo</option>
+            <option value="A +">A positivo</option>
+            <option value="A -">A negativo</option>
+            <option value="B +">B positivo</option>
+            <option value="B -">B negativo</option>
+            <option value="AB +">AB positivo</option>
+            <option value="AB -">AB negativo</option>
+            <option value="Desconocido">Desconocido</option>
+
+
+           
+           </select>
+
+            <!--<input type="text" class="form-control" maxlength="4" formControlName="sangre" placeholder="AH+" value="">-->
 
 
           <label for="sexo"  class="col-sm-1 col-form-label">Sexo:</label>
@@ -101,7 +116,7 @@
             <label name="fechan" class="col-sm-1 col-form-label">Fecha:</label>
             
            
-              <input formControlName="fechan" type="date"   value="{{today | date:'yyyy-MM-dd'}}">
+              <input formControlName="fechan" type="date"   value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01">
               <div class="input-group-prepend">
                 <span class="input-group-text fa fa-calendar-o" id="inputGroupPrepend2"></span>
             </div>         
@@ -223,7 +238,7 @@
       <div class="col-sm-12 ">
             
         <label name="fecha" >Fecha de ingreso a la empresa:               
-        <input formControlName="fechaingreso" type="date"   value="{{today | date:'yyyy-MM-dd'}}">
+        <input formControlName="fechaingreso" type="date"   value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01">
         <div class="input-group-prepend">
           <span class="input-group-text fa fa-calendar-o" id="inputGroupPrepend2"></span>
       </div>
@@ -247,7 +262,7 @@
           <input type="text" class="form-control" formControlName="puestoac" placeholder="Líder"> <!--ng-pattern ="/^[a-zA-Z\s]*$/">-->
         
           <label name="area" class="col-sm-4 col-form-label" >Tiempo en puesto actual:</label>         
-          <input type="date" class="form-control" formControlName="tiempopues"> <!--placeholder="400">-->
+          <input type="date" class="form-control" formControlName="tiempopues" max="2100-01-01" > <!--placeholder="400">-->
 
 
         </div>
@@ -426,13 +441,16 @@
         <div class="col-sm-2" style="clear: both;"><label >Area</label></div>
         <div class="col-sm-5"><input type="text" class="form-control" formControlName="areaanterior"></div>
         <div class="col-sm-2"  style="clear: both;"><label name="fechan">Tiempo en el puesto:</label></div>
-        <div class="col-sm-5"><input formControlName="duracionanterior" type="date"></div>
+        <div class="col-sm-5"><input formControlName="duracionanterior" type="date" value="{{today | date:'yyyy-MM-dd'}}" max="0100-01-01"></div>
               
          <div class="col-sm-2" style="clear: both;"><label name="accianteriors">Accidentes sufridos:</label></div>
          <div class="col-sm-8"><textarea class="form-control"  rows="1" formControlName="accianterior" placeholder="" ></textarea></div>
           
          
          <div class="col-sm12" style="clear:both">
+          <br><br>
+    
+        <hr style="border: 2px inset"/>
         <br>
         <label style="font-weight:bold;" >Respecto a su vida laboral , dentro y fuera de la empresa, mencione el tiempo que considere se ha encontra expuesto a algunso de los siguientes agentes</label>
           <br>
@@ -468,28 +486,28 @@
                     </div>
 
           <div class="col-sm-6">
-            <label>Polvos<input type="checkbox" class="form-control" formControlName="polvoanterior">
-             <label><input type="date" class="form-control" formControlName="polvoanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+            <label>Polvos<input type="checkbox" class="form-control" formControlName="polvoanterior" (change)="multicheck($event)" id="1c">
+             <label><input type="date" class="form-control" formControlName="polvoanteriord" placeholder= "Especifique:  " style="width: 333px;visibility: hidden;"  id="1f"value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01"></label>
             </label>
             </div>
             <div class="col-sm-6">
-              <label>Vapores<input type="checkbox" class="form-control" formControlName="vaporanterior">
-               <label><input type="date" class="form-control" formControlName="vaporanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+              <label>Vapores<input type="checkbox" class="form-control" formControlName="vaporanterior" (change)="multicheck($event)" id="2c">
+               <label><input type="date" class="form-control" formControlName="vaporanteriord" placeholder= "Especifique:  " style="width: 333px;visibility: hidden;"  id="2f" value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01"></label>
               </label>
               </div>
               <div class="col-sm-6">
-                <label>Radiaciones<input type="checkbox" class="form-control" formControlName="radiacionanterior">
-                 <label><input type="date" class="form-control" formControlName="radiacionanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+                <label>Radiaciones<input type="checkbox" class="form-control" formControlName="radiacionanterior" (change)="multicheck($event)" id="3c">
+                 <label><input type="date" class="form-control" formControlName="radiacionanteriord" placeholder= "Especifique:  " style="width: 333px;visibility: hidden;"  id="3f" value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01"></label>
                 </label>
                 </div>
                 <div class="col-sm-6">
-                  <label>Manejo de carga<input type="checkbox" class="form-control" formControlName="manejodecargaanterior">
-                   <label><input type="date" class="form-control" formControlName="manejodecargaanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+                  <label>Manejo de carga<input type="checkbox" class="form-control" formControlName="manejodecargaanterior" (change)="multicheck($event)" id="4c">
+                   <label><input type="date" class="form-control" formControlName="manejodecargaanteriord" placeholder= "Especifique:  " style="width: 333px;visibility: hidden;"  id="4f" value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01"></label>
                   </label>
                   </div>
                   <div class="col-sm-6">
-                    <label>Movimientos repetitivos de espalda, muñecas, hombros<input type="checkbox" class="form-control" formControlName="movrepetivoanterior">
-                     <label><input type="date" class="form-control" formControlName="movrepetivoanteriord" placeholder= "Especifique:  " style="width: 333px;"></label>
+                    <label>Movimientos repetitivos de espalda, muñecas, hombros<input type="checkbox" class="form-control" formControlName="movrepetivoanterior" (change)="multicheck($event)" id="5c">
+                     <label><input type="date" class="form-control" formControlName="movrepetivoanteriord" placeholder= "Especifique:  " style="width: 333px;visibility: hidden;"   id="5f" value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01"></label>
                     </label>
                     </div>
            </div>
@@ -991,7 +1009,7 @@
             <label >Inicio Vida sexual</label>
           
           </div>
-          <div class="col-sm-3"><input type="date" class="form-control" formControlName="iniciosex">
+          <div class="col-sm-3"><input type="date" class="form-control" formControlName="iniciosex" value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01">
           </div> 
           
             <div class="col-sm-3">
@@ -1028,17 +1046,17 @@
           <div class="col-sm-3">
             <label>Último parto</label>
           </div> 
-          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimoparto">
+          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimoparto" value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01">
           </div>
           <div class="col-sm-3">
           <label>Última exploración mamaria</label>
           </div> 
-          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimamam">
+          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimamam" value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01">
           </div>
           <div class="col-sm-3">
           <label>Última Mastografía</label>
           </div> 
-          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimamast">
+          <div class="col-sm-3"><input type="date" class="form-control" formControlName="ultimamast" value="{{today | date:'yyyy-MM-dd'}}" max="2888-01-01">
           </div>
           <div class="col-sm-3">
           <label>Resultado Última exploración mamaria</label>
@@ -1082,7 +1100,7 @@
           <div class="col-sm-3">
             <label  style="float: right;">DXTX</label>
           </div> 
-          <div class="col-sm-3"><input type="text" class="form-control" formControlName="dxtxsignos">
+          <div class="col-sm-3"><input type="text" class="form-control" formControlName="dxtxsignos" placeholder="mg/dL">
           </div>
           <div class="col-sm-3">
             <label style="float: right;">TA Izquierdo</label>

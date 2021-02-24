@@ -108,6 +108,16 @@ export class ListempleadosComponent implements OnInit {
  })
 }
 
+gotoaudios(equipo:any){
+  this.router.navigate(['listaaudios'],{
+    queryParams:{
+      id:equipo.id,
+      nombre:equipo.nombre
+    }
+
+})
+}
+
 
 gotoexamenes(equipo:any){
   this.router.navigate(['examemperiodlist'],{

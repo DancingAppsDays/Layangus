@@ -21,6 +21,8 @@ import { UsodetailnewComponent } from './component/usodetailnew/usodetailnew.com
 import { PuestoeditComponent } from './component/puestoedit/puestoedit.component';
 import { ListpuestoComponent } from './component/listpuesto/listpuesto.component';
 import { PortadaComponent } from './component/portada/portada.component';
+import { AudioexlistComponent } from './component/audioexlist/audioexlist.component';
+import { AudioexComponent } from './component/audioex/audioex.component';
 
 const routes: Routes = [
 
@@ -44,7 +46,9 @@ const routes: Routes = [
   {path: 'usodetailnew', component:UsodetailnewComponent},
   {path: 'puestos',component:PuestoeditComponent},
   {path:'listapuestos',component:ListpuestoComponent},
-  {path:'', component:PortadaComponent}
+  {path:'', component:PortadaComponent},
+  {path:'listaaudios', component:AudioexlistComponent},
+  {path:'audioex', component:AudioexComponent}
  
 
 

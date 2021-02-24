@@ -40,6 +40,8 @@ import { ChartsModule } from 'ng2-charts';
 import { PuestoeditComponent } from './component/puestoedit/puestoedit.component';
 import { ListpuestoComponent } from './component/listpuesto/listpuesto.component';
 import { PortadaComponent } from './component/portada/portada.component';
+import { AudioexComponent } from './component/audioex/audioex.component';
+import { AudioexlistComponent } from './component/audioexlist/audioexlist.component';
 
 //import SignaturePad from 'signature_pad'; //fuck this
 //import { HttpserviceService } from './service/httpservice.service';
@@ -80,6 +82,8 @@ var firebaseConfig = {
     PuestoeditComponent,
     ListpuestoComponent,
     PortadaComponent,
+    AudioexComponent,
+    AudioexlistComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage

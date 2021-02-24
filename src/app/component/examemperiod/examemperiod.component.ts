@@ -26,6 +26,8 @@ export class ExamemperiodComponent implements OnInit {
      queridempleado: any;
      editar: boolean;
 
+     checks: boolean[]= []; //para ocultar fecha de checkbox
+
 
   constructor(private fb:FormBuilder, private http:HttpClient, private router2:ActivatedRoute, private router:Router) { }
 
@@ -1445,6 +1447,7 @@ firma:this.exs.firma,
     this.exform.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
      this.exform.controls['nombre'].setValue(this.query.nombre);
 
+          //this.multicheck();
   });  
  
 
@@ -1529,7 +1532,58 @@ this.http.post(Constantes.capiURL+"Examenme",data).subscribe(data => {
 }
   
 
+multicheck(e)
+{
 
+switch(e.target.id)
+{
+case("1c"):
+document.getElementById('1f').style.visibility = e.target.checked?"visible":"hidden";
+
+this.checks[1] = e.target.checked?true:false;
+
+
+//console.log(this.checks);
+break;
+
+case("2c"):
+document.getElementById('2'+'f').style.visibility = e.target.checked?"visible":"hidden";
+this.checks[2] = e.target.checked?true:false;
+
+break;
+
+case("3c"):
+document.getElementById('3'+'f').style.visibility = e.target.checked?"visible":"hidden";
+//console.log("check1");
+this.checks[3] = e.target.checked?true:false;
+
+break;
+
+case("4c"):
+document.getElementById('4'+'f').style.visibility = e.target.checked?"visible":"hidden";
+
+//console.log("check2");
+this.checks[4] = e.target.checked?true:false;
+
+break;
+
+case("5c"):
+document.getElementById('5'+'f').style.visibility = e.target.checked?"visible":"hidden";
+
+//console.log("check2");
+this.checks[5] = e.target.checked?true:false;
+
+break;
+
+default:
+console.log("checkfail");
+
+break;
+
+}
+
+
+}
 
  
    
