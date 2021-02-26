@@ -87,5 +87,14 @@ editexa(examen: any)
   
   })
   }
+  gotoreportes(equipo:any){
+    this.router.navigate(['reportsingle'],{
+      queryParams:{
+        id:equipo.id,
+        idempleado:equipo.id,
+        nombre:equipo.nombre
+      }
   
+  })
+  }
 }

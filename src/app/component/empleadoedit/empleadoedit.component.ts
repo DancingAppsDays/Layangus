@@ -120,7 +120,11 @@ postempleado(customerData)
        //this.exs =  data;//data['dat'];     //NOT STANDARIZED APIREST
        this.updateform(data);
      }, 
-     error =>{console.log(error);},
+     error =>{
+       console.log(error);
+       window.alert("Error: "+ error.error.message);
+     
+   }
 
 
      );

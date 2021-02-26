@@ -51,6 +51,24 @@ export class AudioexComponent implements OnInit {
      d6000:'',
      d8000:'',
 
+     bi250:'',
+     bi500:'',
+     bi1000:'',
+     bi2000:'',
+     bi3000:'',
+     bi4000:'',     
+     bi6000:'',
+     bi8000:'',
+
+     bd250:'',
+     bd500:'',
+     bd1000:'',
+     bd2000:'',
+     bd3000:'',
+     bd4000:'',
+     bd6000:'',
+     bd8000:'',
+
 
       descripcion:''
     
@@ -183,7 +201,28 @@ posturno(customerData)
      d4000:json.d4000,
      d6000:json.d6000,
      d8000:json.d8000,
-        descripcion:json.descripcion
+
+     bi250:json.bi250,
+     bi500:json.bi500,
+     bi1000:json.bi1000,
+     bi2000:json.bi2000,
+     bi3000:json.bi3000,
+     bi4000:json.bi4000,     
+     bi6000:json.bi6000,
+     bi8000:json.bi8000,
+
+     bd250:json.bd250,
+     bd500:json.bd500,
+     bd1000:json.bd1000,
+     bd2000:json.bd2000,
+     bd3000:json.bd3000,
+     bd4000:json.bd4000,
+     bd6000:json.bd6000,
+     bd8000:json.bd8000,
+        descripcion:json.descripcion,
+
+
+
 
  });
  console.log("after updateform....");

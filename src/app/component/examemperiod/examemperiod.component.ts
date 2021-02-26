@@ -1500,6 +1500,11 @@ this.http.post(Constantes.capiURL+"Examenme/"+this.querid,data).subscribe(data =
     //this.router.navigate(['/']);
 
   }
+}, 
+error =>{
+  console.log(error);
+  window.alert("Error: "+ error.error.message);
+
 });  
 
 
@@ -1524,7 +1529,12 @@ this.http.post(Constantes.capiURL+"Examenme",data).subscribe(data => {
 
       }
   
-     });  
+     }, 
+     error =>{
+       console.log(error);
+       window.alert("Error: "+ error.error.message);
+     
+   });  
      }
 
 

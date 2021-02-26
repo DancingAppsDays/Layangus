@@ -12,6 +12,8 @@
   <p>IDEmpleado: {{ querid.id }}</p>
   
   <button type="button" class="btn btn-primary" title="Nuevo" (click)="nuevoexamen(querid)">Nuevo examen</button>
+
+  <button type="button" class="btn btn-primary" title="Nuevo" (click)="gotoreportes(querid)">Graficar salud</button>
   <table class="table" *ngIf="json">
       <thead>
         <tr>

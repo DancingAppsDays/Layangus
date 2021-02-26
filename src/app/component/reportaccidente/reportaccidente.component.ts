@@ -221,7 +221,12 @@ export class ReportaccidenteComponent implements OnInit {
         //this.router.navigate(['/']);
   
       }
-    });  
+    }, 
+    error =>{
+      console.log(error);
+      window.alert("Error: "+ error.error.message);
+    
+  });  
   
 
 
@@ -243,7 +248,12 @@ export class ReportaccidenteComponent implements OnInit {
       //this.router.navigate(['/']);
 
     }
-  });  
+  }, 
+  error =>{
+    console.log(error);
+    window.alert("Error: "+ error.error.message);
+  
+});  
 
 
  //console.log("post postsendtoguardarsu usuario");

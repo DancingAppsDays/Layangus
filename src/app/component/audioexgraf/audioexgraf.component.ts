@@ -24,6 +24,13 @@ export class AudioexgrafComponent implements OnInit {
   arraytemp3 = [];
   arraytemp4 = [];
   
+
+  arraofarray = [] //[number,string];
+linechartpre =[];
+linechartpre2 =[];
+ //arraofarray: Array<Array<string>>;
+
+  counter:number =0;
   /*
   ai500 = [];
   ai1000 = [];
@@ -52,7 +59,7 @@ export class AudioexgrafComponent implements OnInit {
           this.eqs = result['data'];//data;
          
           //console.log(this.eqs);
-
+/*
           this.eqs =this.eqs[this.eqs.length-1]
           console.log(this.eqs);
 
@@ -98,35 +105,46 @@ export class AudioexgrafComponent implements OnInit {
             //IF RESULT GOOD... obvious since last compoenent.
               //var obj = JSON.stringify(this.eqs);  //?????
                             //
-
-              /*
+            */
+              
 
               
               this.eqs.forEach(element => {
                
                 
-              
-                var $strink = element.i500;
-                var $strink2 = element.i1000;
-                var $strink3 = element.i2000;
-                var $strink4 = element.i3000;
-                var $strink5 = element.i4000;
-                var $strink6 = element.i6000;
-                var $strink7 = element.i8000;
-               
-                
-                                        
-                //this.lineChartData.push({data:$strink2.toString()});  //create 5 data sets.... //was mute
+              var arraytemp =[];
+
+             arraytemp.push(element.i250);
+              arraytemp.push(element.i500);
+             arraytemp.push(element.i1000);
+               arraytemp.push(element.i2000);
+                 arraytemp.push(element.i3000);
+                    arraytemp.push(element.i4000);
+                      arraytemp.push(element.i6000);
+                        arraytemp.push(element.i8000);
 
 
-                this.arraytemp.push($strink);
-                this.arraytemp.push($strink2);
-                this.arraytemp.push($strink3);
-                this.arraytemp.push($strink4);
-                this.arraytemp.push($strink5);
-                this.arraytemp.push($strink6);
-                this.arraytemp.push($strink7);
-                //this.arraytemp.push($strink);
+                        var arraytemp2 =[];
+
+                        arraytemp2.push(element.d250);
+                         arraytemp2.push(element.d500);
+                        arraytemp2.push(element.d1000);
+                          arraytemp2.push(element.d2000);
+                            arraytemp2.push(element.d3000);
+                               arraytemp2.push(element.d4000);
+                                 arraytemp2.push(element.d6000);
+                                   arraytemp2.push(element.d8000);
+              /*  //didnt wok
+                this.arraofarray[this.counter].push(element.i250);
+                this.arraofarray[this.counter].push(element.i500);
+                this.arraofarray[this.counter].push(element.i1000);
+                this.arraofarray[this.counter].push(element.i2000);
+                this.arraofarray[this.counter].push(element.i3000);
+                this.arraofarray[this.counter].push(element.i4000);
+                this.arraofarray[this.counter].push(element.i6000);
+                this.arraofarray[this.counter].push(element.i8000);*/
+
+                 
                 
                 //  .toString()) cannot tostring nyull--
                 //this.arraytemp2.push(element.fcsignos)
@@ -134,12 +152,13 @@ export class AudioexgrafComponent implements OnInit {
 
 
                 //this.lineChartLabels.push(element.fecha.toString()); //tosintrg()??   //was mute
-
+                //console.log(arraytemp);
                
-
-
+                this.linechartpre.push( { data:  arraytemp, label: element.fecha.toString() });    //{ data: this.arraytemp, label: 'Oido izquierdo' }
+                this.linechartpre2.push( { data:  arraytemp2, label: element.fecha.toString() }); 
+                this.counter++;
                //, label:"Somethingelse");
-              });*/
+              });
                 //console.log("afterrr arrayedd");
                 this.lineChartLabels.push("250hz");
                 this.lineChartLabels.push("500hz");
@@ -152,7 +171,14 @@ export class AudioexgrafComponent implements OnInit {
                 //this.lineChartLabels.push("500hz");
 
                 //last muted
-                this.lineChartData = [    { data: this.arraytemp, label: 'Oido izquierdo' },  { data: this.arraytemp2, label: 'Oido derecho' }, { data: this.arraytemp3, label: 'BC Izquierdo' }, { data: this.arraytemp3, label: 'BC derecho' }  ];
+
+                this.lineChartData = this.linechartpre;
+
+                this.lineChartData2 = this.linechartpre2;
+                //this.lineChartData = [    { data: this.arraytemp, label: 'Oido izquierdo' },  { data: this.arraytemp2, label: 'Oido derecho' }, { data: this.arraytemp3, label: 'BC Izquierdo' }, { data: this.arraytemp3, label: 'BC derecho' }  ];
+          
+
+                //this.lineChartData2 = [    { data: this.arraytemp, label: 'Oido izquierdo22' },  { data: this.arraytemp2, label: 'Oido derecho22' }, { data: this.arraytemp3, label: 'BC Izquierdo22' }, { data: this.arraytemp3, label: 'BC derecho' }  ];
           
         });
 
@@ -160,6 +186,13 @@ export class AudioexgrafComponent implements OnInit {
 
 
   //GRAPG
+  
+  lineChartData2: ChartDataSets[] = [
+    { data: [], label: 'LINE2' },
+
+
+  ];
+
  
   lineChartData: ChartDataSets[] = [
     { data: [], label: 'Change on init' },

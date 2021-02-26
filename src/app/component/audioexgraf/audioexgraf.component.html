@@ -12,6 +12,8 @@
 
 
     <div class="chart-wrapper">
+
+      <p><strong> Oido izquierdo</strong></p>
       <canvas baseChart 
           [datasets]="lineChartData" 
           [labels]="lineChartLabels" 
@@ -22,3 +24,18 @@
           [plugins]="lineChartPlugins">
       </canvas>
   </div>
+<br>
+
+ <div class="chart-wrapper">
+
+     <p><strong>Oido derecho</strong></p>
+    <canvas baseChart 
+        [datasets]="lineChartData2" 
+        [labels]="lineChartLabels" 
+        [options]="lineChartOptions"
+        [colors]="lineChartColors" 
+        [legend]="lineChartLegend" 
+        [chartType]="lineChartType" 
+        [plugins]="lineChartPlugins">
+    </canvas>
+</div>

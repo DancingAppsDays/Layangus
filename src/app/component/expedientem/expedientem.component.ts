@@ -254,7 +254,12 @@ ngOnChanges() { //use SimpleChanges for multiple INPUTS
       this.exform.get('nombre').setValue(this.queridnombre);
      this.exform.get('idempleado').setValue(this.queridempleado);
 
-    });  
+    }, 
+    error =>{
+      console.log(error);
+      window.alert("Error: "+ error.error.message);
+    
+  });  
   
     
   }
@@ -319,7 +324,12 @@ onValueChanges(){
       //this.router.navigate(['/']);
 
     }
-  });  
+  }, 
+  error =>{
+    console.log(error);
+    window.alert("Error: "+ error.error.message);
+  
+});  
 
 
  //console.log("post postsendtoguardarsu usuario");

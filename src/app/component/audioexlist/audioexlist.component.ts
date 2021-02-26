@@ -58,7 +58,7 @@ export class AudioexlistComponent implements OnInit {
       }, 
         error =>{
           console.log(error);
-          window.alert("Error: "+ error);
+          window.alert("Error: "+ error.error.message);
         
       });
 
