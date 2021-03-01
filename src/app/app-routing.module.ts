@@ -24,6 +24,8 @@ import { PortadaComponent } from './component/portada/portada.component';
 import { AudioexlistComponent } from './component/audioexlist/audioexlist.component';
 import { AudioexComponent } from './component/audioex/audioex.component';
 import { AudioexgrafComponent } from './component/audioexgraf/audioexgraf.component';
+import { ListaareasComponent } from './component/listaareas/listaareas.component';
+import { AreasComponent } from './component/areas/areas.component';
 
 const routes: Routes = [
 
@@ -50,7 +52,9 @@ const routes: Routes = [
   {path:'', component:PortadaComponent},
   {path:'listaaudios', component:AudioexlistComponent},
   {path:'audioex', component:AudioexComponent},
-  {path:'audioexgraf', component:AudioexgrafComponent}
+  {path:'audioexgraf', component:AudioexgrafComponent},
+  {path:'listarea', component:ListaareasComponent},
+  {path:'areaedit',component:AreasComponent}
  
 
 

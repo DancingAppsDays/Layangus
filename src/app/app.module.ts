@@ -43,6 +43,8 @@ import { PortadaComponent } from './component/portada/portada.component';
 import { AudioexComponent } from './component/audioex/audioex.component';
 import { AudioexlistComponent } from './component/audioexlist/audioexlist.component';
 import { AudioexgrafComponent } from './component/audioexgraf/audioexgraf.component';
+import { ListaareasComponent } from './component/listaareas/listaareas.component';
+import { AreasComponent } from './component/areas/areas.component';
 
 //import SignaturePad from 'signature_pad'; //fuck this
 //import { HttpserviceService } from './service/httpservice.service';
@@ -86,6 +88,8 @@ var firebaseConfig = {
     AudioexComponent,
     AudioexlistComponent,
     AudioexgrafComponent,
+    ListaareasComponent,
+    AreasComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage

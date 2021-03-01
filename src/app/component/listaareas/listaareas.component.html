@@ -1,12 +1,12 @@
 <div class="container">
     <div class="form-group row">
       <div class="col-sm text-center">
-        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Lista de puestos de trabajo</h4>
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Lista de areas de la empresa</h4>
       </div>
     </div>
 
     <br>
-    <button type="button" class="btn btn-primary" title="novo" (click)="nuevoeq()">Registrar puesto</button> 
+    <button type="button" class="btn btn-primary" title="novo" (click)="nuevaarea()">Registrar area</button> 
     <br>
 
     <input type="text" [(ngModel)]="term" placeholder="Buscar cadena">
@@ -19,9 +19,7 @@
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Posicion x</th>
-        <th scope="col">Posicion y</th>
-        <th scope="col">Area</th>
-        <th scope="col">ID Maquina</th>
+        <th scope="col">Posicion y</th>       
         <th scope="col">Descripcion</th>
       </tr>
     </thead>
@@ -30,9 +28,7 @@
         <th scope="row">{{ ems.id }}</th>
         <td>{{ ems.nombre }}</td>
         <td>{{ ems.positionx }}</td>
-        <td>{{ ems.positiony }}</td>
-        <td>{{ ems.area }}</td>
-        <td>{{ ems.idmaquina }}</td>
+        <td>{{ ems.positiony }}</td>      
         <td>{{ ems.descripcion }}</td>
         <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editpuesto(ems)">Editar</button> </td>
       </tr>

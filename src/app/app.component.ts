@@ -25,7 +25,7 @@ sesion:string; //wanted to be boolean, no wonder ngif == true didnt check----
     //console.log(this.sesion);
   }
 
-  ngDoCheck() {
+  ngDoCheck() {    //was ngdocheck, cada typeo ! ! !
     this.sesion = sessionStorage.getItem('session');    //how bad is performance??
 
     //console.log(this.sesion);
