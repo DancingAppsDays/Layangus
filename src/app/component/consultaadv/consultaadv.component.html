@@ -1,0 +1,55 @@
+<div class="container">
+
+
+    
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Consultaro</h4>
+      </div>
+    </div>
+  
+
+    <div style="padding: 30px;border: 3px solid hsl(0, 0%, 93%);">
+
+<!--
+    <p>Nombre: {{ querid.nombre }}</p>
+    <p>IDEmpleado: {{ querid.id }}</p>-->
+
+<form [formGroup] ="pForm"  (ngSubmit)="onSubmit(pForm.value)"  [hidden]="success">
+   
+   
+    <p>                                                 <!--//to avoid formcontrol error-->
+        <input type="date" name="nombre" class="form-control" formControlName="date" max="2888-01-01" >
+        <strong>Nombre: </strong> 
+    </p>
+    <p>
+        <input type="number" name="puesto" class="form-control" formControlName="puesto"  >
+        <strong>Puesto: </strong> 
+    </p>
+
+    <p>
+        <input type="number"   class="form-control" formControlName="horario"  >
+        <strong>Horario: </strong> 
+    </p>
+<!--
+    <p>
+        <input type="number"  class="form-control" formControlName="area"  oninput="this.value=(parseInt(this.value)||0)">
+        <strong>Area: </strong> 
+    </p>
+    <p>
+        <input type="number" class="form-control" formControlName="positionx"  >
+        <strong>Posicion en x: </strong> 
+    </p>
+    <p>
+        <input type="number"  class="form-control" formControlName="positiony" >
+        <strong>Posicion en y: </strong> 
+    </p>-->
+
+  
+<button class ="btn btn-success"    [disabled]="pForm.invalid"  type ="submit">Consultar</button>
+
+</form>
+
+    </div>
+
+<pre style="clear: both;">{{ pForm.value | json }}</pre>

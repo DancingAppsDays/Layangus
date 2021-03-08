@@ -5,6 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Constantes } from 'src/app/constantes';
 
+import xml2js from 'xml2js';
+
+
 @Component({
   selector: 'app-audioex',
   templateUrl: './audioex.component.html',
@@ -18,7 +21,8 @@ export class AudioexComponent implements OnInit {
   todaystring:any;
   exs:any;
 //tooday = this.today.format('MM/DD/YYYY hh:mm A');
-
+audiofileString:string;
+//audiofileString
 
   constructor(    private formBuilder: FormBuilder ,private router: Router,  private http :HttpClient,
     private router2: ActivatedRoute, /*private alertService: AlertService*/ ) {   }
@@ -299,6 +303,254 @@ posturno(customerData)
   document.getElementById('bone').style.visibility = e.target.checked?"visible":"hidden";
 
 //}
+  }
+
+
+  readThis(event){//inputValue: any) { //: void {
+    //var file: File = inputValue.files[0];
+
+    
+    var myReader: FileReader = new FileReader();
+
+    let file = event.target.files[0];
+    let reader = new FileReader();
+
+    //reader.LoadXml()
+    reader.readAsDataURL(file);
+
+    reader.onload = (event:any) => {
+
+      console.log("ONLOAD auidxml");
+      //console.log(myReader.result); //NULL
+     
+    }
+    
+
+
+
+
+
+
+
+   // var fileType = event.parentElement.id;
+    myReader.onloadend =  (e)=> {//function (e) {  //was messing shit up
+        //myReader.result is a String of the uploaded file
+       // console.log(myReader.result);
+        //this.functiona();
+        //this.audiostring()
+        //this.audiofileString = "soma";
+        let resu = myReader.result;
+
+        this.audiofileString = resu as string;
+
+        myReader.onloadend =  (e)=> {//function (e) {  //was messing shit up
+          //myReader.result is a String of the uploaded file
+          console.log(myReader.result);
+         
+      }
+
+
+
+        console.log("preparse");
+       // this.xmlchop(this.audiofileString);
+         this.parseXML( this.audiofileString);
+
+        console.log("afterparse");
+    }
+
+    myReader.readAsText(file);         //VERY IMPORTANT
+
+    //myReader.readAsArrayBuffer(file);
+    //console.log(myReader.result); //NULL
+    
+  }
+
+
+
+
+  //REQUIERE    npm install timers ?
+
+ 
+  parseXML(data) {  
+    return new Promise(resolve => {  
+      var k: string | number,  
+        arr = [],  
+        parser = new xml2js.Parser(  
+          {  
+            trim: true,  
+            explicitArray: true  
+          });  
+      parser.parseString(data, function (err, result) {  
+
+       // console.log(result);
+
+       // var ob = result.Session.Action[0];
+      //  console.log(ob);
+
+
+        var obj = result.Session.Action[0].Public[0].TAudioSession[0].ToneTHRAudiogram[0].TToneTHRAudiogram[0].Curve[0].TTonePoint;  //.Public.TToneTHRAudiogram;//TToneTHRAudiogram;   //Employee;  
+
+        console.log(obj);
+
+       
+
+       // for (k in obj ){//.TTonePoint) {  
+            //var item = obj[k].$.Intensity1;//.Freq1
+            //console.log(item);//.Freq1); //k.Freq1[0]);
+            
+          
+          arr.push({  
+
+          
+        
+         i500: obj[0].$.Intensity1/10,
+      i1000: obj[1].$.Intensity1/10,
+      i2000:obj[2].$.Intensity1/10,
+       i3000: obj[3].$.Intensity1/10,
+       i4000: obj[4].$.Intensity1/10,   
+       i6000: obj[5].$.Intensity1/10,
+       i8000: obj[6].$.Intensity1/10
+          });  
+
+          var obj = result.Session.Action[0].Public[0].TAudioSession[0].ToneTHRAudiogram[0].TToneTHRAudiogram[1].Curve[0].TTonePoint;  
+
+            
+            arr.push({  
+  
+            
+            
+         d500:  obj[0].$.Intensity1/10,
+         d1000: obj[1].$.Intensity1/10,
+         d2000:obj[2].$.Intensity1/10,
+          d3000: obj[3].$.Intensity1/10,
+          d4000: obj[4].$.Intensity1/10,   
+          d6000: obj[5].$.Intensity1/10,
+          d8000: obj[6].$.Intensity1/10
+            });  
+  
+              if(result.Session.Action[0].Public[0].TAudioSession[0].ToneTHRAudiogram[0].TToneTHRAudiogram[2])
+              {
+                  console.log("BONe conduct exist L")
+
+            var obj = result.Session.Action[0].Public[0].TAudioSession[0].ToneTHRAudiogram[0].TToneTHRAudiogram[2].Curve[0].TTonePoint;  //.Public.TToneTHRAudiogram;//TToneTHRAudiogram;   //Employee;  
+
+            console.log(obj);
+    
+          
+              arr.push({  
+    
+              
+            
+             bi500:  obj[0].$.Intensity1/10,
+          bi1000: obj[1].$.Intensity1/10,
+          bi2000:obj[2].$.Intensity1/10,
+           bi3000: obj[3].$.Intensity1/10,
+           bi4000: obj[4].$.Intensity1/10,   
+           bi6000: obj[5].$.Intensity1/10,
+           bi8000: obj[6].$.Intensity1/10
+              });  
+            }
+
+            if(result.Session.Action[0].Public[0].TAudioSession[0].ToneTHRAudiogram[0].TToneTHRAudiogram[3])
+            {
+                console.log("BONe conduct exist R")
+
+              var obj = result.Session.Action[0].Public[0].TAudioSession[0].ToneTHRAudiogram[0].TToneTHRAudiogram[3].Curve[0].TTonePoint;  
+              console.log(obj);
+                
+                arr.push({  
+      
+                
+                
+             bd500:  obj[0].$.Intensity1/10,
+             bd1000: obj[1].$.Intensity1/10,
+             bd2000:obj[2].$.Intensity1/10,
+              bd3000: obj[3].$.Intensity1/10,
+              bd4000: obj[4].$.Intensity1/10,   
+              bd6000: obj[5].$.Intensity1/10,
+              bd8000: obj[6].$.Intensity1/10
+                });  
+            }
+
+
+
+        resolve(arr);  
+
+      
+      });  
+
+      //var arre = arr[0];
+      //console.log(arre);
+      this.updateformxml(arr);
+
+    });  
+  }  
+
+  updateformxml(json) //porno decir xml mas bien
+ {
+     console.log("updatexml ! 1 ! ! ! ! 1 !");
+
+      this.aForm.patchValue({
+       
+     //fecha:json.fecha,
+     
+     i250:json[0].i250,
+     i500:json[0].i500,
+     i1000:json[0].i1000,
+     i2000:json[0].i2000,
+     i3000:json[0].i3000,
+     i4000:json[0].i4000,     
+     i6000:json[0].i6000,
+     i8000:json[0].i8000,
+        
+     d250:json[1].d250,
+     d500:json[1].d500,
+     d1000:json[1].d1000,
+     d2000:json[1].d2000,
+     d3000:json[1].d3000,
+     d4000:json[1].d4000,
+     d6000:json[1].d6000,
+     d8000:json[1].d8000,
+
+     bi250:json[2].bi250,
+     bi500:json[2].bi500,
+     bi1000:json[2].bi1000,
+     bi2000:json[2].bi2000,
+     bi3000:json[2].bi3000,
+     bi4000:json[2].bi4000,     
+     bi6000:json[2].bi6000,
+     bi8000:json[2].bi8000,
+
+     bd250:json[3].bd250,
+     bd500:json[3].bd500,
+     bd1000:json[3].bd1000,
+     bd2000:json[3].bd2000,
+     bd3000:json[3].bd3000,
+     bd4000:json[3].bd4000,
+     bd6000:json[3].bd6000,
+     bd8000:json[3].bd8000
+       //descripcion:json.descripcion,
+
+
+
+
+ });
+ 
+ console.log("after updateformxml....");
+  }
+
+
+  treatinsensity(intensity)
+  {
+    var db=0;
+
+    if(intensity == 0)
+    db=0;
+    else 
+    db = intensity /10;
+    
+
+    return db;
   }
 
 }

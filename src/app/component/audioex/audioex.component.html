@@ -31,6 +31,18 @@
        <strong>Fecha: </strong>  
    </p>
    
+   <br>
+   <p>
+    <input type="text"  style="visibility:hidden;" />
+    
+    <!--<input type="file"         id="filepic"        (change)="handleFileInput($event.target.files)">   (change)="fuckmethod($event)" THI WORkS-->
+    <input type="file" (change)="readThis($event)" />
+    
+    <!--<img  [src]="{{profilestring}}" >ERROR-->
+   
+    <strong>Subir archivo XML: </strong> 
+</p>
+
     
    <hr style="border: 2px inset"/>
     <br>

@@ -45,6 +45,7 @@ import { AudioexlistComponent } from './component/audioexlist/audioexlist.compon
 import { AudioexgrafComponent } from './component/audioexgraf/audioexgraf.component';
 import { ListaareasComponent } from './component/listaareas/listaareas.component';
 import { AreasComponent } from './component/areas/areas.component';
+import { ConsultaadvComponent } from './component/consultaadv/consultaadv.component';
 
 //import SignaturePad from 'signature_pad'; //fuck this
 //import { HttpserviceService } from './service/httpservice.service';
@@ -90,6 +91,7 @@ var firebaseConfig = {
     AudioexgrafComponent,
     ListaareasComponent,
     AreasComponent,
+    ConsultaadvComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage
