@@ -29,8 +29,10 @@
     "ng2-search-filter": "^0.5.1",
     "ngx-pagination": "^5.0.0",
     "popper.js": "^1.16.1",
+    "readable-stream": "^3.6.0",
     "rxjs": "~6.6.0",
     "signature_pad": "^3.0.0-beta.4",
+    "stream": "0.0.2",
     "timers": "^0.1.1",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

@@ -27,6 +27,7 @@ import { AudioexgrafComponent } from './component/audioexgraf/audioexgraf.compon
 import { ListaareasComponent } from './component/listaareas/listaareas.component';
 import { AreasComponent } from './component/areas/areas.component';
 import { ConsultaadvComponent } from './component/consultaadv/consultaadv.component';
+import { AggridconsultaComponent } from './component/aggridconsulta/aggridconsulta.component';
 
 const routes: Routes = [
 
@@ -56,7 +57,8 @@ const routes: Routes = [
   {path:'audioexgraf', component:AudioexgrafComponent},
   {path:'listarea', component:ListaareasComponent},
   {path:'areaedit',component:AreasComponent},
-  {path:'consultadv',component:ConsultaadvComponent}
+  {path:'consultadv',component:ConsultaadvComponent},
+  {path:'aggcon',component:AggridconsultaComponent}
  
 
 

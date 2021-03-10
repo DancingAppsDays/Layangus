@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { Constantes } from 'src/app/constantes';
 
-import xml2js from 'xml2js';
+import xml2js from 'xml2js'; //REQUIERE NPM INSTALL TIMERS, Y STREAM TIMERS PARA UN ERROR! 
 
 
 @Component({
@@ -488,7 +489,13 @@ posturno(customerData)
 
   updateformxml(json) //porno decir xml mas bien
  {
-     console.log("updatexml ! 1 ! ! ! ! 1 !");
+     //console.log("updatexml ! 1 ! ! ! ! 1 !");
+
+
+     if(json[2]){
+
+
+     
 
       this.aForm.patchValue({
        
@@ -512,6 +519,7 @@ posturno(customerData)
      d6000:json[1].d6000,
      d8000:json[1].d8000,
 
+     
      bi250:json[2].bi250,
      bi500:json[2].bi500,
      bi1000:json[2].bi1000,
@@ -529,12 +537,47 @@ posturno(customerData)
      bd4000:json[3].bd4000,
      bd6000:json[3].bd6000,
      bd8000:json[3].bd8000
-       //descripcion:json.descripcion,
+      
+      });
+}else{
+
+  console.log("no bone");
+
+  this.aForm.patchValue({
+       
+    //fecha:json.fecha,
+    
+    i250:json[0].i250,
+    i500:json[0].i500,
+    i1000:json[0].i1000,
+    i2000:json[0].i2000,
+    i3000:json[0].i3000,
+    i4000:json[0].i4000,     
+    i6000:json[0].i6000,
+    i8000:json[0].i8000,
+       
+    d250:json[1].d250,
+    d500:json[1].d500,
+    d1000:json[1].d1000,
+    d2000:json[1].d2000,
+    d3000:json[1].d3000,
+    d4000:json[1].d4000,
+    d6000:json[1].d6000,
+    d8000:json[1].d8000,
+
+    
+    
+     
+});
 
 
 
 
- });
+
+
+}
+
+
  
  console.log("after updateformxml....");
   }

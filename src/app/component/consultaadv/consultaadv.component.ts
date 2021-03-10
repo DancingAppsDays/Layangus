@@ -156,7 +156,7 @@ postpuesto(customerData)
  }
 
  putpuesto(customerData,idd: number)
- {  
+ {   
    /*console.log(idd+ "almacenar"); 
    this.eqForm.patchValue({
     id: idd})*/     //dont patch enouff fast! ! ! !

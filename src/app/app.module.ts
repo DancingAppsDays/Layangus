@@ -46,6 +46,11 @@ import { AudioexgrafComponent } from './component/audioexgraf/audioexgraf.compon
 import { ListaareasComponent } from './component/listaareas/listaareas.component';
 import { AreasComponent } from './component/areas/areas.component';
 import { ConsultaadvComponent } from './component/consultaadv/consultaadv.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { AggridconsultaComponent } from './component/aggridconsulta/aggridconsulta.component';
+
+
+//import {AgGridModule}
 
 //import SignaturePad from 'signature_pad'; //fuck this
 //import { HttpserviceService } from './service/httpservice.service';
@@ -92,6 +97,7 @@ var firebaseConfig = {
     ListaareasComponent,
     AreasComponent,
     ConsultaadvComponent,
+    AggridconsultaComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage
@@ -111,7 +117,9 @@ var firebaseConfig = {
     NgxPaginationModule,
     Ng2SearchPipeModule,
    
-    ChartsModule
+    ChartsModule,
+
+    AgGridModule.withComponents([]) //NOT COMPAIBLE CON ANG 9?
 
 
   ],

@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Constantes } from 'src/app/constantes';
 
+
+//import {Ag}
+
 @Component({
 selector: 'app-exameneslasts',
 templateUrl: './exameneslasts.component.html',
@@ -67,7 +70,7 @@ this.json = this.successdata;//['data'];
 }
 
 precheck()
-{
+{ 
   this.checks[1] = false;// e.target.checked?true:false;
   this.checks[2] =false;
   this.checks[3] = false;
