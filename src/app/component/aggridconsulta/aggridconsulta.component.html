@@ -1,8 +1,8 @@
 
 <head>
     <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
-    <link  rel="stylesheet"  href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">  <!-- USELESs warning  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">-->
-    <link  rel="stylesheet"  href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+    <link    href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">  <!-- USELESs warning  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">-->
+    <link    href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
   </head>
   
   <div class='container'>
@@ -43,7 +43,7 @@
         [rowClassRules]="gridOptions.rowClassRules"
         
 
-
+        (cellClicked)="onCellClicked($event)"
 >
 </ag-grid-angular>
 </div>

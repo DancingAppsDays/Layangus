@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Constantes } from 'src/app/constantes';
 
 @Component({
@@ -17,11 +18,12 @@ export class AggridconsultaComponent implements OnInit {
   gridApi: any;
   columnApi: any;
 
-
+private params:any;
+  
   
   //rowData:any[6]; //no funcionó sin especificar tamaño WTF
 
-  constructor( private http :HttpClient) { }
+  constructor( private http :HttpClient,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -40,13 +42,35 @@ export class AggridconsultaComponent implements OnInit {
    
   }
 
-  
+  btnClickedHandler(){
+this.params.clicked(this.params.value);
+console.log("butta clicked!")
 
+  }
+  onBtnClick(){
+    this.params.clicked(this.params.value);
+    console.log("butta clicked!")
+    
+      }
+
+      onCellClicked(params: any) {
+
+        //console.log("cellclicked");
+    
+       
+    
+        // tslint:disable-next-line: triple-equals
+        if (params.colDef.headerName == 'action') {
+ //console.log("action clickeed!");
+          //console.log(params.data.idempleado);
+            this.graficar(params.data.idempleado,params.data.nombre)
+        }
+      }
   
   rowData: any[]
   
   columnDefs = [
-    {  field: 'id',sortable: true, filter:true, resizable: true, width:74 },  //was "74px", pero al borrar rel=stylesheet en himl surgie esa warnin cellStyle: {color: 'red', 'background-color': 'green'}},
+    {  field: 'idempleado',sortable: true, filter:true, resizable: true, width:74 },  //was "74px", pero al borrar rel=stylesheet en himl surgie esa warnin cellStyle: {color: 'red', 'background-color': 'green'}},
     {  field: 'nombre',sortable: true, filter:true, resizable: true ,cellClassRules:{   "ag-green": (params) =>{
       if(true) return{ background:'red' , color:'white' }    } }  //cellStyle: (params)=>{return 'test'}},// didnt work cellClass["ag-green","test"]},
   },
@@ -61,8 +85,44 @@ export class AggridconsultaComponent implements OnInit {
     {  field: 'created_at',sortable: true, filter:true, headerName:'Fecha Examen'}, //agDateColumnFilter No funciona con ese formato... tampoco numerico, solo string..
     {  field: 'apto',sortable: true, filter:true},
     
-              ]
+    /*
+    {  field: 'Accion',  cellRenderer: 'btnCellRenderer',
+    cellRendererParams: {
+      clicked: function(field: any) {
+        alert(`${field} was clicked`);
+      }
+    },
+    minWidth: 150,
+  }*/ {  field: 'Accion',headerName:'action',cellRenderer: function(params){
+    return '<div><button >Graficar Salud</button></div>'
+  },
+  cellRendererParams: {
+    //onClick: this.onBtnClick.bind(this),
+    label: 'Click'
+  }
+    /*,   cellRenderer : function(params){
+                    return '<div><button  onClick=this.onBtnClick.bind(this.innerHTML)>Click</button></div>'
+                  }*/
+  
+  /*cellRenderer:'buttonRenderer',
+  cellRendererParams: {
+    onClick: this.onBtnClick.bind(this),
+    label: 'Click'
+  }*/
 
+
+ // : function(params){
+  //  return '<div><button onClick=this.onBtnClick.bind(this)>Click</button></div>'
+
+//}
+}
+    
+              ];
+
+              drop() {
+                alert("BUTTON CLICKEFffD")
+            }
+              
 gridOptions = {
 
 
@@ -79,8 +139,8 @@ gridOptions = {
 
     // EVENTS
     // Add event handlers
-    onRowClicked: event => console.log('A row was clicked'),
-    onColumnResized: event => console.log('A column was resized'),
+    //onRowClicked: event => console.log('A row was clicked'),
+    //onColumnResized: event => console.log('A column was resized'),
     /*onGridReady: event => {
       
       console.log('The grid is now ready'),
@@ -210,4 +270,20 @@ console.log(this.successdata);
 
 
  }
+
+ graficar(idempleado: any,nombre:any)  //more like graficar
+{
+
+//console.log(examen)
+this.router.navigate(['reportsingle'],{
+queryParams:{
+//id:examen.id,
+idempleado: idempleado,
+nombre: nombre,//this.querid.nombre,
+
+//puesto:examen.puesto
+}
+})
+
+}
 }
