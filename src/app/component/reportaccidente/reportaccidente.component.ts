@@ -89,6 +89,14 @@ export class ReportaccidenteComponent implements OnInit {
              nombredoc: ['', [
               Validators.required,
                    ]],
+           diasper: ['', [
+       // Validators.required,
+             ]],
+             turnodia: ['', [
+              // Validators.required,
+                    ]],
+
+        
 
 
 
@@ -212,7 +220,9 @@ export class ReportaccidenteComponent implements OnInit {
           grave: this.exs.grave,
           pronos: this.exs.pronos,
           observa: this.exs.observa,
-          nombredoc: this.exs.nombredoc
+          nombredoc: this.exs.nombredoc,
+          diasper: this.exs.diasper,
+                  turnodia: this.exs.turnodia
         }
         );
 

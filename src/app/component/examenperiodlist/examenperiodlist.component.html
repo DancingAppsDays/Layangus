@@ -1,3 +1,9 @@
+<head>
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+  <link    href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">  <!-- USELESs warning  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">-->
+  <link    href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+</head>
+
 <div class="container">
     <div class="form-group row">
       <div class="col-sm text-center">
@@ -11,24 +17,72 @@
   <p>Nombre: {{ querid.nombre }}</p>
   <p>IDEmpleado: {{ querid.id }}</p>
   
-  <button type="button" class="btn btn-primary" title="Nuevo" (click)="nuevoexamen(querid)">Nuevo examen</button>
+  <td><button type="button" class="btn btn-info" title="Reportes" (click)="abrirmenuexa()">Registrar examen médicos</button> 
+      
 
+    <td>
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="nuevoexamen(querid)">Exámenes periódico</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="nuevoau(querid)">Audiometría</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Espirometría</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Rayos X</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Laboratorio Sangre</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Laboratorio Orina</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Antidoping</button> 
+  
+    
+  
+      </td>
+  
+  
   <button type="button" class="btn btn-primary" title="Nuevo" (click)="gotoreportes(querid)">Graficar salud</button>
-  <table class="table" *ngIf="json">
-      <thead>
-        <tr>
-          
-          <th scope="col">Fecha de registro</th>
-              <th scope="col">Area laboral</th>
-          <th scope="col">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let exa of json">
-          
-          <td>{{ exa.created_at }}</td>
-          <td>{{ exa.area }}</td>
-          <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editexa(exa)">Ver examen</button> </td>
-         </tr>
-      </tbody>
-    </table>
+
+<ag-grid-angular
+    
+    class="ag-theme-alpine"
+    style=" height:800px;"
+  
+    [rowData]="rowData" 
+    [columnDefs]="columnDefs"
+
+
+
+
+      [gridOptions]="gridOptions"  
+
+
+
+        [rowClassRules]="gridOptions.rowClassRules"
+        
+
+        (cellClicked)="onCellClicked($event)"
+>
+</ag-grid-angular>
+
+<br><br><br><br>
+
+<!--
+<table class="table" *ngIf="json">
+  <thead>
+    <tr>
+      
+      <th scope="col">Fecha de registro</th>
+          <th scope="col">Area laboral</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let exa of json">
+      
+      <td>{{ exa.created_at }}</td>
+      <td>{{ exa.area }}</td>
+      <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editexa(exa)">Ver examen</button> </td>
+     </tr>
+  </tbody>
+</table>
+
+-->
+
+
+<!--<button type="button" class="btn btn-primary" title="Nuevo" (click)="nuevoexamen(querid)">Nuevo examen</button>-->
+
+

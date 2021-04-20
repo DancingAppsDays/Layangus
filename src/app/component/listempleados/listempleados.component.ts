@@ -21,6 +21,9 @@ export class ListempleadosComponent implements OnInit {
  p: number = 1;
  items = [];       
 
+
+ menuexas:boolean =false;
+
    pageOfItems: Array<any>;
    onChangePage(pageOfItems: Array<any>) {
      // update current page of items
@@ -80,7 +83,8 @@ export class ListempleadosComponent implements OnInit {
      queryParams:{
        id:equipo.id,
        nombre:equipo.nombre,
-       puesto:equipo.puesto
+       puesto:equipo.puesto,
+       
      }
    })
 
@@ -110,6 +114,16 @@ export class ListempleadosComponent implements OnInit {
 
 gotoaudios(equipo:any){
   this.router.navigate(['listaaudios'],{
+    queryParams:{
+      id:equipo.id,
+      nombre:equipo.nombre
+    }
+
+})
+}
+
+gotoespiros(equipo:any){
+  this.router.navigate(['listaespiros'],{
     queryParams:{
       id:equipo.id,
       nombre:equipo.nombre
@@ -176,6 +190,15 @@ gotoexpediente(equipo:any){
     }
 
 })
+}
+
+abrirmenuexa()
+{
+  if(this.menuexas ==false)
+  this.menuexas = true;
+  else this.menuexas = false;
+
+
 }
 
 

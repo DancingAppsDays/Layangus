@@ -28,6 +28,9 @@ import { ListaareasComponent } from './component/listaareas/listaareas.component
 import { AreasComponent } from './component/areas/areas.component';
 import { ConsultaadvComponent } from './component/consultaadv/consultaadv.component';
 import { AggridconsultaComponent } from './component/aggridconsulta/aggridconsulta.component';
+import { ListaplantasComponent } from './component/listaplantas/listaplantas.component';
+import { PlantasComponent } from './component/plantas/plantas.component';
+import { ExamenespirolistComponent } from './component/examenespirolist/examenespirolist.component';
 
 const routes: Routes = [
 
@@ -58,7 +61,11 @@ const routes: Routes = [
   {path:'listarea', component:ListaareasComponent},
   {path:'areaedit',component:AreasComponent},
   {path:'consultadv',component:ConsultaadvComponent},
-  {path:'aggcon',component:AggridconsultaComponent}
+  {path:'aggcon',component:AggridconsultaComponent},
+  {path:'listaplanta', component:ListaplantasComponent},
+  {path:'plantaedit',component:PlantasComponent},
+
+  {path:'listaespiros', component:ExamenespirolistComponent},
  
 
 

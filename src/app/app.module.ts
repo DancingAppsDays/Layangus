@@ -48,6 +48,10 @@ import { AreasComponent } from './component/areas/areas.component';
 import { ConsultaadvComponent } from './component/consultaadv/consultaadv.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AggridconsultaComponent } from './component/aggridconsulta/aggridconsulta.component';
+import { ListaplantasComponent } from './component/listaplantas/listaplantas.component';
+import { PlantasComponent } from './component/plantas/plantas.component';
+import { ExamenespiroComponent } from './component/examenespiro/examenespiro.component';
+import { ExamenespirolistComponent } from './component/examenespirolist/examenespirolist.component';
 
 
 //import {AgGridModule}
@@ -98,6 +102,10 @@ var firebaseConfig = {
     AreasComponent,
     ConsultaadvComponent,
     AggridconsultaComponent,
+    ListaplantasComponent,
+    PlantasComponent,
+    ExamenespiroComponent,
+    ExamenespirolistComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage

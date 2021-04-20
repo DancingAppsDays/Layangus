@@ -35,6 +35,7 @@ audiofileString:string;
    this.aForm = this.formBuilder.group({
      id: '',
      idempleado:['',[Validators.required]],
+     tipoexamen: 'audiometria',
     nombre:'',
      fecha:'',
      

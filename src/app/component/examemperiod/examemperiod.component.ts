@@ -94,6 +94,8 @@ changechild()  //after getdata is called....
      
 
     this.exform = this.fb.group({
+
+     tipoexamen:'periodico',
       nombre: ['', [
         Validators.required,
         Validators.pattern('[^",]*$')

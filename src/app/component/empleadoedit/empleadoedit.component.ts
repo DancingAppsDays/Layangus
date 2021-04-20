@@ -37,6 +37,9 @@ export class EmpleadoeditComponent implements OnInit {
       profilepic:['', [
         //Validators.required,
              ]],
+      planta:[1, [
+        //Validators.required,
+             ]],
     
     
     })
@@ -140,9 +143,11 @@ postempleado(customerData)
     nombre: json.nombre,//  this.exs.nombre,
     puesto:  json.puesto,
     area:json.area,
+    planta:json.area,
     
+    /*
     positionx:json.positionx,
-    positiony: json.positiony,
+    positiony: json.positiony,*/ //unused se movio a puesto,... pero no afecta
     
     profilepic: json.profilepic
 

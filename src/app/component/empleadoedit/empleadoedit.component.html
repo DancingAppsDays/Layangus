@@ -22,6 +22,11 @@
         <strong>Nombre: </strong> 
     </p>
     <p>
+        <input type="number" name="puesto" class="form-control" formControlName="planta"  oninput="if(this.value>0){this.value=(parseInt(this.value)||1)}else{this.value=1}" >
+        <strong>Planta: </strong> 
+    </p>
+
+    <p>
         <input type="text" name="puesto" class="form-control" formControlName="puesto"  >
         <strong>Puesto: </strong> 
     </p>

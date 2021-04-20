@@ -18,8 +18,9 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
+       
+        <th scope="col">Planta</th>
         <th scope="col">Puesto actual</th>
-        <th scope="col">Fecha de ingreso</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
@@ -33,17 +34,30 @@
   
         <th scope="row">{{ ems.id }}</th>
         <td>{{ ems.nombre }}</td>
-        <td>{{ ems.puesto }}</td>
-        <td>{{ ems.created_at }}</td>
-        <td> <button type="button" class="btn btn-primary" title="Expediente" (click)="gotoexpediente(ems)">Expediente</button> </td>
         
-        <td> <button type="button" class="btn btn-primary" title="Turnos" (click)="gototurnos(ems)">Turnos</button> </td>
-        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoincidenteslist(ems)">Incidentes </button> </td>
+        <td>{{ ems.planta }}</td>
+        <td>{{ ems.puesto }}</td>
+        <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editEmps(ems)">Editar</button>
+          <button type="button" class="btn btn-primary" title="Expediente" (click)="gotoexpediente(ems)">Expediente</button> 
+        
+         <button type="button" class="btn btn-primary" title="Turnos" (click)="gototurnos(ems)">Turnos</button> 
+         <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoincidenteslist(ems)">Incidentes </button> 
        
-        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoexamenes(ems)">Exámenes médicos</button> </td>
-        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Audiometrías</button> </td>
+         <td><button type="button" class="btn btn-info" title="Reportes" (click)="abrirmenuexa()">Exámenes médicos</button> 
+        
 
-          <td> <button type="button" class="btn btn-primary" title="Editar" (click)="editEmps(ems)">Editar</button> </td>
+         <td>
+         <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoexamenes(ems)">Exámenes periódicos</button> 
+         <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Audiometrías</button> 
+         <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoespiros(ems)">Espirometría</button> 
+         <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Rayos X</button> 
+         <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Laboratorio Sangre</button> 
+         <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Laboratorio Orina</button> 
+         <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Antidoping</button> 
+
+         
+
+           </td>
 
           
           

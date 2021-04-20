@@ -1,5 +1,15 @@
 {
   "projects": {
-    "default": "layoutmax-6cb2c"
+    "default": "layoutmax-6cb2c",
+    "tesis": "layout-1fe54"
+  },
+  "targets": {
+    "layoutmax-6cb2c": {
+      "hosting": {
+        "layout": [
+          "layoutmax-6cb2c"
+        ]
+      }
+    }
   }
 }
