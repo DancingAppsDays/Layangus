@@ -192,6 +192,21 @@ gotoexpediente(equipo:any){
 })
 }
 
+gotoperiodico(equipo:any){
+  this.router.navigate(['periodicos'],{
+    queryParams:{
+      idempleado:equipo.id,
+      nombre:equipo.nombre
+    }
+
+})
+}
+
+
+
+
+
+
 abrirmenuexa()
 {
   if(this.menuexas ==false)

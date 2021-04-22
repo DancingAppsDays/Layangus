@@ -75,15 +75,21 @@ console.log("butta clicked!")
       if(true) return{ background:'red' , color:'white' }    } }  //cellStyle: (params)=>{return 'test'}},// didnt work cellClass["ag-green","test"]},
   },
     {  field: 'edad',sortable: true, filter:'agNumberColumnFilter', width:111},
-    {  field: 'area',sortable: true, filter:true,width:111, resizable: true},
-    {  field: 'imcsignos',sortable: true, filter:'agNumberColumnFilter', headerName:'IMC',width:111, resizable: true, cellStyle:(params) =>{
-      if(params.value>24) return{ background:'red' , color:'white' }    }
-    },
+    {  field: 'area',sortable: true, filter:true,width:211, resizable: true},
+    {  field: 'imcsignos',sortable: true, filter:'agNumberColumnFilter', headerName:'IMC',width:131, resizable: true, cellStyle:(params) =>{
+      if(params.value>30) {return{ background:'red' , color:'white' }}else  if(params.value>=28) {return{ background:'orange' , color:'white' }}     }},
+    /*
     {  field: 'pesosignos',sortable: true, filter:'agNumberColumnFilter',headerName:'Peso',width:111, resizable: true},
     {  field: 'frsignos',sortable: true, filter:'agNumberColumnFilter' ,headerName:'Frecuencia Respiratoria',width:111, resizable: true},
-    {  field: 'fcsignos',sortable: true, filter:'agNumberColumnFilter', headerName:'Frecuencia cardiaca',width:111, resizable: true},
-    {  field: 'created_at',sortable: true, filter:true, headerName:'Fecha Examen'}, //agDateColumnFilter No funciona con ese formato... tampoco numerico, solo string..
-    {  field: 'apto',sortable: true, filter:true},
+    {  field: 'fcsignos',sortable: true, filter:'agNumberColumnFilter', headerName:'Frecuencia cardiaca',width:111, resizable: true},*/
+
+    {  field: 'created_at',sortable: true, filter:true, headerName:'Último Examen'}, //agDateColumnFilter No funciona con ese formato... tampoco numerico, solo string..
+    {  field: 'i2000',sortable: true, filter:true,headerName:'Daño Oído<', cellStyle:(params) =>{
+      if(params.value>30) {return{ background:'red' , color:'white' }}else  if(params.value>=20) {return{ background:'orange' , color:'white' }}     }},
+    {  field: 'd2000',sortable: true, filter:true,headerName:'Daño Oído>', cellStyle:(params) =>{
+      if(params.value>30) {return{ background:'red' , color:'white' }}else  if(params.value>=20) {return{ background:'orange' , color:'white' }}     }},
+    
+    {  field: 'apto',sortable: true, filter:true, width:121},
     
     /*
     {  field: 'Accion',  cellRenderer: 'btnCellRenderer',

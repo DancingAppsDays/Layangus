@@ -35,6 +35,9 @@ audiofileString:string;
    this.aForm = this.formBuilder.group({
      id: '',
      idempleado:['',[Validators.required]],
+     idperiodo:['',[
+       //Validators.required
+      ]],
      tipoexamen: 'audiometria',
     nombre:'',
      fecha:'',
@@ -97,10 +100,15 @@ audiofileString:string;
        //this.empForm.get('puesto').setValue(this.equipo.puesto)
        //console.log(this.equipo.id)
      })
+     //this.aForm.get('idperiodo').setValue(this.art.idperiodo);
+     this.aForm.controls['idperiodo'].setValue(this.art.idperiodo);
 
      if(this.art.id != undefined)// = undefined  != "undefined")  //editar no guardar neuvo
      { 
      this.getex(this.art.id);
+
+
+
     // console.log(this.art.id);
      //this.tForm.get('nombre').setValue(this.art.nombre)
       //cambiarbotonsave();
@@ -186,6 +194,7 @@ posturno(customerData)
       this.aForm.patchValue({
         id: json.id,
         idempleado:json.idempleado,
+        idperiodo:json.idperiodo,
         nombre: json.nombre,
         
      fecha:json.fecha,

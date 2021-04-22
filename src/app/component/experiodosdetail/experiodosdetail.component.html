@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Lista de exámenes realizados</h4>
+      </div>
+    </div>
+  
+
+    
+
+    
+    <p>Examen periódicos  de:</p>
+  
+  <p>Nombre: {{ querid.nombre }}</p>
+  <p>IDEmpleado: {{ querid.idempleado }}</p>
+  
+ 
+  <table class="table" *ngIf="json">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Realizado</th>
+       
+        <th scope="col">Examenes</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+       
+      
+                 
+       
+      
+  
+        <th scope="row">{{ json.id }}</th>
+        <td>{{ json.fecha }}</td>
+        <td>{{ json.realizado }}</td>
+        
+              
+
+         <td>
+         <button [ngClass]="json.examenmeb?'btn btn-primary':'btn btn-secondary'" type="button" id="ex1" (click)="getdataexa(querid)">Exploración</button> 
+         <button [ngClass]="json.audiob ?'btn btn-primary':'btn btn-secondary' " type="button" title="Reportes" (click)="getdataaudio(querid)">Audiometría</button> 
+         <button [ngClass]="(json.espirob )?'btn btn-primary':'btn btn-secondary' " type="button" title="Reportes" (click)="gotoespiros(ems)">Espirometría</button> 
+         <button [ngClass]="(json.rayoxb )?'btn btn-primary':'btn btn-secondary'" type="button" title="Reportes" (click)="gotoaudios(ems)">Rayos X</button> 
+         <button [ngClass]="(json.labsangreb )?'btn btn-primary':'btn btn-secondary'" type="button" title="Reportes" (click)="gotoaudios(ems)">Laboratorio Sangre</button> 
+         <button [ngClass]="(json.labsorinab )?'btn btn-primary':'btn btn-secondary'" type="button"  title="Reportes" (click)="gotoaudios(ems)">Laboratorio Orina</button> 
+         <!--<button  type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Antidoping</button> -->
+
+         
+
+           </td>
+
+          
+          
+ <!--<td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotoreportes(ems)">Gráficas</button> </td>
+            
+          
+          <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotolastexamen(ems)">Último examen</button> </td>
+        <td> <button type="button" class="btn btn-primary" title="Reportes" (click)="gotonuevoexamen(ems)">Registrar examen</button> </td>-->
+        
+        
+      
+    </tbody>
+  </table>

@@ -31,6 +31,8 @@ import { AggridconsultaComponent } from './component/aggridconsulta/aggridconsul
 import { ListaplantasComponent } from './component/listaplantas/listaplantas.component';
 import { PlantasComponent } from './component/plantas/plantas.component';
 import { ExamenespirolistComponent } from './component/examenespirolist/examenespirolist.component';
+import { ListaperiodosComponent } from './component/listaperiodos/listaperiodos.component';
+import { ExperiodosdetailComponent } from './component/experiodosdetail/experiodosdetail.component';
 
 const routes: Routes = [
 
@@ -66,7 +68,9 @@ const routes: Routes = [
   {path:'plantaedit',component:PlantasComponent},
 
   {path:'listaespiros', component:ExamenespirolistComponent},
- 
+
+ {path:'periodicos', component:ListaperiodosComponent},
+ {path:'periodetalle', component:ExperiodosdetailComponent},
 
 
 ];

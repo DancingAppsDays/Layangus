@@ -52,6 +52,8 @@ import { ListaplantasComponent } from './component/listaplantas/listaplantas.com
 import { PlantasComponent } from './component/plantas/plantas.component';
 import { ExamenespiroComponent } from './component/examenespiro/examenespiro.component';
 import { ExamenespirolistComponent } from './component/examenespirolist/examenespirolist.component';
+import { ListaperiodosComponent } from './component/listaperiodos/listaperiodos.component';
+import { ExperiodosdetailComponent } from './component/experiodosdetail/experiodosdetail.component';
 
 
 //import {AgGridModule}
@@ -106,6 +108,8 @@ var firebaseConfig = {
     PlantasComponent,
     ExamenespiroComponent,
     ExamenespirolistComponent,
+    ListaperiodosComponent,
+    ExperiodosdetailComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage

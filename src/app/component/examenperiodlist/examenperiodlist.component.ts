@@ -213,10 +213,10 @@ verestudio(id:any,idempleado: any,nombre:any, tipoexamen:any)  //more like grafi
       rowData: any[]
       
       columnDefs = [
-        {  field: 'idempleado',sortable: true, filter:true, resizable: true, width:74 },  //was "74px", pero al borrar rel=stylesheet en himl surgie esa warnin cellStyle: {color: 'red', 'background-color': 'green'}},
+        /*{  field: 'idempleado',sortable: true, filter:true, resizable: true, width:74 },  //was "74px", pero al borrar rel=stylesheet en himl surgie esa warnin cellStyle: {color: 'red', 'background-color': 'green'}},
         {  field: 'nombre',sortable: true, filter:true, resizable: true ,cellClassRules:{   "ag-green": (params) =>{
           if(true) return{ background:'red' , color:'white' }    } }  //cellStyle: (params)=>{return 'test'}},// didnt work cellClass["ag-green","test"]},
-      },
+      },*/
         
         {  field: 'created_at',sortable: true, filter:true, headerName:'Fecha Examen'}, //agDateColumnFilter No funciona con ese formato... tampoco numerico, solo string..
         {  field: 'tipoexamen',sortable: true, filter:true, headerName:'Tipo examen'},

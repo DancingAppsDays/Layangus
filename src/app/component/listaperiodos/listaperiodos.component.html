@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Lista de exámenes periódicos</h4>
+      </div>
+    </div>
+    
+    
+    <p>Examenes periódicos  de:</p>
+  
+  <p>Nombre: {{ querid.nombre }}</p>
+  <p>IDEmpleado: {{ querid.idempleado}}</p>
+  
+  <!--
+  <td><button type="button" class="btn btn-info" title="Reportes" (click)="abrirmenuexa()">Registrar examen médicos</button> 
+      
+
+    <td>
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="nuevoexamen(querid)">Exámenes periódico</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="nuevoau(querid)">Audiometría</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Espirometría</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Rayos X</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Laboratorio Sangre</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Laboratorio Orina</button> 
+    <button *ngIf="menuexas == true" type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(querid)">Antidoping</button> 
+  
+    
+  
+      </td>-->
+  
+      <br><br>
+      <hr style="border: 2px inset;">
+
+<form [formGroup] ="exForm"  (ngSubmit)="onSubmit(exForm.value)" >
+ 
+
+  <p class="col-sm-4">
+      <input type="date" name="puesto" class="form-control" formControlName="fecha"  >
+      <strong>Fecha programada: </strong> 
+  </p>
+  <p class="col-sm-4">
+    <input type="checkbox"  class="form-control col-sm-4" formControlName="ingreso"  >
+    <strong>De nuevo ingreso: </strong> 
+</p>
+<br style="clear: both;">
+
+<p class="col-sm-2">
+  <input type="checkbox"  class="form-control col-sm-4" formControlName="examenmeb"  >
+  <strong>Examen general: </strong> 
+</p>
+
+<p class="col-sm-2">
+  <input type="checkbox"  class="form-control col-sm-4" formControlName="audiob"  >
+  <strong>Audiometría: </strong> 
+</p>
+
+<p class="col-sm-2">
+  <input type="checkbox"  class="form-control col-sm-4" formControlName="espirob"  >
+  <strong>Espirometría: </strong> 
+</p>
+
+<p class="col-sm-2">
+  <input type="checkbox"  class="form-control col-sm-4" formControlName="rayoxb"  >
+  <strong>Rayos X: </strong> 
+</p>
+
+ <p  style="clear: both;">
+<button type="submit"  [disabled]="exForm.invalid"  class="btn btn-primary " >Nuevo examen</button>
+</p> 
+</form>
+
+
+
+
+
+<br><br>
+<hr style="border: 2px inset;">
+
+
+<table class="table" *ngIf="json">
+  <thead>
+    <tr>
+      
+      <th scope="col">Fecha de registro</th>
+      <th scope="col">Nuevo Ingreso</th>   
+      <th scope="col">Realizado</th>      
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let exa of json">
+      
+      <td>{{ exa.fecha }}</td>
+      <td > {{ exa.ingreso }}</td>
+      <td>{{ exa.realizado }}</td>
+      <td> <button type="button" class="btn btn-primary" title="Editar" (click)="verexa(exa)">Ver registro de examens</button> </td>
+     </tr>
+  </tbody>
+</table>
+
+
+
+
+<!--<pre style="clear: both;">{{ exForm.value | json }}</pre>-->
+

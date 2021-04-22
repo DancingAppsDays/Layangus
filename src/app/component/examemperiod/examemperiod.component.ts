@@ -103,6 +103,9 @@ changechild()  //after getdata is called....
       idempleado: ['', [
         Validators.required,
              ]],
+     idperiodo: ['', [                            //NEW periodo anual scheme
+               //Validators.required,
+                    ]],
       imss: ['', [
         //Validators.required,
              ]],
@@ -1047,6 +1050,7 @@ changechild()  //after getdata is called....
 
      this.exform.controls['idempleado'].setValue(this.queridempleado);//.disable(); //disable mess with ability of formcontrol to give data
      this.exform.controls['nombre'].setValue(this.query.nombre);
+     this.exform.controls['idperiodo'].setValue(this.query.idperiodo);
      //document.getElementById('idtemp').style.display = "none";
      //(<HTMLInputElement>document.getElementById('idemplea')).readOnly = true;//.value;
     
@@ -1080,6 +1084,7 @@ getfromdata(id)//id: int)       //TODO GET INT BY QUERY
       this.exform.patchValue({
         nombre: this.query.nombre,//  this.exs.nombre,
         idempleado: this.exs.idempleado,
+        idperiodo: this.exs.idperiodo,
         imss: this.exs.imss,
         sangre: this.exs.sangre,
         edad: this.exs.edad,

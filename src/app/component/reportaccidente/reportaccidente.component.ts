@@ -53,10 +53,10 @@ export class ReportaccidenteComponent implements OnInit {
       depa: ['', [
         Validators.required,
              ]],
-      fechacci: ['', [
+      fechacci: [this.today, [
         Validators.required,
              ]],
-       fechaservi: ['', [
+       fechaservi: [this.today, [
         Validators.required,
              ]],
       partec: ['', [
