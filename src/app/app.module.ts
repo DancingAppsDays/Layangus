@@ -54,8 +54,10 @@ import { ExamenespiroComponent } from './component/examenespiro/examenespiro.com
 import { ExamenespirolistComponent } from './component/examenespirolist/examenespirolist.component';
 import { ListaperiodosComponent } from './component/listaperiodos/listaperiodos.component';
 import { ExperiodosdetailComponent } from './component/experiodosdetail/experiodosdetail.component';
+import { ListaperiodosglobalComponent } from './component/listaperiodosglobal/listaperiodosglobal.component';
 
 
+import { CommonModule } from '@angular/common';
 //import {AgGridModule}
 
 //import SignaturePad from 'signature_pad'; //fuck this
@@ -110,6 +112,7 @@ var firebaseConfig = {
     ExamenespirolistComponent,
     ListaperiodosComponent,
     ExperiodosdetailComponent,
+    ListaperiodosglobalComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage

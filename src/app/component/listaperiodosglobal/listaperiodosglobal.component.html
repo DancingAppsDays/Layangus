@@ -1,0 +1,49 @@
+<head>
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <link    href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">  <!-- USELESs warning  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">-->
+    <link    href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+  </head>
+  
+  <div class="container">
+      <div class="form-group row">
+        <div class="col-sm text-center">
+          <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Lista de exámenes periódicos</h4>
+        </div>
+      </div>
+      
+      
+      <p>Examenes periódicos por realizar de:</p>
+    
+    
+       
+        
+  
+      
+    
+    
+    
+  
+  <ag-grid-angular
+      
+      class="ag-theme-alpine"
+      style=" height:800px;"
+    
+      [rowData]="rowData" 
+      [columnDefs]="columnDefs"
+  
+  
+  
+  
+        [gridOptions]="gridOptions"  
+  
+  
+  
+          [rowClassRules]="gridOptions.rowClassRules"
+          
+  
+          (cellClicked)="onCellClicked($event)"
+  >
+  </ag-grid-angular>
+  
+  <br><br><br><br>
+  

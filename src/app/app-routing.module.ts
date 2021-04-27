@@ -33,6 +33,7 @@ import { PlantasComponent } from './component/plantas/plantas.component';
 import { ExamenespirolistComponent } from './component/examenespirolist/examenespirolist.component';
 import { ListaperiodosComponent } from './component/listaperiodos/listaperiodos.component';
 import { ExperiodosdetailComponent } from './component/experiodosdetail/experiodosdetail.component';
+import { ListaperiodosglobalComponent } from './component/listaperiodosglobal/listaperiodosglobal.component';
 
 const routes: Routes = [
 
@@ -71,6 +72,7 @@ const routes: Routes = [
 
  {path:'periodicos', component:ListaperiodosComponent},
  {path:'periodetalle', component:ExperiodosdetailComponent},
+ {path:'listaperiodicosglobal', component:ListaperiodosglobalComponent},
 
 
 ];

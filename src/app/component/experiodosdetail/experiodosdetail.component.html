@@ -23,6 +23,8 @@
         <th scope="col">Realizado</th>
        
         <th scope="col">Examenes</th>
+        <th scope="col">Realizado</th>
+        <th scope="col">Reprogramar</th>
       </tr>
     </thead>
     <tbody>
@@ -37,9 +39,7 @@
         <td>{{ json.fecha }}</td>
         <td>{{ json.realizado }}</td>
         
-              
-
-         <td>
+        <td>
          <button [ngClass]="json.examenmeb?'btn btn-primary':'btn btn-secondary'" type="button" id="ex1" (click)="getdataexa(querid)">Exploración</button> 
          <button [ngClass]="json.audiob ?'btn btn-primary':'btn btn-secondary' " type="button" title="Reportes" (click)="getdataaudio(querid)">Audiometría</button> 
          <button [ngClass]="(json.espirob )?'btn btn-primary':'btn btn-secondary' " type="button" title="Reportes" (click)="gotoespiros(ems)">Espirometría</button> 
@@ -47,10 +47,21 @@
          <button [ngClass]="(json.labsangreb )?'btn btn-primary':'btn btn-secondary'" type="button" title="Reportes" (click)="gotoaudios(ems)">Laboratorio Sangre</button> 
          <button [ngClass]="(json.labsorinab )?'btn btn-primary':'btn btn-secondary'" type="button"  title="Reportes" (click)="gotoaudios(ems)">Laboratorio Orina</button> 
          <!--<button  type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Antidoping</button> -->
+        </td>
 
-         
 
-           </td>
+        <td>
+            <div [formGroup]="exForm">  <!--[(ngModel)]="realizadocheck"  (change)="realizadocheck.checked"-->
+             <input type="checkbox" id="checkdone1"   class="form-control" formControlName="realizado">
+               </div>
+            </td>
+        <td>
+          <div [formGroup]="exForm">
+              <input type="date"  class="form-control" formControlName="fecha"  max="2999-12-31" min="1900-01-01">
+               </div>
+          </td>
+
+            
 
           
           
@@ -64,3 +75,8 @@
       
     </tbody>
   </table>
+
+  <br>
+  <button class= 'btn btn-primary' type="button" (click)="updaterealizado()" style="clear: both;">Actualizar</button>
+  
+<!--<pre style="clear: both;">{{ exForm.value | json }}</pre>-->

@@ -15,6 +15,7 @@
     <!--<nav class="navbar  navbar-light bg-light navbar-fixed-top" name="menu">-->
       <nav class="navbar  navbar-blue bg-dark navbar-fixed-top" name="menu" style="background-color:azure">
       <ul  class="nav navbar-nav ">
+        
         <li class="divider"   *ngIf="this.sesion == null"><a href="#" routerLink="/login">Login  </a></li>
         <li class="divider" *ngIf="this.sesion != null" > <a href="#" (click)="onLogoutSubmit()">Cerrar sesión </a></li>
         <li class="divider" *ngIf="this.sesion != null"  ><a href="#" routerLink="/registry">Registrar usuario  </a></li>
@@ -22,7 +23,7 @@
         <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/listempleado">ListaEmpleados  </a></li>
        
         <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/aggcon">Estados de salud  </a></li>
-        
+        <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/listaperiodicosglobal">Examenes periódicos </a></li>
 
         <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/listapuestos">Lista puestos</a></li>
         <li class="divider"  *ngIf="this.sesion != null"><a href="#" routerLink="/listarea">Lista areas</a></li>

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+
+
 import { Constantes } from 'src/app/constantes';
 
 @Component({
@@ -25,7 +27,9 @@ export class ExperiodosdetailComponent implements OnInit {
   experio:boolean= true;
   exaudio:boolean= false;
   exespir:boolean= false;
-  //exper:boolean= false;
+  
+
+  realizadocheck:boolean =false;
  
 
   constructor(private formBuilder: FormBuilder, private http :HttpClient, private router2: ActivatedRoute, private router:Router) { }
@@ -42,12 +46,12 @@ export class ExperiodosdetailComponent implements OnInit {
                   fecha: ['', [
                     Validators.required,
                          ]],
-      /*
+      
                          realizado: ['', [
                           //Validators.required,
                                ]],
      
-     */
+     
      })
  
       this.router2.queryParams.subscribe(async (params:Params)=>{
@@ -76,6 +80,50 @@ export class ExperiodosdetailComponent implements OnInit {
 
 
 }
+updaterealizado()
+{
+  //if (HTMLElement.)
+    //doestwork lol
+  //let val = (<HTMLInputElement>document.getElementById("checkdone")).value;
+  //console.log(val);
+
+  console.log(this.realizadocheck);
+
+  this.exForm.get("realizado").setValue(this.realizadocheck);
+
+ 
+  this.updatedata(this.exForm.value);
+}
+
+updatedata(customerData)
+ {
+  console.log("update data");
+
+   this.http.post(Constantes.capiURL+"Experiod/"+ this.ex.id,customerData).subscribe(data =>
+     {
+       if(data['status'] == "success"){
+
+       console.log(data);
+     window.alert(data['mensaje']);   //debe decir agregadooo
+   
+     
+    
+    
+    }else{
+
+       window.alert(data['mensaje']);// + '    No autorizado');
+       this.router.navigate(['/']);
+
+     }
+   }, 
+     error =>{
+       console.log(error);
+       window.alert("Registro falló: "+ error.error.message);
+     
+   });
+ }
+
+
 
 getdata()
 {
@@ -92,7 +140,8 @@ getdata()
       if(this.successdata['status'] == "success"){
 
         this.json = this.successdata['data'];
-        this.changecolors();
+       // this.changecolors();
+        this.updatejson(this.json);
         console.log(this.json);
 
         }else{
@@ -101,12 +150,15 @@ getdata()
           //(<any>this.router).navigate(['/']); //COMPilation errorr check package.hjson... 
         }
 
-    }
+    }, error =>{ 
+      window.alert("Error de conexión");   //error.message);
+    console.log(error.message);}
+
       );
 
 }
 
-
+/*
 getdataaudio()
 {
 
@@ -208,7 +260,7 @@ getdataexa()
       );
 }
 
-
+*/
 
 
 gotoexamen(equipo:any){
@@ -241,6 +293,26 @@ changecolors()
 
 
 
+
+}
+updatejson(json)
+{
+  this.exForm.patchValue({
+    id: json.id,
+    fecha:  json.fecha,
+    
+    realizado: json.realizado
+
+});
+    /*if(json.realizado == 1){
+      var checkb =  document.getElementById("checkdone1")
+ //var checkb = (<HTMLInputElement>document.getElementById("checkdone1"));
+ console.log(checkb);
+ //checkb.attributes.
+        console.log("json prende checkbox");
+    }*/
+//else 
+//(<HTMLInputElement>document.getElementById("checkdone")).checked = false;
 
 }
 
