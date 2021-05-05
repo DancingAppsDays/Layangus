@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmpleadoeditComponent } from './component/empleadoedit/empleadoedit.component';
-import { EstudiosmeComponent } from './component/estudiosme/estudiosme.component';
+
 import { ExamemperiodComponent } from './component/examemperiod/examemperiod.component';
 import { ExamenperiodlistComponent } from './component/examenperiodlist/examenperiodlist.component';
 import { ExpedientemComponent } from './component/expedientem/expedientem.component';
@@ -34,6 +34,10 @@ import { ExamenespirolistComponent } from './component/examenespirolist/examenes
 import { ListaperiodosComponent } from './component/listaperiodos/listaperiodos.component';
 import { ExperiodosdetailComponent } from './component/experiodosdetail/experiodosdetail.component';
 import { ListaperiodosglobalComponent } from './component/listaperiodosglobal/listaperiodosglobal.component';
+import { ExamenlaborinaComponent } from './component/examenlaborina/examenlaborina.component';
+import { ExamenlabsangreComponent } from './component/examenlabsangre/examenlabsangre.component';
+import { ExamenlaborinalistComponent } from './component/examenlaborinalist/examenlaborinalist.component';
+import { ExamenlabsangrelistComponent } from './component/examenlabsangrelist/examenlabsangrelist.component';
 
 const routes: Routes = [
 
@@ -46,7 +50,7 @@ const routes: Routes = [
   {path: 'incidentes', component:ReportaccidenteComponent},
   {path:'listaincidentes',component:ListaincidentesComponent},
   {path: 'examemperiodlist', component:ExamenperiodlistComponent},
-  {path: 'estudiosme', component:EstudiosmeComponent},
+ 
   {path:'login',component:LoginComponent},
   {path:'registry',component:RegistraruserComponent},
   {path:'turnosform',component:TurnosempleadoComponent},
@@ -73,6 +77,12 @@ const routes: Routes = [
  {path:'periodicos', component:ListaperiodosComponent},
  {path:'periodetalle', component:ExperiodosdetailComponent},
  {path:'listaperiodicosglobal', component:ListaperiodosglobalComponent},
+
+
+ { path:'examenlaborina',component:ExamenlaborinaComponent},
+ { path:'examenlabsangre',component:ExamenlabsangreComponent},
+ { path:'examenlaborinalist',component:ExamenlaborinalistComponent},
+ { path:'examenlabsangrelist',component:ExamenlabsangrelistComponent},
 
 
 ];

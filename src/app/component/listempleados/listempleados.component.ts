@@ -133,6 +133,34 @@ gotoespiros(equipo:any){
 }
 
 
+gotolabsangre(equipo:any){
+  this.router.navigate(['examenlabsangrelist'],{
+    queryParams:{
+      id:equipo.id,
+      nombre:equipo.nombre
+    }
+
+})
+}
+
+gotolaborina(equipo:any){
+  this.router.navigate(['examenlaborinalist'],{
+    queryParams:{
+      id:equipo.id,
+      nombre:equipo.nombre
+    }
+
+})
+}
+
+
+
+
+
+
+
+
+
 gotoexamenes(equipo:any){
   this.router.navigate(['examemperiodlist'],{
     queryParams:{

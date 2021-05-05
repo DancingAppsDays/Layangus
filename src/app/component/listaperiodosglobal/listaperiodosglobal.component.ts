@@ -86,6 +86,34 @@ editexa(examen: any)
   }
 
 
+  notify() //all
+  {
+    
+    this.http.get(Constantes.capiURL +"Empleadonot2").subscribe(data => 
+        
+      { 
+        
+        if(data['status'] == "success"){
+
+          console.log(data);
+        window.alert(data['mensaje']);   //debe decir agregadooo
+       // this.router.navigate(['/']);
+      }
+        else{
+   
+          window.alert(data['mensaje'] + "Falló registro");// + '    No autorizado');
+          //this.router.navigate(['/']);
+   
+        }
+      }, 
+        error =>{
+          console.log(error);
+          window.alert("Error: "+ error.error.message);
+        
+      });
+
+  }
+
 
 
 

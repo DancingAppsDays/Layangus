@@ -40,6 +40,7 @@ export class EmpleadoeditComponent implements OnInit {
       planta:[1, [
         //Validators.required,
              ]],
+      email:''      //esta en empleado, pero podría moverse a expendiente, o similar
     
     
     })
@@ -149,7 +150,8 @@ postempleado(customerData)
     positionx:json.positionx,
     positiony: json.positiony,*/ //unused se movio a puesto,... pero no afecta
     
-    profilepic: json.profilepic
+    profilepic: json.profilepic,
+    email:json.email
 
 });
   this.showImage();

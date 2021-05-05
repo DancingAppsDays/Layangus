@@ -1,0 +1,83 @@
+<div class="container">
+
+
+    
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registro de laboratorio</h4>
+      </div>
+    </div>
+  
+
+    <div style="padding: 30px;border: 3px solid hsl(0, 0%, 93%);">
+
+
+<form [formGroup] ="exForm"  (ngSubmit)="onSubmit(exForm.value)"  [hidden]="success">
+   
+   
+    <p>                                               
+        <strong>Química sanguinea sangre</strong>
+    </p><br><br>
+    <p>   <strong>Glucosa sérica: </strong>                                               <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="glucoser"  >
+        
+    </p>
+
+    <p>    <strong>Urea sérica: </strong>                                              <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="ureaser"  >
+        
+    </p>
+
+    <p>    <strong>Nitrógeno uréico(BUN): </strong>                                             <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="nitroureo"  >
+         
+    </p>
+
+    <p>   <strong>Creatinina sérica: </strong>                                               <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="creatinina"  >
+        
+    </p>
+
+    <p>   <strong>Relación BUN: </strong>                                               <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="relacionbun"  >
+        
+    </p>
+
+
+    <p>    <strong>Hemoglobina glucosilada HbA1c: </strong>                                               <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="hemogluco"  >
+       
+    </p>
+
+
+
+    
+
+
+    <label name="sangre" class="col-sm-1 col-form-label">Tipo de sangre:</label>
+   
+    <select class="form-control" formControlName="sangretipo">
+      <option value="O +">O positivo</option>
+      <option value="O -">O negativo</option>
+      <option value="A +">A positivo</option>
+      <option value="A -">A negativo</option>
+      <option value="B +">B positivo</option>
+      <option value="B -">B negativo</option>
+      <option value="AB +">AB positivo</option>
+      <option value="AB -">AB negativo</option>
+      <option value="Desconocido">Desconocido</option>
+
+
+     
+     </select>
+
+
+
+
+
+   
+<button class ="btn btn-success"    [disabled]="exForm.invalid"  type ="submit">Registrar</button>
+
+</form>
+
+    </div>

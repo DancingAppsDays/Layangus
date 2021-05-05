@@ -19,9 +19,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SignaturePadComponent } from './component/signature-pad/signature-pad.component';
 import { ExamenperiodlistComponent } from './component/examenperiodlist/examenperiodlist.component';
-import { EstudiosmeComponent } from './component/estudiosme/estudiosme.component';
-
-
 import { AngularFireModule } from '@angular/fire';
 //import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/storage';
@@ -57,7 +54,13 @@ import { ExperiodosdetailComponent } from './component/experiodosdetail/experiod
 import { ListaperiodosglobalComponent } from './component/listaperiodosglobal/listaperiodosglobal.component';
 
 
-import { CommonModule } from '@angular/common';
+//import { CommonModule } from '@angular/common'; //??
+import { ExamenlaborinaComponent } from './component/examenlaborina/examenlaborina.component';
+import { ExamenlaborinalistComponent } from './component/examenlaborinalist/examenlaborinalist.component';
+import { ExamenlabsangreComponent } from './component/examenlabsangre/examenlabsangre.component';
+import { ExamenlabsangrelistComponent } from './component/examenlabsangrelist/examenlabsangrelist.component';
+import { ExamenrayosxComponent } from './component/examenrayosx/examenrayosx.component';
+import { ExamenrayosxlistComponent } from './component/examenrayosxlist/examenrayosxlist.component';
 //import {AgGridModule}
 
 //import SignaturePad from 'signature_pad'; //fuck this
@@ -86,7 +89,7 @@ var firebaseConfig = {
     ReportaccidenteComponent,
     SignaturePadComponent,
     ExamenperiodlistComponent,
-    EstudiosmeComponent,
+    
     LoginComponent,
     RegistraruserComponent,
     TurnosempleadoComponent,
@@ -113,6 +116,12 @@ var firebaseConfig = {
     ListaperiodosComponent,
     ExperiodosdetailComponent,
     ListaperiodosglobalComponent,
+    ExamenlaborinaComponent,
+    ExamenlaborinalistComponent,
+    ExamenlabsangreComponent,
+    ExamenlabsangrelistComponent,
+    ExamenrayosxComponent,
+    ExamenrayosxlistComponent,
     //AngularFirestoreModule,   //cannot import and declared in yout own ngmodules....
     //AngularFireStorageModule,
     //AngularFireStorage

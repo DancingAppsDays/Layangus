@@ -44,8 +44,8 @@
          <button [ngClass]="json.audiob ?'btn btn-primary':'btn btn-secondary' " type="button" title="Reportes" (click)="getdataaudio(querid)">Audiometría</button> 
          <button [ngClass]="(json.espirob )?'btn btn-primary':'btn btn-secondary' " type="button" title="Reportes" (click)="gotoespiros(ems)">Espirometría</button> 
          <button [ngClass]="(json.rayoxb )?'btn btn-primary':'btn btn-secondary'" type="button" title="Reportes" (click)="gotoaudios(ems)">Rayos X</button> 
-         <button [ngClass]="(json.labsangreb )?'btn btn-primary':'btn btn-secondary'" type="button" title="Reportes" (click)="gotoaudios(ems)">Laboratorio Sangre</button> 
-         <button [ngClass]="(json.labsorinab )?'btn btn-primary':'btn btn-secondary'" type="button"  title="Reportes" (click)="gotoaudios(ems)">Laboratorio Orina</button> 
+         <button [ngClass]="(json.labsangreb )?'btn btn-primary':'btn btn-secondary'" type="button" title="Reportes" (click)="getdatalabsangre(querid)">Laboratorio Sangre</button> 
+         <button [ngClass]="(json.laborinab )?'btn btn-primary':'btn btn-secondary'" type="button"  title="Reportes" (click)="getdatalaborina(querid)">Laboratorio Orina</button> 
          <!--<button  type="button" class="btn btn-primary" title="Reportes" (click)="gotoaudios(ems)">Antidoping</button> -->
         </td>
 

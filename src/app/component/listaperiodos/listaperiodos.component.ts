@@ -42,7 +42,8 @@ export class ListaperiodosComponent implements OnInit {
                 espirob:'',
                 rayoxb:'',
                 labsangreb:'',
-                laborinab:''
+                laborinab:'',
+                realizado:0     //default value necesario para comprobacion en mysql <>1 distinta de uno, o mejor dicho es igual a 0, no detecta NULL
 
       
      })

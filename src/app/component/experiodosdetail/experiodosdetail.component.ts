@@ -47,7 +47,7 @@ export class ExperiodosdetailComponent implements OnInit {
                     Validators.required,
                          ]],
       
-                         realizado: ['', [
+                         realizado: [0, [           //to avoid null
                           //Validators.required,
                                ]],
      
@@ -87,9 +87,9 @@ updaterealizado()
   //let val = (<HTMLInputElement>document.getElementById("checkdone")).value;
   //console.log(val);
 
-  console.log(this.realizadocheck);
+  //console.log(this.realizadocheck); //unused ahora formcontrol driven.....
 
-  this.exForm.get("realizado").setValue(this.realizadocheck);
+ // this.exForm.get("realizado").setValue(this.realizadocheck);
 
  
   this.updatedata(this.exForm.value);
@@ -158,7 +158,7 @@ getdata()
 
 }
 
-/*
+
 getdataaudio()
 {
 
@@ -260,7 +260,120 @@ getdataexa()
       );
 }
 
-*/
+
+getdatalaborina()
+{
+
+
+  this.http.get(Constantes.capiURL + "Orinaperiod/"+ this.ex.id).subscribe(result =>
+    {
+      
+
+
+      this.successdata = result;
+      console.log(this.successdata);
+
+      if(this.successdata['status'] == "success"){
+
+        this.json = this.successdata['data'];
+        //let array:[] = this.json;
+        //console.log(array);
+
+        if(this.json != null)
+        {
+          //console.log("not empty");
+          this.router.navigate(['examenlaborina'],{
+            queryParams:{
+              id:this.json.id,
+              idempleado:this.querid.idempleado,
+              nombre:this.querid.nombre,
+              idperiodo:this.ex.id
+           } })
+        }
+        else{
+          //console.log("empty make newww");
+          this.router.navigate(['examenlaborina'],{
+            queryParams:{
+             
+              idempleado:this.querid.idempleado,
+              nombre:this.querid.nombre,
+              idperiodo:this.ex.id
+           } })
+        }
+
+        }else{
+          window.alert(this.successdata['data']);
+        }
+
+    }, error =>{ 
+      window.alert("Error de conexión");   //error.message);
+    console.log(error.message);}
+
+      );
+}
+
+
+getdatalabsangre()
+{
+
+
+  this.http.get(Constantes.capiURL + "Sangreperiod/"+ this.ex.id).subscribe(result =>
+    {
+      
+
+
+      this.successdata = result;
+      console.log(this.successdata);
+
+      if(this.successdata['status'] == "success"){
+
+        this.json = this.successdata['data'];
+        //let array:[] = this.json;
+        //console.log(array);
+
+        if(this.json != null)
+        {
+          //console.log("not empty");
+          this.router.navigate(['examenlabsangre'],{
+            queryParams:{
+              id:this.json.id,
+              idempleado:this.querid.idempleado,
+              nombre:this.querid.nombre,
+              idperiodo:this.ex.id
+           } })
+        }
+        else{
+          //console.log("empty make newww");
+          this.router.navigate(['examenlabsangre'],{
+            queryParams:{
+             
+              idempleado:this.querid.idempleado,
+              nombre:this.querid.nombre,
+              idperiodo:this.ex.id
+           } })
+        }
+
+        }else{
+          window.alert(this.successdata['data']);
+        }
+
+    }, error =>{ 
+      window.alert("Error de conexión");   //error.message);
+    console.log(error.message);}
+
+      );
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 gotoexamen(equipo:any){

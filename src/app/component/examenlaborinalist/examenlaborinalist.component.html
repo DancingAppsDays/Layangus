@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Listado de exámentes laboratorio orina</h4>
+      </div>
+    </div>
+    
+    
+    <p>Resultados de:</p>
+  
+  <p>Nombre: {{ querid.nombre }}</p>
+  <p>IDEmpleado: {{ querid.id }}</p>
+  <input type="text" [(ngModel)]="term" placeholder="Buscar cadena">
+  
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+  <br>
+  <button type="button" class="btn btn-primary"  (click)="nuevoex()">Registrar examen laboratorio orina</button> 
+  <br>
+  
+
+  
+  <table class="table" *ngIf="eqs">
+      <thead>
+        <tr>
+          <th scope="col">IDempleado</th>
+          <th scope="col">Nombre empleado</th>
+          <th scope="col">Fecha de examen</th>
+          
+          <th scope="col">Acciones</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ems of eqs | filter : term | paginate: { itemsPerPage: 10, currentPage: p }">
+          <th scope="row">{{ ems.idempleado }}</th>
+          <td>{{ querid.nombre }}</td>
+          <td>{{ ems.fecha }}</td>         
+          <td> <button type="button" class="btn btn-primary" title="Expediente" (click)="editarex(ems)">Editar</button> </td>
+         
+         </tr>
+      </tbody>
+    </table>

@@ -1,0 +1,115 @@
+<div class="container">
+ 
+    <div class="form-group row">
+      <div class="col-sm text-center">
+        <h4 class="d-block" style="background-color: #34495E; color:#fff; margin: 15px;">Registrar examen laboratorio</h4>
+      </div>
+    </div>
+    <div style="padding: 30px;border: 3px solid hsl(0, 0%, 93%);">
+  
+  <form [formGroup]="exForm" [hidden]="success"  (ngSubmit)="onSubmit(exForm.value)">
+  
+     
+    <p>                                               
+        <strong>Examen fisico químico orina</strong>
+    </p><br><br>
+    <p>    <strong>Color: </strong>                                              <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="colorina"  >
+        
+    </p>
+
+    <p>      <strong>Aspecto: </strong>                                             <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="aspectoorina"  >
+       
+    </p>
+
+    <p>      <strong>Olor: </strong>                                            <!--//to avoid formcontrol error-->
+        <input type="text"  class="form-control" formControlName="olorina"  >
+        
+    </p>
+
+    <p>    <strong>Densidad: </strong>                                              <!--//to avoid formcontrol error-->
+        <input type="number"  class="form-control" formControlName="densidad"  >
+        
+    </p>
+
+    <p>   <strong>PH: </strong>                                               <!--//to avoid formcontrol error-->
+        <input type="number"  class="form-control" formControlName="ph"  >
+        
+    </p>
+
+
+    <p>  <strong>Glucosa: </strong>                                        
+        <input type="number"  class="form-control" formControlName="glucorina" placeholder="mg/dL" >
+        
+    </p>
+
+
+
+
+
+    <p>                                         
+        <strong>Proteínas:</strong>           
+        <input type="number"  class="form-control" formControlName="proteorina" placeholder="mg/dL" >
+    </p>
+
+    <p>                                         
+        <strong>Hemoglobinas:</strong>           
+        <select class="form-control" formControlName="hemoglorina">
+          <option value=true>Verdadero</option>
+          <option value=false>Negativo</option> </select>
+    </p>
+
+    <p>                                         
+        <strong>Cuerpos cetónicos:</strong>           
+        <input type="number"  class="form-control" formControlName="cetorina" placeholder="mg/dL" >
+    </p>
+
+    <p>                                         
+        <strong>Bilirrubinas:</strong>           
+        <input type="number"  class="form-control" formControlName="biliorina" placeholder="mg/dL" >
+    </p>
+
+    <p>                                         
+        <strong>Urobilinogenos:</strong>           
+        <input type="number"  class="form-control" formControlName="urobiliorina" placeholder="mg/dL" >
+    </p>
+    <p>                                         
+        <strong>Nitritos:</strong>           
+        <select class="form-control" formControlName="nitriorina">
+          <option value=true>Verdadero</option>
+          <option value=false>Negativo</option></select>
+    </p>
+    <p>                                         
+        <strong>Leucocitos:</strong>           
+        <input type="number"  class="form-control" formControlName="leucorina" placeholder="#/c" >
+    </p>
+    
+    <p>                                         
+        <strong>Eritrocitos</strong>           
+        <input type="number"  class="form-control" formControlName="eritrorina" placeholder="#/c" >
+    </p>
+
+    <p>                                         
+        <strong>Fosfatos:</strong>           
+        <input type="number"  class="form-control" formControlName="fosfatorina" placeholder="#/c" >
+    </p>
+    <p>                                         
+        <strong>Bacterias:</strong>           
+        <select class="form-control" formControlName="bacteorina">
+          <option value=0>Escasas</option>
+          <option value=1>Moderadas</option>
+          <option value=2>Abundantes</option></select>
+    </p>
+    
+
+
+
+
+
+
+
+   
+<button class ="btn btn-success"    [disabled]="exForm.invalid"  type ="submit">Registrar</button>
+
+</form>
